@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LaFrance Manufacturing — Specialty coatings and die release lubricants for metal casting operations. Trusted by foundries worldwide for over 60 years.">
+  <title>LaFrance Manufacturing | Specialty Coatings &amp; Die Release Lubricants</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+
+    /* ── PREVIEW TWEAKS: white nav · red accent · dark grey bg · more hero space ── */
+    :root {
+      --accent:        #c03030;
+      --accent-dim:    rgba(192,48,48,0.10);
+      --bg:            #1a1b1d;
+      --surface:       #212326;
+      --surface-raised:#282b2e;
+      --border:        #313539;
+      --border-faint:  #262a2e;
+    }
+
+    /* White nav */
+    #nav {
+      background: rgba(255,255,255,0.97) !important;
+      backdrop-filter: blur(8px);
+    }
+    #nav.scrolled { border-bottom-color: #c03030 !important; }
+    .nav-logo { color: #191a1c !important; }
+    .nav-logo strong { color: #c03030 !important; }
+    .nav-links a { color: #707070 !important; }
+    .nav-links a:hover,
+    .nav-links a.active { color: #191a1c !important; }
+    .nav-links a.active { border-bottom-color: #c03030 !important; }
+    .nav-contact-btn { background: #c03030 !important; color: #fff !important; }
+    .nav-contact-btn:hover { background: #d03535 !important; }
+    .nav-toggle span { background: #191a1c !important; }
+    .nav-drawer { background: #fff; border-bottom-color: #e2e2e2; }
+    .nav-drawer a { color: #555 !important; border-bottom-color: #e8e8e8; }
+    .nav-drawer a:hover { color: #191a1c !important; }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding-top: var(--nav-h);
+      background: var(--bg);
+    }
+
+    .hero-content {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 58px 1fr 300px;
+    }
+
+    /* Left sidebar */
+    .hero-sidebar {
+      border-right: 1px solid rgba(42,46,51,0.5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 3rem 0;
+    }
+    .hero-sidebar-label {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      font-family: var(--f-mono);
+      font-size: 0.57rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .hero-sidebar-line {
+      width: 1px; height: 64px;
+      background: linear-gradient(to bottom, transparent, var(--accent));
+    }
+
+    /* Center column: stacked image frame + CTAs */
+    .hero-main {
+      display: flex;
+      flex-direction: column;
+      padding: 2.5rem 2.5rem 3rem 3rem;
+      gap: 0;
+    }
+
+    /*
+    ╔══════════════════════════════════════════════════════════════╗
+    ║  PHOTO FRAME — swap background-image for real photo:        ║
+    ║    background-image: url('images/hero-home.png')            ║
+    ║  Recommended: 1920×1080px, bright or dark tones both work.  ║
+    ║  The gradient overlay handles text readability.             ║
+    ╚══════════════════════════════════════════════════════════════╝
+    */
+    .hero-img-block {
+      position: relative;
+      overflow: hidden;
+      flex: 1;
+      min-height: 0;
+      background-color: #1a1b1d;
+      background-size: cover;
+      background-position: 55% center;
+      /* Light mode uses bright lab photo; dark mode uses hero-home-dark.png (see JS swap below) */
+      background-image: url('images/hero-home.png');
+    }
+
+    /* Very light overlay — just a soft fade at the left edge, no darkening */
+    .hero-img-block::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to right,
+        rgba(255,255,255,0.18) 0%,
+        rgba(255,255,255,0.06) 35%,
+        transparent 60%
+      );
+      z-index: 1;
+    }
+
+    /* Text lives inside the image frame, anchored top-left */
+    .hero-text-over {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      padding: 3.5rem 2rem 3.5rem 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--f-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 2rem; height: 1px;
+      background: var(--accent);
+    }
+
+    .hero-hed {
+      font-family: var(--f-display);
+      font-size: clamp(4.5rem, 9vw, 9.5rem);
+      line-height: 1.0;
+      letter-spacing: 0.01em;
+      color: var(--text);
+    }
+    .hero-hed .stroke {
+      -webkit-text-stroke: 2px var(--text);
+      color: transparent;
+    }
+    .hero-hed .amber { color: var(--accent); }
+
+    /* Light mode: dark text over bright photo */
+    html.light .hero-hed { color: #1a1b1d; }
+    html.light .hero-hed .stroke { -webkit-text-stroke: 2px #1a1b1d; }
+
+    .hero-eyebrow {
+      color: var(--accent);
+      margin-bottom: 2.5rem;
+    }
+
+    /* CTAs sit below the image frame on the dark background */
+    .hero-ctas {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+      padding-top: 2.5rem;
+    }
+
+    /* Right aside */
+    .hero-aside {
+      border-left: 1px solid rgba(42,46,51,0.4);
+      padding: 3rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      gap: 2rem;
+    }
+    .hero-aside-label {
+      font-family: var(--f-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .hero-aside p {
+      font-size: 0.88rem;
+      color: var(--text-2);
+      line-height: 1.65;
+    }
+    .hero-aside-metals {
+      font-family: var(--f-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+    }
+    .hero-aside-metals span {
+      display: block;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(42,46,51,0.4);
+    }
+    .hero-aside-metals span:last-child { border-bottom: none; }
+    .hero-aside-metals strong { font-weight: 500; color: var(--text-2); }
+
+    /* Stats bar at bottom of hero */
+    .hero-stats {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid rgba(42,46,51,0.7);
+    }
+    .stat {
+      padding: 2.25rem 3rem;
+      border-right: 1px solid rgba(42,46,51,0.7);
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .stat:last-child { border-right: none; }
+    .stat-val {
+      font-family: var(--f-display);
+      font-size: 2.8rem;
+      color: var(--accent);
+      line-height: 1;
+      letter-spacing: 0.02em;
+    }
+    .stat-lbl {
+      font-family: var(--f-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* ── Product teasers ── */
+    #products-teaser {
+      padding: 7rem 0;
+      background: var(--surface);
+    }
+    .teaser-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 4rem;
+      gap: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .teaser-header .label { display: block; margin-bottom: 0.85rem; }
+    .teaser-see-all {
+      font-family: var(--f-sub);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      white-space: nowrap;
+      align-self: flex-end;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: gap 0.2s;
+    }
+    .teaser-see-all::after { content: '→'; }
+    .teaser-see-all:hover { gap: 0.8rem; }
+
+    /* ── About teaser ── */
+    #about-teaser {
+      padding: 7rem 0;
+      background: var(--bg);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 5rem;
+      align-items: start;
+    }
+    .about-grid .label { display: block; margin-bottom: 1.25rem; }
+    .about-body { margin-top: 2rem; }
+    .about-body p {
+      font-size: 0.96rem;
+      color: var(--text-2);
+      line-height: 1.82;
+      margin-bottom: 1.2rem;
+    }
+    .about-body p:last-child { margin-bottom: 0; }
+    .about-link {
+      margin-top: 2rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--f-sub);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      transition: gap 0.2s;
+    }
+    .about-link::after { content: '→'; }
+    .about-link:hover { gap: 0.9rem; }
+
+    /* ── Light mode ── */
+    html.light {
+      --bg:            #f5f3ef;
+      --surface:       #ede9e3;
+      --surface-raised:#e4e0d8;
+      --border:        #cbc7c0;
+      --border-faint:  #d6d2cc;
+      --text:          #1a1b1d;
+      --text-2:        #4a4844;
+      --text-muted:    #908c86;
+    }
+
+    /* Subtle dot-grid pattern on light mode body */
+    html.light body {
+      background-image: radial-gradient(circle, rgba(110,100,88,0.13) 1px, transparent 1px);
+      background-size: 20px 20px;
+      background-attachment: fixed;
+    }
+
+    /* Surfaces need to sit above the body pattern */
+    html.light #nav,
+    html.light footer,
+    html.light #products-teaser,
+    html.light #about-teaser,
+    html.light .alloy-band,
+    html.light .callout-strip { background-image: none; }
+
+    /* Hero tweaks for light mode */
+    html.light .hero { background: transparent; }
+    html.light .hero-img-block { background-color: var(--surface); }
+    html.light .hero-stats {
+      border-top-color: rgba(0,0,0,0.1);
+      background: var(--bg);
+    }
+    html.light .stat { border-right-color: rgba(0,0,0,0.1); }
+    html.light .hero-sidebar { border-right-color: rgba(0,0,0,0.1); }
+    html.light .hero-aside { border-left-color: rgba(0,0,0,0.1); }
+    html.light .hero-aside-metals span { border-bottom-color: rgba(0,0,0,0.1); }
+
+    /* Theme toggle button */
+    #theme-toggle {
+      width: 32px; height: 32px;
+      border: 1px solid #d0d0d0;
+      background: transparent;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      color: #707070;
+      transition: color 0.2s, border-color 0.2s;
+      padding: 0;
+      flex-shrink: 0;
+    }
+    #theme-toggle:hover { color: #c03030; border-color: #c03030; }
+    #theme-toggle:focus-visible { outline: 2px solid #c03030; outline-offset: 2px; }
+    #theme-toggle svg { display: block; }
+
+    /* Responsive */
+    @media (max-width: 1100px) {
+      .hero-content { grid-template-columns: 52px 1fr; }
+      .hero-aside { display: none; }
+    }
+    @media (max-width: 860px) {
+      .hero-content { grid-template-columns: 1fr; }
+      .hero-sidebar { display: none; }
+      .hero-main { padding: 1.5rem 1.5rem 2.5rem; }
+      .hero-text-over { padding: 2.5rem 1.5rem 2rem; }
+      .hero-hed { font-size: clamp(3.5rem, 12vw, 6rem); }
+      .hero-stats { grid-template-columns: repeat(2, 1fr); }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .teaser-header { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 540px) {
+      .hero-stats { grid-template-columns: repeat(2, 1fr); }
+      .stat { padding: 1.25rem 1.5rem; }
+      .stat-val { font-size: 2.2rem; }
+      .hero-ctas { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Nav ──────────────────────────────────────────────────── -->
+<nav id="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">La<strong>France</strong> Manufacturing</a>
+    <ul class="nav-links" role="list">
+      <li><a href="products.html">Products</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button id="theme-toggle" aria-label="Toggle light/dark mode">
+      <!-- Sun icon (shown in dark mode → click to go light) -->
+      <svg id="icon-sun" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+      <!-- Moon icon (shown in light mode → click to go dark) -->
+      <svg id="icon-moon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display:none">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
+    <a href="contact.html" class="nav-contact-btn">Get in Touch</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-drawer" id="nav-drawer" aria-hidden="true">
+  <a href="products.html">Products</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+
+<!-- ── Hero ─────────────────────────────────────────────────── -->
+<section class="hero" aria-labelledby="hero-hed">
+
+  <div class="hero-content">
+
+    <div class="hero-sidebar" aria-hidden="true">
+      <span class="hero-sidebar-label">Est. 1960s — St. Louis, MO</span>
+      <span class="hero-sidebar-line"></span>
+    </div>
+
+    <div class="hero-main">
+
+      <!-- Image frame — headline lives inside this -->
+      <div class="hero-img-block">
+        <div class="hero-text-over">
+          <p class="hero-eyebrow reveal">Specialty Chemistry for Metal Casting</p>
+          <h1 class="hero-hed reveal d1" id="hero-hed">
+            FORMULATED<br>
+            <span class="stroke">TO</span><br>
+            <span class="amber">WORK</span>
+          </h1>
+        </div>
+      </div>
+
+      <!-- CTAs sit below the image on the dark background -->
+      <div class="hero-ctas reveal d2">
+        <a href="products.html" class="btn btn-amber">Explore Products</a>
+        <a href="contact.html" class="btn btn-ghost">Contact an Expert</a>
+      </div>
+
+    </div>
+
+    <aside class="hero-aside reveal d2">
+      <div>
+        <span class="hero-aside-label">// Casting Chemistry</span>
+        <p>Coatings and die release agents engineered for metal casting operations. Trusted by foundries for over 60 years.</p>
+      </div>
+      <div class="hero-aside-metals" aria-label="Metals served">
+        <span><strong>ALUMINUM</strong> — AL</span>
+        <span><strong>BRASS</strong> — BR</span>
+        <span><strong>COPPER</strong> — CU</span>
+        <span><strong>MAGNESIUM</strong> — MG</span>
+        <span><strong>ZINC</strong> — ZN</span>
+      </div>
+    </aside>
+
+  </div>
+
+  <div class="hero-stats reveal d3" role="list">
+    <div class="stat" role="listitem">
+      <span class="stat-val">60+</span>
+      <span class="stat-lbl">Years in Industry</span>
+    </div>
+    <div class="stat" role="listitem">
+      <span class="stat-val">5</span>
+      <span class="stat-lbl">Alloy Families</span>
+    </div>
+    <div class="stat" role="listitem">
+      <span class="stat-val">WW</span>
+      <span class="stat-lbl">Worldwide Shipping</span>
+    </div>
+    <div class="stat" role="listitem">
+      <span class="stat-val">4</span>
+      <span class="stat-lbl">Core Product Lines</span>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ── Alloy band ────────────────────────────────────────────── -->
+<div class="alloy-band" aria-hidden="true">
+  <div class="alloy-track">
+    <span class="alloy-item hi">Ceramic Coatings</span><span class="alloy-item">Frankote Series</span>
+    <span class="alloy-item hi">Die Release Lubricants</span><span class="alloy-item">Franlube Series</span>
+    <span class="alloy-item hi">Shot Tip Lubricants</span><span class="alloy-item">Franlube Shot</span>
+    <span class="alloy-item hi">Specialty Products</span><span class="alloy-item">AL / BR / CU / MG / ZN</span>
+    <span class="alloy-item hi">St. Louis, MO</span><span class="alloy-item">Worldwide Shipping</span>
+    <span class="alloy-item hi">Ceramic Coatings</span><span class="alloy-item">Frankote Series</span>
+    <span class="alloy-item hi">Die Release Lubricants</span><span class="alloy-item">Franlube Series</span>
+    <span class="alloy-item hi">Shot Tip Lubricants</span><span class="alloy-item">Franlube Shot</span>
+    <span class="alloy-item hi">Specialty Products</span><span class="alloy-item">AL / BR / CU / MG / ZN</span>
+    <span class="alloy-item hi">St. Louis, MO</span><span class="alloy-item">Worldwide Shipping</span>
+  </div>
+</div>
+
+
+<!-- ── Product teasers ───────────────────────────────────────── -->
+<section id="products-teaser" aria-labelledby="prod-teaser-hed">
+  <div class="w">
+
+    <div class="teaser-header reveal">
+      <div>
+        <span class="label">What We Make</span>
+        <h2 class="hed hed-lg" id="prod-teaser-hed">OUR PRODUCT LINES</h2>
+      </div>
+      <a href="products.html" class="teaser-see-all">View All Products</a>
+    </div>
+
+    <div class="product-rows">
+
+      <div class="prod-row reveal">
+        <div class="prod-num" aria-hidden="true">01</div>
+        <div class="prod-left">
+          <span class="prod-badge">[ FRANKOTE SERIES ]</span>
+          <h3 class="prod-name">CERAMIC COATINGS</h3>
+          <div class="prod-skus">
+            <span class="sku">PMC-100/N</span><span class="sku">PMC-DRY</span>
+            <span class="sku">BN400</span><span class="sku">BN400-DRY</span>
+            <span class="sku">#116</span><span class="sku">8449</span>
+          </div>
+        </div>
+        <div class="prod-right">
+          <p class="prod-desc">Ceramic-based protective coatings — liquid and dry — engineered to prevent molten metal adhesion on ladles, thermocouple tubes, runners, and ferrous surfaces. Water-based formulations. Dry variants ship water-blended at the customer site for cold-weather convenience.</p>
+          <a href="products.html#ceramic" class="prod-cta">View product details</a>
+        </div>
+      </div>
+
+      <div class="prod-row reveal d1">
+        <div class="prod-num" aria-hidden="true">02</div>
+        <div class="prod-left">
+          <span class="prod-badge">[ FRANLUBE SERIES ]</span>
+          <h3 class="prod-name">DIE RELEASE LUBRICANTS</h3>
+          <div class="prod-skus">
+            <span class="sku" style="border-style:dashed;color:var(--text-muted)">Contact for selector</span>
+          </div>
+        </div>
+        <div class="prod-right">
+          <p class="prod-desc">Water-extendable die release lubricants for casting aluminum, magnesium, and zinc alloys. Covers single-cavity to multi-cavity dies, high-temperature applications, and cosmetic finish requirements. Newest additions include ceramic-based formulations for exotic aluminum alloys.</p>
+          <a href="products.html#die-release" class="prod-cta">View product details</a>
+        </div>
+      </div>
+
+      <div class="prod-row reveal d2">
+        <div class="prod-num" aria-hidden="true">03</div>
+        <div class="prod-left">
+          <span class="prod-badge">[ FRANLUBE SHOT SERIES ]</span>
+          <h3 class="prod-name">SHOT TIP LUBRICANTS</h3>
+          <div class="prod-skus">
+            <span class="sku">#1024</span><span class="sku">LG-1015</span>
+          </div>
+        </div>
+        <div class="prod-right">
+          <p class="prod-desc">Dry, oil-based, and water-cleanable shot tip lubricants that enhance lubrication through the metal injection process while extending tip life. Ceramic-based dry formulations significantly reduce fire and smoke at the shot end.</p>
+          <a href="products.html#shot-tip" class="prod-cta">View product details</a>
+        </div>
+      </div>
+
+      <div class="prod-row reveal d3">
+        <div class="prod-num" aria-hidden="true">04</div>
+        <div class="prod-left">
+          <span class="prod-badge">[ SPECIALTY LINE ]</span>
+          <h3 class="prod-name">SPECIALTY PRODUCTS</h3>
+          <div class="prod-skus">
+            <span class="sku">ASW-80</span><span class="sku">#38</span><span class="sku">KAB 124</span>
+          </div>
+        </div>
+        <div class="prod-right">
+          <p class="prod-desc">Purpose-built compounds for the specific challenges of die casting operations — from removing metal deposits on die cavity surfaces to high-temperature ejector pin protection. Includes flux for efficient cleaning and reduced refractory erosion.</p>
+          <a href="products.html#specialty" class="prod-cta">View product details</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ── About teaser ──────────────────────────────────────────── -->
+<section id="about-teaser" aria-labelledby="about-teaser-hed">
+  <div class="w">
+    <div class="about-grid">
+
+      <div>
+        <span class="label reveal">Our Advantage</span>
+        <h2 class="hed hed-lg reveal d1" id="about-teaser-hed" style="margin-top:1rem;">60 YEARS OF<br>RIGHT CHEMISTRY</h2>
+        <div class="about-body reveal d2">
+          <p>LaFrance Manufacturing has been formulating specialty products for metal casting operations since the 1960s. We were early pioneers in water-extendable synthetic lubricants — developing commercially viable water-based formulations during the oil crisis of the 1970s when the industry had to evolve.</p>
+          <p>Today, our formulations serve operations across the globe. We work directly with your team to identify the right product for your specific alloy, die geometry, and production conditions.</p>
+          <a href="about.html" class="about-link">Our full story</a>
+        </div>
+      </div>
+
+      <div class="spec-panel reveal d2">
+        <div class="spec-panel-head">COMPANY PROFILE</div>
+        <div class="spec-panel-rows">
+          <div class="spec-row"><span class="spec-key">FOUNDED</span><span class="spec-val">1960s</span></div>
+          <div class="spec-row"><span class="spec-key">HEADQUARTERS</span><span class="spec-val">St. Louis, MO</span></div>
+          <div class="spec-row"><span class="spec-key">DISTRIBUTION</span><span class="spec-val">Worldwide</span></div>
+          <div class="spec-row"><span class="spec-key">METALS SERVED</span><span class="spec-val">AL / BR / CU / MG / ZN</span></div>
+          <div class="spec-row"><span class="spec-key">PRODUCT LINES</span><span class="spec-val">4 Core Series</span></div>
+          <div class="spec-row"><span class="spec-key">FORMULATION</span><span class="spec-val">Proprietary</span></div>
+          <div class="spec-row"><span class="spec-key">CHEMISTRY</span><span class="spec-val">Water-based &amp; Ceramic</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ── Callout ───────────────────────────────────────────────── -->
+<div class="callout-strip reveal">
+  <blockquote>Whatever alloy you're casting — we have the right formula.</blockquote>
+  <a href="contact.html" class="btn btn-invert">Talk to an Expert</a>
+</div>
+
+
+<!-- ── Footer ───────────────────────────────────────────────── -->
+<footer role="contentinfo">
+  <div class="footer-body">
+    <div>
+      <p class="footer-logo">La<strong>France</strong> Manufacturing</p>
+      <p class="footer-tagline">St. Louis, MO · Worldwide Shipping<br>Specialty Chemistry Since the 1960s</p>
+    </div>
+    <div>
+      <p class="footer-col-head">Navigation</p>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+    <div>
+      <p class="footer-col-head">Contact</p>
+      <a href="tel:+13142982662" class="footer-tel">(314) 298-2662</a>
+      <a href="mailto:mark@lafrancemfg.com" class="footer-email">mark@lafrancemfg.com</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">&copy; 2026 LaFrance Manufacturing. All rights reserved.</p>
+    <a href="privacy-policy.html">Privacy Policy</a>
+  </div>
+</footer>
+
+<script>
+  // ── Theme toggle ─────────────────────────────────────────────
+  const html        = document.documentElement;
+  const themeBtn    = document.getElementById('theme-toggle');
+  const iconSun     = document.getElementById('icon-sun');
+  const iconMoon    = document.getElementById('icon-moon');
+  const heroBlock   = document.querySelector('.hero-img-block');
+
+  const DARK_IMG  = 'images/hero-home-dark.png';
+  const LIGHT_IMG = 'images/hero-home.png';
+
+  function applyTheme(isLight) {
+    html.classList.toggle('light', isLight);
+    iconSun.style.display  = isLight ? 'none'  : 'block';
+    iconMoon.style.display = isLight ? 'block' : 'none';
+    if (heroBlock) {
+      heroBlock.style.backgroundImage = `url('${isLight ? LIGHT_IMG : DARK_IMG}')`;
+    }
+  }
+
+  // Apply saved preference on load (default = dark)
+  const saved = localStorage.getItem('lfTheme');
+  applyTheme(saved === 'light');
+
+  themeBtn.addEventListener('click', () => {
+    const goingLight = !html.classList.contains('light');
+    applyTheme(goingLight);
+    localStorage.setItem('lfTheme', goingLight ? 'light' : 'dark');
+  });
+
+  // ── Nav scroll state
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  // Mobile nav
+  const toggle = document.getElementById('nav-toggle');
+  const drawer = document.getElementById('nav-drawer');
+  toggle.addEventListener('click', () => {
+    const open = drawer.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(open));
+    drawer.setAttribute('aria-hidden', String(!open));
+  });
+  drawer.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      drawer.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      drawer.setAttribute('aria-hidden', 'true');
+    });
+  });
+  document.addEventListener('click', e => {
+    if (!nav.contains(e.target) && !drawer.contains(e.target)) {
+      drawer.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      drawer.setAttribute('aria-hidden', 'true');
+    }
+  });
+
+  // Scroll reveal
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -28px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

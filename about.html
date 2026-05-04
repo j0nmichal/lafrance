@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About LaFrance Manufacturing — 60 years of specialty chemistry for metal casting operations, founded in St. Louis in the 1960s.">
+  <title>About — LaFrance Manufacturing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+
+    /* ── About hero ── */
+    .hero {
+      position: relative;
+      height: 65vh;
+      min-height: 440px;
+      display: flex;
+      align-items: flex-end;
+      padding-top: var(--nav-h);
+      overflow: hidden;
+    }
+
+    /*
+    ╔══════════════════════════════════════════════════════════════╗
+    ║  PHOTO AREA — About page hero                               ║
+    ║  Recommended: Long-view of foundry floor, historical        ║
+    ║  facility photo, or detail of manufacturing equipment.      ║
+    ║  Minimum 1920×1000px. Warm, dark tones preferred.           ║
+    ║  To add: background-image: url('images/hero-about.jpg')     ║
+    ╚══════════════════════════════════════════════════════════════╝
+    */
+    .hero-img {
+      position: absolute; inset: 0;
+      background-color: #0c0b09;
+      background-size: cover;
+      background-position: center 30%;
+      background-image: url('images/About-Us-Dark.png');
+    }
+    html.light .hero-img {
+      background-image: url('images/About-Us-Light.png');
+    }
+    .hero-img::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    }
+    .hero-img::after { display: none; }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding: 0 0 4rem;
+    }
+    .hero-breadcrumb {
+      font-family: var(--f-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1.5rem;
+    }
+    .hero-breadcrumb::before { content: '/'; }
+    .hero-breadcrumb a { color: var(--text-muted); transition: color 0.2s; }
+    .hero-breadcrumb a:hover { color: var(--text-2); }
+
+    .hero-hed {
+      font-family: var(--f-display);
+      font-size: clamp(3.5rem, 7.5vw, 7.5rem);
+      line-height: 0.91;
+      letter-spacing: 0.02em;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+    .hero-hed .stroke {
+      -webkit-text-stroke: 1.5px var(--text);
+      color: transparent;
+    }
+
+    .hero-meta-row {
+      display: flex;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+    .hero-meta-item {
+      font-family: var(--f-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .hero-meta-item::before {
+      content: '';
+      display: block;
+      width: 16px; height: 1px;
+      background: var(--accent);
+    }
+    .hero-meta-item strong { color: var(--text-2); font-weight: 500; }
+
+    /* ── Story section ── */
+    #story {
+      padding: 7rem 0;
+      background: var(--bg);
+    }
+
+    .story-layout {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    /* Big decorative year in background */
+    .story-left {
+      position: relative;
+    }
+    .story-left::before {
+      content: '1960';
+      position: absolute;
+      right: -1rem;
+      top: -1.5rem;
+      font-family: var(--f-display);
+      font-size: clamp(9rem, 16vw, 16rem);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: var(--surface);
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+    }
+
+    .story-header {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 3rem;
+    }
+    .story-header .label { display: block; margin-bottom: 1rem; }
+
+    .story-body {
+      position: relative;
+      z-index: 1;
+    }
+    .story-body p {
+      font-size: 1rem;
+      color: var(--text-2);
+      line-height: 1.85;
+      margin-bottom: 1.4rem;
+    }
+    .story-body p:last-child { margin-bottom: 0; }
+    .story-body p em {
+      font-style: italic;
+      color: var(--text);
+    }
+
+    /* Timeline */
+    .timeline {
+      margin-top: 3.5rem;
+      border-top: 1px solid var(--border);
+      padding-top: 3rem;
+    }
+    .timeline-label {
+      font-family: var(--f-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+    .tl-row {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 1.5rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .tl-row:last-child { border-bottom: none; }
+    .tl-era {
+      font-family: var(--f-display);
+      font-size: 1.4rem;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+      line-height: 1.1;
+      padding-top: 0.1rem;
+    }
+    .tl-text {
+      font-size: 0.9rem;
+      color: var(--text-2);
+      line-height: 1.65;
+    }
+    .tl-text strong {
+      display: block;
+      font-family: var(--f-sub);
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+    }
+
+    /* Right column: spec panel + contact direct */
+    .story-right {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      position: sticky;
+      top: calc(var(--nav-h) + 2rem);
+    }
+
+    .direct-contact {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 2rem;
+    }
+    .dc-head {
+      font-family: var(--f-mono);
+      font-size: 0.57rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .dc-name {
+      font-family: var(--f-sub);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.85rem;
+    }
+    .dc-tel {
+      display: block;
+      font-family: var(--f-display);
+      font-size: 2rem;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+      transition: color 0.2s;
+    }
+    .dc-tel:hover { color: #d9a03a; }
+    .dc-email {
+      display: block;
+      font-family: var(--f-mono);
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      transition: color 0.2s;
+    }
+    .dc-email:hover { color: #d9a03a; }
+
+    /* ── Pillars ── */
+    #pillars {
+      padding: 7rem 0;
+      background: var(--surface);
+    }
+    .pillars-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: end;
+      margin-bottom: 4rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .pillars-header .label { display: block; margin-bottom: 1rem; }
+    .pillars-header p {
+      font-size: 0.93rem;
+      color: var(--text-2);
+      line-height: 1.72;
+      align-self: end;
+    }
+
+    .pillars-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border-top: 1px solid var(--border);
+      border-left: 1px solid var(--border);
+    }
+    .pillar {
+      padding: 2.5rem;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .pillar-num {
+      font-family: var(--f-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 1.25rem;
+    }
+    .pillar-title {
+      font-family: var(--f-display);
+      font-size: 1.7rem;
+      letter-spacing: 0.02em;
+      color: var(--text);
+      line-height: 1;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .pillar p {
+      font-size: 0.88rem;
+      color: var(--text-2);
+      line-height: 1.7;
+    }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .story-layout { grid-template-columns: 1fr; gap: 3.5rem; }
+      .story-right { position: static; }
+      .story-left::before { display: none; }
+      .pillars-header { grid-template-columns: 1fr; gap: 1.5rem; }
+    }
+    @media (max-width: 720px) {
+      .pillars-list { grid-template-columns: 1fr; }
+      .hero-meta-row { gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">La<strong>France</strong> Manufacturing</a>
+    <ul class="nav-links" role="list">
+      <li><a href="products.html">Products</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button id="theme-toggle" aria-label="Toggle light/dark mode">
+      <svg id="icon-sun" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+      <svg id="icon-moon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display:none">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
+    <a href="contact.html" class="nav-contact-btn">Get in Touch</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-drawer" id="nav-drawer" aria-hidden="true">
+  <a href="products.html">Products</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+
+<!-- ── Hero ─────────────────────────────────────────────────── -->
+<section class="hero" aria-labelledby="about-hed">
+  <div class="hero-img"></div>
+  <div class="hero-content">
+    <div class="w reveal">
+      <div class="hero-breadcrumb"><a href="index.html">Home</a> About</div>
+      <h1 class="hero-hed" id="about-hed">
+        60 YEARS OF<br>
+        <span class="stroke">RIGHT</span><br>
+        CHEMISTRY
+      </h1>
+      <div class="hero-meta-row">
+        <span class="hero-meta-item"><strong>Founded</strong> 1960s</span>
+        <span class="hero-meta-item"><strong>Based in</strong> St. Louis, MO</span>
+        <span class="hero-meta-item"><strong>Ships</strong> Worldwide</span>
+        <span class="hero-meta-item"><strong>Metals</strong> AL / BR / CU / MG / ZN</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── Story ─────────────────────────────────────────────────── -->
+<section id="story" aria-labelledby="story-hed">
+  <div class="w">
+    <div class="story-layout">
+
+      <div class="story-left">
+        <header class="story-header reveal">
+          <span class="label">Our History</span>
+          <h2 class="hed hed-lg" id="story-hed" style="margin-top:1rem;">THE COMPANY<br>BEHIND THE<br>CHEMISTRY</h2>
+        </header>
+
+        <div class="story-body reveal d1">
+          <p>LaFrance Manufacturing was founded in St. Louis in the 1960s with a straightforward mission: develop the right specialty chemistry for the metal casting industry and stand behind it. Six decades later, that hasn't changed.</p>
+          <p>We were early pioneers in water-extendable synthetic lubricants. When the oil crisis of the late 1970s forced the die casting industry to reconsider its dependence on oil-based release agents, LaFrance was already working on commercially viable water-based formulations. <em>We didn't follow the industry's direction — we helped set it.</em></p>
+          <p>The Frankote ceramic coating series came out of a recognized gap in the market: foundry operations needed ladle and furnace surface protection that could withstand sustained thermal cycling without degrading. Conventional coatings fell short. Our ceramic-based chemistry filled that gap and has been refined continuously since its introduction.</p>
+          <p>Today, the same direct approach that characterized the company's founding guides how we work. When a customer calls with a casting challenge, they reach our technical people — not a distributor who will forward the inquiry. We understand alloy chemistry, die geometry, and process conditions, and we match our formulations to all three.</p>
+        </div>
+
+        <div class="timeline reveal d2">
+          <p class="timeline-label">// Company milestones</p>
+          <div class="tl-row">
+            <div class="tl-era">1960s</div>
+            <div class="tl-text">
+              <strong>Founded in St. Louis</strong>
+              LaFrance Manufacturing established to serve the growing metal casting industry in the Midwest and beyond.
+            </div>
+          </div>
+          <div class="tl-row">
+            <div class="tl-era">1970s</div>
+            <div class="tl-text">
+              <strong>Water-based lubricant development</strong>
+              First commercially viable water-extendable die release lubricants developed in response to the oil crisis — an industry-wide shift LaFrance helped lead.
+            </div>
+          </div>
+          <div class="tl-row">
+            <div class="tl-era">1980s</div>
+            <div class="tl-text">
+              <strong>Frankote ceramic series launched</strong>
+              Introduction of ceramic-based protective coatings for ladles and furnace surfaces — meeting a need conventional chemistry couldn't address.
+            </div>
+          </div>
+          <div class="tl-row">
+            <div class="tl-era">2000s</div>
+            <div class="tl-text">
+              <strong>International expansion</strong>
+              Formulations reach casting operations worldwide. Direct customer relationships and technical support extended across North America, Europe, and Asia.
+            </div>
+          </div>
+          <div class="tl-row">
+            <div class="tl-era">Today</div>
+            <div class="tl-text">
+              <strong>Ceramic-based innovations continue</strong>
+              New ceramic formulations for exotic aluminum alloys and high-heat producing dies added to the Franlube series — the latest development in an ongoing program.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-right">
+
+        <div class="spec-panel reveal d1" aria-label="Company profile">
+          <div class="spec-panel-head">COMPANY PROFILE</div>
+          <div class="spec-panel-rows">
+            <div class="spec-row"><span class="spec-key">FOUNDED</span><span class="spec-val">1960s</span></div>
+            <div class="spec-row"><span class="spec-key">HEADQUARTERS</span><span class="spec-val">St. Louis, MO</span></div>
+            <div class="spec-row"><span class="spec-key">DISTRIBUTION</span><span class="spec-val">Worldwide</span></div>
+            <div class="spec-row"><span class="spec-key">METALS SERVED</span><span class="spec-val">AL / BR / CU / MG / ZN</span></div>
+            <div class="spec-row"><span class="spec-key">PRODUCT LINES</span><span class="spec-val">4 Core Series</span></div>
+            <div class="spec-row"><span class="spec-key">FORMULATION TYPE</span><span class="spec-val">Proprietary</span></div>
+            <div class="spec-row"><span class="spec-key">CHEMISTRY</span><span class="spec-val">Water-based &amp; Ceramic</span></div>
+            <div class="spec-row"><span class="spec-key">ENV. FOCUS</span><span class="spec-val">Low-VOC Since 1970s</span></div>
+          </div>
+        </div>
+
+        <div class="direct-contact reveal d2">
+          <p class="dc-head">// Direct Contact</p>
+          <p class="dc-name">Mark — LaFrance Manufacturing</p>
+          <a href="tel:+13142982662" class="dc-tel">(314) 298-2662</a>
+          <a href="mailto:mark@lafrancemfg.com" class="dc-email">mark@lafrancemfg.com</a>
+          <a href="contact.html" class="btn btn-ghost-amber" style="width:100%;text-align:center;">Send a Message</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── Pillars ───────────────────────────────────────────────── -->
+<section id="pillars" aria-labelledby="pillars-hed">
+  <div class="w">
+
+    <div class="pillars-header reveal">
+      <div>
+        <span class="label">What Sets Us Apart</span>
+        <h2 class="hed hed-md" id="pillars-hed" style="margin-top:1rem;">THREE THINGS<br>WE DON'T COMPROMISE ON</h2>
+      </div>
+      <p>We've been doing this long enough to know what matters. These aren't mission statement words — they're the decisions we make every day when we develop a formulation, take a call, or recommend a product.</p>
+    </div>
+
+    <div class="pillars-list">
+      <div class="pillar reveal">
+        <span class="pillar-num">01 /</span>
+        <h3 class="pillar-title">PROPRIETARY FORMULATIONS</h3>
+        <p>Our product series are developed and refined in-house. Not commodity chemistry rebranded under our name — formulations that address the specific casting chemistries and process conditions that off-the-shelf products don't reach. When a new challenge comes in, we work the chemistry.</p>
+      </div>
+      <div class="pillar reveal d1">
+        <span class="pillar-num">02 /</span>
+        <h3 class="pillar-title">TECHNICAL PARTNERSHIP</h3>
+        <p>We work directly with your engineering and production teams. That means understanding your alloy, your die geometry, your cycle times, and your finish requirements before we recommend anything. If our standard product isn't right for your process, we'll say so.</p>
+      </div>
+      <div class="pillar reveal d2">
+        <span class="pillar-num">03 /</span>
+        <h3 class="pillar-title">ENVIRONMENTAL LEADERSHIP</h3>
+        <p>Pioneers in water-based, low-VOC formulations since the 1970s — long before it was an industry talking point. We were committed to sustainable product development because it was the right direction for the chemistry and the right direction for the industry.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ── Callout ───────────────────────────────────────────────── -->
+<div class="callout-strip reveal">
+  <blockquote>The right product starts with the right conversation.</blockquote>
+  <a href="contact.html" class="btn btn-invert">Talk to an Expert</a>
+</div>
+
+
+<!-- ── Footer ───────────────────────────────────────────────── -->
+<footer role="contentinfo">
+  <div class="footer-body">
+    <div>
+      <p class="footer-logo">La<strong>France</strong> Manufacturing</p>
+      <p class="footer-tagline">St. Louis, MO · Worldwide Shipping<br>Specialty Chemistry Since the 1960s</p>
+    </div>
+    <div>
+      <p class="footer-col-head">Navigation</p>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+    <div>
+      <p class="footer-col-head">Contact</p>
+      <a href="tel:+13142982662" class="footer-tel">(314) 298-2662</a>
+      <a href="mailto:mark@lafrancemfg.com" class="footer-email">mark@lafrancemfg.com</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">&copy; 2026 LaFrance Manufacturing. All rights reserved.</p>
+    <a href="privacy-policy.html">Privacy Policy</a>
+  </div>
+</footer>
+
+<script>
+  // Theme toggle
+  const html     = document.documentElement;
+  const themeBtn = document.getElementById('theme-toggle');
+  const iconSun  = document.getElementById('icon-sun');
+  const iconMoon = document.getElementById('icon-moon');
+  function applyTheme(isLight) {
+    html.classList.toggle('light', isLight);
+    iconSun.style.display  = isLight ? 'none'  : 'block';
+    iconMoon.style.display = isLight ? 'block' : 'none';
+  }
+  applyTheme(localStorage.getItem('lfTheme') === 'light');
+  themeBtn.addEventListener('click', () => {
+    const goingLight = !html.classList.contains('light');
+    applyTheme(goingLight);
+    localStorage.setItem('lfTheme', goingLight ? 'light' : 'dark');
+  });
+
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40), { passive: true });
+  const toggle = document.getElementById('nav-toggle');
+  const drawer = document.getElementById('nav-drawer');
+  toggle.addEventListener('click', () => {
+    const open = drawer.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(open));
+    drawer.setAttribute('aria-hidden', String(!open));
+  });
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    drawer.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); drawer.setAttribute('aria-hidden','true');
+  }));
+  document.addEventListener('click', e => {
+    if (!nav.contains(e.target) && !drawer.contains(e.target)) {
+      drawer.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); drawer.setAttribute('aria-hidden','true');
+    }
+  });
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.08, rootMargin: '0px 0px -24px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LaFrance Manufacturing product lines — Frankote ceramic coatings, Franlube die release lubricants, shot tip lubricants, and specialty compounds for metal casting.">
+  <title>Products — LaFrance Manufacturing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+
+    /* ── Products hero ── */
+    .hero {
+      position: relative;
+      height: 62vh;
+      min-height: 420px;
+      display: flex;
+      align-items: flex-end;
+      padding-top: var(--nav-h);
+      overflow: hidden;
+    }
+
+    /*
+    ╔══════════════════════════════════════════════════════════════╗
+    ║  PHOTO AREA — Products page hero                            ║
+    ║  Recommended: Die casting operation, close-up of tooling,   ║
+    ║  or molten metal injection. Minimum 1920×900px.             ║
+    ║  To add: background-image: url('images/hero-products.jpg')  ║
+    ╚══════════════════════════════════════════════════════════════╝
+    */
+    .hero-img {
+      position: absolute; inset: 0;
+      background-color: #0c0d0a;
+      background-size: cover;
+      background-position: center;
+      background-image: url('images/Products-Dark.png');
+    }
+    html.light .hero-img {
+      background-image: url('images/Products-light.png');
+    }
+    .hero-img::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    }
+    .hero-img::after { display: none; }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding: 0 0 3.5rem;
+    }
+    .hero-content .w {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: end;
+    }
+    .hero-breadcrumb {
+      font-family: var(--f-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1.25rem;
+    }
+    .hero-breadcrumb a { color: var(--text-muted); transition: color 0.2s; }
+    .hero-breadcrumb a:hover { color: var(--text-2); }
+    .hero-breadcrumb::before { content: '/'; }
+
+    .hero-hed {
+      font-family: var(--f-display);
+      font-size: clamp(3.5rem, 7vw, 7rem);
+      line-height: 0.92;
+      letter-spacing: 0.02em;
+      color: var(--text);
+    }
+    .hero-sub {
+      font-size: 0.92rem;
+      color: var(--text-2);
+      line-height: 1.68;
+      max-width: 400px;
+      align-self: end;
+      padding-bottom: 0.3rem;
+    }
+
+    /* ── Products catalog ── */
+    #catalog {
+      padding: 0 0 7rem;
+      background: var(--bg);
+    }
+
+    /* Anchor targets — offset for fixed nav */
+    .anchor {
+      display: block;
+      position: relative;
+      top: calc(-1 * var(--nav-h) - 2rem);
+      visibility: hidden;
+    }
+
+    /* Full-bleed detail block per product */
+    .product-block {
+      border-bottom: 1px solid var(--border);
+    }
+    .product-block:last-child { border-bottom: none; }
+
+    /* Top bar: number + name + badge */
+    .pb-header {
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      gap: 0;
+      border-bottom: 1px solid var(--border);
+      align-items: stretch;
+    }
+    .pb-num {
+      font-family: var(--f-display);
+      font-size: 5rem;
+      line-height: 1;
+      color: var(--text-muted);
+      opacity: 0.3;
+      letter-spacing: 0.01em;
+      padding: 1.5rem 1rem 1.5rem 2.5rem;
+      border-right: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+    }
+    .pb-title-group {
+      padding: 1.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .pb-name {
+      font-family: var(--f-display);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+      color: var(--text);
+    }
+    .pb-badge {
+      font-family: var(--f-mono);
+      font-size: 0.63rem;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      background: var(--accent-dim);
+      border: 1px solid rgba(200,146,42,0.18);
+      padding: 0.22rem 0.65rem;
+      display: inline-block;
+      width: fit-content;
+    }
+    .pb-accent-line {
+      align-self: stretch;
+      width: 3px;
+      background: var(--accent);
+    }
+
+    /* Body: description left, specs right */
+    .pb-body {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 0;
+    }
+    .pb-desc {
+      padding: 2.5rem 2.5rem 2.5rem 2.5rem;
+      border-right: 1px solid var(--border);
+    }
+    .pb-desc p {
+      font-size: 0.95rem;
+      color: var(--text-2);
+      line-height: 1.8;
+      margin-bottom: 1.25rem;
+    }
+    .pb-desc p:last-child { margin-bottom: 0; }
+    .pb-desc-label {
+      font-family: var(--f-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .pb-side {
+      padding: 2.5rem 2rem;
+      background: var(--surface);
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .pb-side-label {
+      font-family: var(--f-mono);
+      font-size: 0.57rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+    .pb-skus {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .pb-sku {
+      font-family: var(--f-mono);
+      font-size: 0.68rem;
+      color: var(--text-2);
+      border: 1px solid var(--border);
+      padding: 0.28rem 0.55rem;
+      letter-spacing: 0.04em;
+    }
+    .pb-applications {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .pb-app {
+      font-family: var(--f-sub);
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-2);
+      padding: 0.4rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .pb-app:last-child { border-bottom: none; }
+    .pb-app::before { content: '—'; color: var(--accent); font-family: var(--f-mono); font-size: 0.6rem; }
+
+    .pb-cta-row {
+      padding: 1.5rem 2.5rem;
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .pb-cta-note {
+      font-family: var(--f-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+    }
+
+    /* ── Industries ── */
+    #industries {
+      padding: 7rem 0;
+      background: var(--surface);
+    }
+    .industries-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border-top: 1px solid var(--border);
+      border-left: 1px solid var(--border);
+      margin-top: 3.5rem;
+    }
+    .ind-cell {
+      padding: 2.5rem;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .ind-num {
+      font-family: var(--f-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .ind-name {
+      font-family: var(--f-display);
+      font-size: 2rem;
+      letter-spacing: 0.02em;
+      line-height: 1;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+    .ind-desc {
+      font-size: 0.88rem;
+      color: var(--text-2);
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+    .ind-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .ind-tag {
+      font-family: var(--f-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      padding: 0.18rem 0.45rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 860px) {
+      .hero-content .w { grid-template-columns: 1fr; gap: 1rem; }
+      .hero-sub { display: none; }
+      .pb-header { grid-template-columns: 56px 1fr; }
+      .pb-accent-line { display: none; }
+      .pb-body { grid-template-columns: 1fr; }
+      .pb-side { border-top: 1px solid var(--border); }
+      .pb-cta-row { flex-direction: column; align-items: flex-start; }
+      .industries-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 540px) {
+      .pb-header { grid-template-columns: 1fr; }
+      .pb-num { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">La<strong>France</strong> Manufacturing</a>
+    <ul class="nav-links" role="list">
+      <li><a href="products.html" class="active">Products</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button id="theme-toggle" aria-label="Toggle light/dark mode">
+      <svg id="icon-sun" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+      <svg id="icon-moon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display:none">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
+    <a href="contact.html" class="nav-contact-btn">Get in Touch</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-drawer" id="nav-drawer" aria-hidden="true">
+  <a href="products.html">Products</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+
+<!-- ── Hero ─────────────────────────────────────────────────── -->
+<section class="hero" aria-labelledby="prod-hed">
+  <div class="hero-img"></div>
+  <div class="hero-content">
+    <div class="w">
+      <div class="reveal">
+        <div class="hero-breadcrumb"><a href="index.html">Home</a> Products</div>
+        <h1 class="hero-hed" id="prod-hed">OUR<br>PRODUCT<br>LINES</h1>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── Alloy band ────────────────────────────────────────────── -->
+<div class="alloy-band" aria-hidden="true">
+  <div class="alloy-track">
+    <span class="alloy-item hi">Frankote Series</span><span class="alloy-item">Ceramic Coatings</span>
+    <span class="alloy-item hi">Franlube Series</span><span class="alloy-item">Die Release</span>
+    <span class="alloy-item hi">Franlube Shot</span><span class="alloy-item">Shot Tip Lubricants</span>
+    <span class="alloy-item hi">Specialty Line</span><span class="alloy-item">AL / MG / ZN / BR / CU</span>
+    <span class="alloy-item hi">Frankote Series</span><span class="alloy-item">Ceramic Coatings</span>
+    <span class="alloy-item hi">Franlube Series</span><span class="alloy-item">Die Release</span>
+    <span class="alloy-item hi">Franlube Shot</span><span class="alloy-item">Shot Tip Lubricants</span>
+    <span class="alloy-item hi">Specialty Line</span><span class="alloy-item">AL / MG / ZN / BR / CU</span>
+  </div>
+</div>
+
+
+<!-- ── Intro row ──────────────────────────────────────────────── -->
+<div style="border-bottom: 1px solid var(--border);">
+  <div class="w" style="padding: 2.5rem 0;">
+    <p class="reveal" style="font-family: var(--f-body); font-size: 1.05rem; color: var(--text-2); line-height: 1.75; max-width: 72ch;">Four proprietary series developed over six decades of foundry work. Formulations engineered for the specific demands of metal casting at temperature — not off-the-shelf chemistry.</p>
+  </div>
+</div>
+
+
+<!-- ── Product catalog ───────────────────────────────────────── -->
+<main id="catalog" aria-label="Product catalog">
+  <div class="w" style="padding-top:5rem;">
+
+    <!-- 01 Ceramic Coatings -->
+    <span class="anchor" id="ceramic"></span>
+    <div class="product-block reveal">
+      <div class="pb-header">
+        <div class="pb-num">01</div>
+        <div class="pb-title-group">
+          <span class="pb-badge">[ FRANKOTE SERIES ]</span>
+          <h2 class="pb-name">CERAMIC COATINGS</h2>
+        </div>
+        <div class="pb-accent-line"></div>
+      </div>
+      <div class="pb-body">
+        <div class="pb-desc">
+          <span class="pb-desc-label">// Product Description</span>
+          <p>Ceramic-based protective coatings — both liquid and dry — engineered to prevent molten metal adhesion on ladles, thermocouple tubes, runners, and ferrous surfaces. Water-based formulations with controlled additives ensure smooth application and consistent film thickness.</p>
+          <p>Dry variants ship water-blended at the customer site for cold-weather convenience, eliminating concerns about freeze damage during transport and storage. The Frankote line was developed specifically for applications where conventional coatings fail under sustained thermal cycling.</p>
+          <p>Boron nitride variants (BN400 series) deliver non-wetting performance in demanding environments where standard ceramic formulations reach their limits — particularly in aluminum refining applications with high superheat temperatures.</p>
+        </div>
+        <div class="pb-side">
+          <div>
+            <span class="pb-side-label">// Product Codes</span>
+            <div class="pb-skus">
+              <span class="pb-sku">PMC-100/N</span>
+              <span class="pb-sku">PMC-DRY</span>
+              <span class="pb-sku">BN400</span>
+              <span class="pb-sku">BN400-DRY</span>
+              <span class="pb-sku">#116</span>
+              <span class="pb-sku">8449</span>
+            </div>
+          </div>
+          <div>
+            <span class="pb-side-label">// Applications</span>
+            <div class="pb-applications">
+              <span class="pb-app">Ladle &amp; runner protection</span>
+              <span class="pb-app">Thermocouple tubes</span>
+              <span class="pb-app">Ferrous surfaces</span>
+              <span class="pb-app">Furnace components</span>
+              <span class="pb-app">High-temperature surfaces</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pb-cta-row">
+        <span class="pb-cta-note">Spec sheets and application guides available on request</span>
+        <a href="contact.html" class="btn btn-ghost-amber">Request Spec Sheet</a>
+      </div>
+    </div>
+
+    <!-- 02 Die Release Lubricants -->
+    <span class="anchor" id="die-release"></span>
+    <div class="product-block reveal">
+      <div class="pb-header">
+        <div class="pb-num">02</div>
+        <div class="pb-title-group">
+          <span class="pb-badge">[ FRANLUBE SERIES ]</span>
+          <h2 class="pb-name">DIE RELEASE LUBRICANTS</h2>
+        </div>
+        <div class="pb-accent-line"></div>
+      </div>
+      <div class="pb-body">
+        <div class="pb-desc">
+          <span class="pb-desc-label">// Product Description</span>
+          <p>A diversified line of water-extendable die release lubricants for casting aluminum, magnesium, and zinc alloys. The Franlube series covers the full range of production requirements — from single-cavity prototype tooling to high-volume multi-cavity production dies.</p>
+          <p>High-temperature formulations address the specific challenges of dies with elevated thermal loads, where standard lubricants carbonize prematurely or fail to maintain consistent film integrity through the full shot cycle. Cosmetic-grade variants meet the surface finish requirements of visible components.</p>
+          <p>The newest additions to the series feature ceramic-based formulations engineered for exotic aluminum alloys and high-heat producing dies — applications where the chemistry demands exceed conventional water-extendable products. Contact us for a full product selector matched to your alloy and process conditions.</p>
+        </div>
+        <div class="pb-side">
+          <div>
+            <span class="pb-side-label">// Product Codes</span>
+            <div class="pb-skus">
+              <span class="pb-sku" style="border-style:dashed;color:var(--text-muted);">Contact for full selector</span>
+            </div>
+          </div>
+          <div>
+            <span class="pb-side-label">// Applications</span>
+            <div class="pb-applications">
+              <span class="pb-app">Aluminum HPDC</span>
+              <span class="pb-app">Magnesium die casting</span>
+              <span class="pb-app">Zinc alloy casting</span>
+              <span class="pb-app">Single &amp; multi-cavity dies</span>
+              <span class="pb-app">Cosmetic surface finishes</span>
+              <span class="pb-app">High-temperature dies</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pb-cta-row">
+        <span class="pb-cta-note">Product selection depends on alloy, die geometry, and cycle time — call us to discuss</span>
+        <a href="contact.html" class="btn btn-ghost-amber">Request Product Selector</a>
+      </div>
+    </div>
+
+    <!-- 03 Shot Tip Lubricants -->
+    <span class="anchor" id="shot-tip"></span>
+    <div class="product-block reveal">
+      <div class="pb-header">
+        <div class="pb-num">03</div>
+        <div class="pb-title-group">
+          <span class="pb-badge">[ FRANLUBE SHOT SERIES ]</span>
+          <h2 class="pb-name">SHOT TIP LUBRICANTS</h2>
+        </div>
+        <div class="pb-accent-line"></div>
+      </div>
+      <div class="pb-body">
+        <div class="pb-desc">
+          <span class="pb-desc-label">// Product Description</span>
+          <p>Dry, oil-based, and water-cleanable shot tip lubricants designed to enhance lubrication through the metal injection process while extending tip life. The Franlube Shot series addresses one of the most wear-intensive interfaces in the die casting cell — the shot sleeve and plunger tip.</p>
+          <p>Ceramic-based dry formulations significantly reduce fire and smoke at the shot end, improving operator environment and reducing visible emissions without compromising lubrication performance. This is particularly relevant for operations with air quality monitoring or operations moving toward cleaner production standards.</p>
+          <p>Water-cleanable formulations simplify maintenance procedures and reduce downtime associated with tip and sleeve cleaning between production runs.</p>
+        </div>
+        <div class="pb-side">
+          <div>
+            <span class="pb-side-label">// Product Codes</span>
+            <div class="pb-skus">
+              <span class="pb-sku">#1024</span>
+              <span class="pb-sku">LG-1015</span>
+            </div>
+          </div>
+          <div>
+            <span class="pb-side-label">// Applications</span>
+            <div class="pb-applications">
+              <span class="pb-app">Shot sleeve lubrication</span>
+              <span class="pb-app">Plunger tip protection</span>
+              <span class="pb-app">Tip life extension</span>
+              <span class="pb-app">Low-smoke environments</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pb-cta-row">
+        <span class="pb-cta-note">Dry, oil-based, and water-cleanable variants available</span>
+        <a href="contact.html" class="btn btn-ghost-amber">Request Spec Sheet</a>
+      </div>
+    </div>
+
+    <!-- 04 Specialty Products -->
+    <span class="anchor" id="specialty"></span>
+    <div class="product-block reveal">
+      <div class="pb-header">
+        <div class="pb-num">04</div>
+        <div class="pb-title-group">
+          <span class="pb-badge">[ SPECIALTY LINE ]</span>
+          <h2 class="pb-name">SPECIALTY PRODUCTS</h2>
+        </div>
+        <div class="pb-accent-line"></div>
+      </div>
+      <div class="pb-body">
+        <div class="pb-desc">
+          <span class="pb-desc-label">// Product Description</span>
+          <p>Purpose-built compounds for the specific challenges of die casting operations that fall outside the standard lubricant and coating categories. This line addresses the ancillary chemistry needs of a complete casting cell.</p>
+          <p>Anti-solder wax (ASW-80) removes metal deposits from die cavity surfaces without damaging tool steel — a recurring maintenance challenge on production dies that see extended runs. The flux (KAB 124) is blended for efficient cleaning with reduced refractory erosion, serving refining and metal treatment operations.</p>
+          <p>Ejector pin compound (#38) provides high-temperature protection for pins operating in extreme thermal and mechanical environments. These products are sold directly to foundry engineers who know what they need — contact us if you have a specific challenge that doesn't fit a standard product category.</p>
+        </div>
+        <div class="pb-side">
+          <div>
+            <span class="pb-side-label">// Product Codes</span>
+            <div class="pb-skus">
+              <span class="pb-sku">ASW-80</span>
+              <span class="pb-sku">#38</span>
+              <span class="pb-sku">KAB 124</span>
+            </div>
+          </div>
+          <div>
+            <span class="pb-side-label">// Applications</span>
+            <div class="pb-applications">
+              <span class="pb-app">Die cavity cleaning (ASW-80)</span>
+              <span class="pb-app">Ejector pin protection (#38)</span>
+              <span class="pb-app">Metal refining flux (KAB 124)</span>
+              <span class="pb-app">Reduced refractory erosion</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pb-cta-row">
+        <span class="pb-cta-note">Have a challenge that doesn't fit a standard product? We can discuss custom formulation.</span>
+        <a href="contact.html" class="btn btn-ghost-amber">Talk to an Expert</a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+
+<!-- ── Industries ────────────────────────────────────────────── -->
+<section id="industries" aria-labelledby="ind-hed">
+  <div class="w">
+    <div class="sh reveal">
+      <span class="label">Where We Work</span>
+      <h2 class="hed hed-lg" id="ind-hed" style="margin-top:1rem;">BUILT FOR YOUR<br>OPERATION</h2>
+    </div>
+    <div class="industries-grid">
+      <div class="ind-cell reveal">
+        <span class="ind-num">01 /</span>
+        <h3 class="ind-name">DIE CASTING</h3>
+        <p class="ind-desc">High-pressure aluminum, magnesium, and zinc die casting. Single and multi-cavity dies. Cosmetic and structural components. Full-cell chemistry coverage from shot tip to die cavity.</p>
+        <div class="ind-tags">
+          <span class="ind-tag">Aluminum</span><span class="ind-tag">Magnesium</span>
+          <span class="ind-tag">Zinc</span><span class="ind-tag">HPDC</span>
+        </div>
+      </div>
+      <div class="ind-cell reveal d1">
+        <span class="ind-num">02 /</span>
+        <h3 class="ind-name">METAL REFINING</h3>
+        <p class="ind-desc">Ladle, runner, and furnace protection for aluminum, brass, copper, and zinc refining. Ceramic coating systems that withstand sustained high-temperature contact with molten metal.</p>
+        <div class="ind-tags">
+          <span class="ind-tag">Aluminum</span><span class="ind-tag">Brass</span>
+          <span class="ind-tag">Copper</span><span class="ind-tag">Zinc</span>
+        </div>
+      </div>
+      <div class="ind-cell reveal d2">
+        <span class="ind-num">03 /</span>
+        <h3 class="ind-name">FOUNDRY OPS</h3>
+        <p class="ind-desc">Shot tip lubrication, anti-solder wax, ejector pin compounds, and flux for complete casting cell support. From the shot end to the die cavity surface.</p>
+        <div class="ind-tags">
+          <span class="ind-tag">Shot Tip</span><span class="ind-tag">Ejector Pin</span>
+          <span class="ind-tag">Flux</span><span class="ind-tag">Anti-Solder</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── Callout ───────────────────────────────────────────────── -->
+<div class="callout-strip reveal">
+  <blockquote>Whatever alloy you're casting — we have the right formula.</blockquote>
+  <a href="contact.html" class="btn btn-invert">Talk to an Expert</a>
+</div>
+
+
+<!-- ── Footer ───────────────────────────────────────────────── -->
+<footer role="contentinfo">
+  <div class="footer-body">
+    <div>
+      <p class="footer-logo">La<strong>France</strong> Manufacturing</p>
+      <p class="footer-tagline">St. Louis, MO · Worldwide Shipping<br>Specialty Chemistry Since the 1960s</p>
+    </div>
+    <div>
+      <p class="footer-col-head">Navigation</p>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+    <div>
+      <p class="footer-col-head">Contact</p>
+      <a href="tel:+13142982662" class="footer-tel">(314) 298-2662</a>
+      <a href="mailto:mark@lafrancemfg.com" class="footer-email">mark@lafrancemfg.com</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">&copy; 2026 LaFrance Manufacturing. All rights reserved.</p>
+    <a href="privacy-policy.html">Privacy Policy</a>
+  </div>
+</footer>
+
+<script>
+  // Theme toggle
+  const html     = document.documentElement;
+  const themeBtn = document.getElementById('theme-toggle');
+  const iconSun  = document.getElementById('icon-sun');
+  const iconMoon = document.getElementById('icon-moon');
+  function applyTheme(isLight) {
+    html.classList.toggle('light', isLight);
+    iconSun.style.display  = isLight ? 'none'  : 'block';
+    iconMoon.style.display = isLight ? 'block' : 'none';
+  }
+  applyTheme(localStorage.getItem('lfTheme') === 'light');
+  themeBtn.addEventListener('click', () => {
+    const goingLight = !html.classList.contains('light');
+    applyTheme(goingLight);
+    localStorage.setItem('lfTheme', goingLight ? 'light' : 'dark');
+  });
+
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40), { passive: true });
+  const toggle = document.getElementById('nav-toggle');
+  const drawer = document.getElementById('nav-drawer');
+  toggle.addEventListener('click', () => {
+    const open = drawer.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(open));
+    drawer.setAttribute('aria-hidden', String(!open));
+  });
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    drawer.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); drawer.setAttribute('aria-hidden','true');
+  }));
+  document.addEventListener('click', e => {
+    if (!nav.contains(e.target) && !drawer.contains(e.target)) {
+      drawer.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); drawer.setAttribute('aria-hidden','true');
+    }
+  });
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.08, rootMargin: '0px 0px -24px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
