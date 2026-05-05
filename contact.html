@@ -349,9 +349,9 @@
   <div class="nav-inner">
     <a href="index.html" class="nav-logo"><strong>LAFRANCE</strong> Manufacturing</a>
     <ul class="nav-links" role="list">
-      <li><a href="products.html">Products</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html" class="active">Contact</a></li>
+      <li><a href="products.html" data-i18n="nav.products">Products</a></li>
+      <li><a href="about.html" data-i18n="nav.about">About</a></li>
+      <li><a href="contact.html" class="active" data-i18n="nav.contact">Contact</a></li>
     </ul>
     <button id="lang-toggle" aria-label="Toggle language">ESP</button>
     <button id="theme-toggle" aria-label="Toggle light/dark mode">
@@ -372,9 +372,9 @@
   </div>
 </nav>
 <div class="nav-drawer" id="nav-drawer" aria-hidden="true">
-  <a href="products.html">Products</a>
-  <a href="about.html">About</a>
-  <a href="contact.html">Contact</a>
+  <a href="products.html" data-i18n="nav.products">Products</a>
+  <a href="about.html" data-i18n="nav.about">About</a>
+  <a href="contact.html" data-i18n="nav.contact">Contact</a>
 </div>
 
 
@@ -384,7 +384,7 @@
   <div class="hero-content">
     <div class="w reveal">
       <div class="hero-breadcrumb"><a href="index.html">Home</a> Contact</div>
-      <h1 class="hero-hed" id="contact-hed">TALK TO<br>AN EXPERT</h1>
+      <h1 class="hero-hed" id="contact-hed"><span data-i18n="contact.h1_l1">TALK TO</span><br><span data-i18n="contact.h1_l2">AN EXPERT</span></h1>
     </div>
   </div>
 </section>
@@ -399,8 +399,8 @@
       <div class="contact-left">
 
         <div>
-          <span class="cl-section-label">// Direct Contact</span>
-          <p class="cl-intro">The right product starts with the right conversation. Reach Mark directly for product recommendations, technical questions, or to discuss your casting operation's specific requirements.</p>
+          <span class="cl-section-label" data-i18n="contact.direct_label">// Direct Contact</span>
+          <p class="cl-intro" data-i18n="contact.intro">The right product starts with the right conversation. Reach Mark directly for product recommendations, technical questions, or to discuss your casting operation's specific requirements.</p>
         </div>
 
         <div class="cl-phone-block">
@@ -410,7 +410,7 @@
         </div>
 
         <div class="cl-location">
-          <span class="cl-section-label">// Location &amp; Shipping</span>
+          <span class="cl-section-label" data-i18n="contact.location_label">// Location &amp; Shipping</span>
           <div class="cl-location-lines">
             <span><strong>Based</strong> St. Louis, MO</span>
             <span><strong>Ships</strong> Worldwide</span>
@@ -419,7 +419,7 @@
         </div>
 
         <div class="cl-prompt">
-          <span class="cl-section-label">// Helpful to include in your message</span>
+          <span class="cl-section-label" data-i18n="contact.helpful_label">// Helpful to include in your message</span>
           <div class="cl-prompt-list">
             <span class="cl-prompt-item">Alloy and casting process type</span>
             <span class="cl-prompt-item">Current product or challenge</span>
@@ -433,7 +433,7 @@
 
       <!-- Right: form -->
       <div class="contact-right">
-        <span class="form-top-label">// Send a Message</span>
+        <span class="form-top-label" data-i18n="contact.form_label">// Send a Message</span>
         <form
           class="contact-form"
           action="mailto:mark@lafrancemfg.com"
@@ -486,8 +486,8 @@
           </div>
 
           <div class="form-submit-row">
-            <button type="submit" class="btn btn-amber">Send Message</button>
-            <p class="form-note">Submits via your default email client</p>
+            <button type="submit" class="btn btn-amber" data-i18n="contact.send_btn">Send Message</button>
+            <p class="form-note" data-i18n="contact.form_note">Submits via your default email client</p>
           </div>
         </form>
       </div>
@@ -505,21 +505,21 @@
       <p class="footer-tagline">St. Louis, MO · Worldwide Shipping<br>Specialty Chemistry Since the 1960s</p>
     </div>
     <div>
-      <p class="footer-col-head">Navigation</p>
+      <p class="footer-col-head" data-i18n="footer.nav_head">Navigation</p>
       <nav class="footer-nav" aria-label="Footer navigation">
-        <a href="products.html">Products</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
+        <a href="products.html" data-i18n="nav.products">Products</a>
+        <a href="about.html" data-i18n="nav.about">About</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
       </nav>
     </div>
     <div>
-      <p class="footer-col-head">Contact</p>
+      <p class="footer-col-head" data-i18n="footer.contact_head">Contact</p>
       <a href="tel:+13142982662" class="footer-tel">(314) 298-2662</a>
       <a href="mailto:mark@lafrancemfg.com" class="footer-email">mark@lafrancemfg.com</a>
     </div>
   </div>
   <div class="footer-bottom">
-    <p class="footer-copy">&copy; 2026 LaFrance Manufacturing. All rights reserved.</p>
+    <p class="footer-copy" data-i18n="footer.copy">&copy; 2026 LaFrance Manufacturing. All rights reserved.</p>
     <a href="privacy-policy.html">Privacy Policy</a>
   </div>
 </footer>
@@ -544,13 +544,25 @@
 
   // Language toggle
   const translations = {
-    'nav.products':['Products','Productos'],'nav.about':['About','Nosotros'],'nav.contact':['Contact','Contacto'],
-    'nav.get_in_touch':['Get in Touch','Contáctenos'],
-    'page.hed':['TALK TO\nAN EXPERT','HABLE CON\nUN EXPERTO'],
-    'contact.direct':['Direct Contact','Contacto Directo'],
-    'contact.form_hed':['Send a Message','Enviar un Mensaje'],
-    'contact.send':['Send Message','Enviar Mensaje'],
-    'footer.copy':['© 2026 LaFrance Manufacturing. All rights reserved.','© 2026 LaFrance Manufacturing. Todos los derechos reservados.'],
+    'nav.products':  ['Products','Productos'],
+    'nav.about':     ['About','Nosotros'],
+    'nav.contact':   ['Contact','Contacto'],
+    'nav.get_in_touch': ['Get in Touch','Contáctenos'],
+    // Hero
+    'contact.h1_l1': ['TALK TO','HABLE CON'],
+    'contact.h1_l2': ['AN EXPERT','UN EXPERTO'],
+    // Body
+    'contact.direct_label':   ['// Direct Contact','// Contacto Directo'],
+    'contact.intro':          ["The right product starts with the right conversation. Reach Mark directly for product recommendations, technical questions, or to discuss your casting operation's specific requirements.",'El producto correcto comienza con la conversación correcta. Comuníquese con Mark directamente para recomendaciones de productos, preguntas técnicas o para hablar sobre los requisitos específicos de su operación de fundición.'],
+    'contact.location_label': ['// Location & Shipping','// Ubicación y Envíos'],
+    'contact.helpful_label':  ['// Helpful to include in your message','// Útil incluir en su mensaje'],
+    'contact.form_label':     ['// Send a Message','// Enviar un Mensaje'],
+    'contact.send_btn':       ['Send Message','Enviar Mensaje'],
+    'contact.form_note':      ['Submits via your default email client','Se envía a través de su cliente de correo predeterminado'],
+    // Footer
+    'footer.nav_head':     ['Navigation','Navegación'],
+    'footer.contact_head': ['Contact','Contacto'],
+    'footer.copy':         ['© 2026 LaFrance Manufacturing. All rights reserved.','© 2026 LaFrance Manufacturing. Todos los derechos reservados.'],
   };
   const langBtn = document.getElementById('lang-toggle');
   let isSpanish = localStorage.getItem('lfLang') === 'es';

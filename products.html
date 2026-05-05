@@ -428,9 +428,9 @@
   </div>
 </nav>
 <div class="nav-drawer" id="nav-drawer" aria-hidden="true">
-  <a href="products.html">Products</a>
-  <a href="about.html">About</a>
-  <a href="contact.html">Contact</a>
+  <a href="products.html" data-i18n="nav.products">Products</a>
+  <a href="about.html" data-i18n="nav.about">About</a>
+  <a href="contact.html" data-i18n="nav.contact">Contact</a>
 </div>
 
 
@@ -713,21 +713,21 @@
       <p class="footer-tagline">St. Louis, MO · Worldwide Shipping<br>Specialty Chemistry Since the 1960s</p>
     </div>
     <div>
-      <p class="footer-col-head">Navigation</p>
+      <p class="footer-col-head" data-i18n="footer.nav_head">Navigation</p>
       <nav class="footer-nav" aria-label="Footer navigation">
-        <a href="products.html">Products</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
+        <a href="products.html" data-i18n="nav.products">Products</a>
+        <a href="about.html" data-i18n="nav.about">About</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
       </nav>
     </div>
     <div>
-      <p class="footer-col-head">Contact</p>
+      <p class="footer-col-head" data-i18n="footer.contact_head">Contact</p>
       <a href="tel:+13142982662" class="footer-tel">(314) 298-2662</a>
       <a href="mailto:mark@lafrancemfg.com" class="footer-email">mark@lafrancemfg.com</a>
     </div>
   </div>
   <div class="footer-bottom">
-    <p class="footer-copy">&copy; 2026 LaFrance Manufacturing. All rights reserved.</p>
+    <p class="footer-copy" data-i18n="footer.copy">&copy; 2026 LaFrance Manufacturing. All rights reserved.</p>
     <a href="privacy-policy.html">Privacy Policy</a>
   </div>
 </footer>
@@ -752,16 +752,23 @@
 
   // Language toggle
   const translations = {
-    'nav.products':['Products','Productos'],'nav.about':['About','Nosotros'],'nav.contact':['Contact','Contacto'],
-    'nav.get_in_touch':['Get in Touch','Contáctenos'],
-    'page.hed':['OUR\nPRODUCT\nLINES','NUESTRAS\nLÍNEAS DE\nPRODUCTO'],
-    'page.intro':['Four proprietary series developed over six decades of foundry work. Formulations engineered for the specific demands of metal casting at temperature — not off-the-shelf chemistry.','Cuatro series propietarias desarrolladas a lo largo de seis décadas de trabajo en fundición. Formulaciones diseñadas para las demandas específicas de la fundición de metales a temperatura — no química genérica.'],
-    'prod1.badge':'[ FRANKOTE SERIES ]|[ SERIE FRANKOTE ]','prod1.name':'CERAMIC COATINGS|RECUBRIMIENTOS CERÁMICOS',
-    'prod2.badge':'[ FRANLUBE SERIES ]|[ SERIE FRANLUBE ]','prod2.name':'DIE RELEASE LUBRICANTS|LUBRICANTES DESMOLDANTES',
-    'prod3.badge':'[ FRANLUBE SHOT ]|[ FRANLUBE SHOT ]','prod3.name':'SHOT TIP LUBRICANTS|LUBRICANTES PARA PUNTAS',
-    'prod4.badge':'[ SPECIALTY LINE ]|[ LÍNEA ESPECIAL ]','prod4.name':'SPECIALTY PRODUCTS|PRODUCTOS ESPECIALES',
-    'callout.btn':['Request Technical Data','Solicitar Datos Técnicos'],
-    'footer.copy':['© 2026 LaFrance Manufacturing. All rights reserved.','© 2026 LaFrance Manufacturing. Todos los derechos reservados.'],
+    'nav.products':     ['Products','Productos'],
+    'nav.about':        ['About','Nosotros'],
+    'nav.contact':      ['Contact','Contacto'],
+    'nav.get_in_touch': ['Get in Touch','Contáctenos'],
+    'page.intro':       ['Four proprietary series developed over six decades of foundry work. Formulations engineered for the specific demands of metal casting at temperature — not off-the-shelf chemistry.','Cuatro series propietarias desarrolladas a lo largo de seis décadas de trabajo en fundición. Formulaciones diseñadas para las demandas específicas de la fundición de metales a temperatura — no química genérica.'],
+    'prod1.badge':      '[ FRANKOTE SERIES ]|[ SERIE FRANKOTE ]',
+    'prod1.name':       'CERAMIC COATINGS|RECUBRIMIENTOS CERÁMICOS',
+    'prod2.badge':      '[ FRANLUBE SERIES ]|[ SERIE FRANLUBE ]',
+    'prod2.name':       'DIE RELEASE LUBRICANTS|LUBRICANTES DESMOLDANTES',
+    'prod3.badge':      '[ FRANLUBE SHOT SERIES ]|[ SERIE FRANLUBE SHOT ]',
+    'prod3.name':       'SHOT TIP LUBRICANTS|LUBRICANTES PARA PUNTAS',
+    'prod4.badge':      '[ SPECIALTY LINE ]|[ LÍNEA ESPECIAL ]',
+    'prod4.name':       'SPECIALTY PRODUCTS|PRODUCTOS ESPECIALES',
+    'callout.btn':      ['Request Technical Data','Solicitar Datos Técnicos'],
+    'footer.nav_head':     ['Navigation','Navegación'],
+    'footer.contact_head': ['Contact','Contacto'],
+    'footer.copy':         ['© 2026 LaFrance Manufacturing. All rights reserved.','© 2026 LaFrance Manufacturing. Todos los derechos reservados.'],
   };
   const langBtn = document.getElementById('lang-toggle');
   let isSpanish = localStorage.getItem('lfLang') === 'es';
