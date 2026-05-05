@@ -481,6 +481,7 @@
               id="cf-msg"
               name="message"
               placeholder="Describe your alloy, casting process, current challenge, or what you're trying to improve. The more detail you can share, the better we can help."
+              data-i18n-ph="form.textarea_ph"
               required
             ></textarea>
           </div>
@@ -578,6 +579,7 @@
     'form.opt4':        ['Specialty Products','Productos Especiales'],
     'form.opt5':        ['General / Not Sure Yet','General / Aún No Estoy Seguro'],
     'form.msg':         ['Application Details & Message','Detalles de Aplicación y Mensaje'],
+    'form.textarea_ph': ['Describe your alloy, casting process, current challenge, or what you\'re trying to improve. The more detail you can share, the better we can help.','Describa su aleación, proceso de fundición, desafío actual o lo que intenta mejorar. Cuantos más detalles pueda compartir, mejor podremos ayudarle.'],
     // Footer
     'footer.nav_head':     ['Navigation','Navegación'],
     'footer.contact_head': ['Contact','Contacto'],
@@ -595,6 +597,11 @@
       if (!translations[key]) return;
       const val = translations[key];
       el.textContent = Array.isArray(val) ? val[es ? 1 : 0] : val.split('|')[es ? 1 : 0];
+    });
+    document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+      const key = el.getAttribute('data-i18n-ph');
+      if (!translations[key]) return;
+      el.placeholder = translations[key][es ? 1 : 0];
     });
   }
   applyLang(isSpanish);
