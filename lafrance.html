@@ -1,0 +1,1635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LaFrance Manufacturing — Specialty coatings and die release lubricants engineered for metal casting operations. Trusted by foundries for over 60 years.">
+  <title>LaFrance Manufacturing | Specialty Coatings &amp; Die Release Lubricants</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─────────────────────────────────────────
+       TOKENS
+    ───────────────────────────────────────── */
+    :root {
+      --bg:            #0d0e0f;
+      --surface:       #141618;
+      --surface-raised:#1c1f22;
+      --border:        #2a2e33;
+      --border-faint:  #1e2125;
+      --accent:        #c8922a;
+      --accent-dim:    rgba(200,146,42,0.12);
+      --accent-blue:   #8ab4c8;
+      --text-primary:  #e8e4dc;
+      --text-secondary:#8a8a82;
+      --text-muted:    #3e3e38;
+
+      --f-display: 'Bebas Neue', sans-serif;
+      --f-sub:     'Rajdhani', sans-serif;
+      --f-body:    'Source Serif 4', serif;
+      --f-mono:    'JetBrains Mono', monospace;
+
+      --w: 1320px;
+      --nav-h: 60px;
+    }
+
+    /* ─────────────────────────────────────────
+       RESET
+    ───────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: var(--f-body);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    button { cursor: pointer; border: none; background: none; font: inherit; }
+
+    /* ─────────────────────────────────────────
+       SCROLL REVEAL
+    ───────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s cubic-bezier(.22,.68,0,1.2), transform 0.7s cubic-bezier(.22,.68,0,1.2);
+    }
+    .reveal.in { opacity: 1; transform: none; }
+    .reveal.d1 { transition-delay: .08s; }
+    .reveal.d2 { transition-delay: .16s; }
+    .reveal.d3 { transition-delay: .24s; }
+    .reveal.d4 { transition-delay: .32s; }
+
+    /* ─────────────────────────────────────────
+       NAV
+    ───────────────────────────────────────── */
+    #nav {
+      position: fixed; inset: 0 0 auto;
+      z-index: 200;
+      height: var(--nav-h);
+      display: flex; align-items: center;
+      padding: 0 2.5rem;
+      background: rgba(13,14,15,0.92);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.4s;
+    }
+    #nav.scrolled { border-bottom-color: var(--accent); }
+
+    .nav-logo {
+      font-family: var(--f-sub);
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-primary);
+      margin-right: auto;
+    }
+    .nav-logo em { font-style: normal; color: var(--accent); }
+
+    .nav-links {
+      display: flex; gap: 2.5rem; align-items: center;
+    }
+    .nav-links a {
+      font-family: var(--f-sub);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text-primary); }
+    .nav-links a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+    .nav-cta {
+      margin-left: 2rem;
+      font-family: var(--f-sub);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--bg);
+      background: var(--accent);
+      padding: 0.55rem 1.25rem;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: #d9a03a; color: var(--bg); }
+
+    /* Hamburger */
+    .nav-toggle {
+      display: none; flex-direction: column; gap: 5px;
+      padding: 6px; background: none; border: none;
+    }
+    .nav-toggle span {
+      display: block; width: 22px; height: 1.5px;
+      background: var(--text-primary);
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    .nav-drawer {
+      display: none; position: fixed;
+      top: var(--nav-h); left: 0; right: 0;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2.5rem 1.5rem; z-index: 199;
+    }
+    .nav-drawer.open { display: block; }
+    .nav-drawer a {
+      display: block; padding: 0.9rem 0;
+      font-family: var(--f-sub); font-size: 1.1rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--text-secondary);
+      border-bottom: 1px solid var(--border);
+      transition: color 0.2s;
+    }
+    .nav-drawer a:last-child { border-bottom: none; }
+    .nav-drawer a:hover { color: var(--text-primary); }
+
+    /* ─────────────────────────────────────────
+       HERO
+    ───────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      padding-top: var(--nav-h);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Technical grid overlay */
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(42,46,51,0.18) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(42,46,51,0.18) 1px, transparent 1px);
+      background-size: 80px 80px;
+      pointer-events: none;
+    }
+    /* Radial vignette */
+    #hero::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 70% at 60% 50%, transparent 30%, var(--bg) 100%);
+      pointer-events: none;
+    }
+
+    /* Vertical sidebar */
+    .hero-sidebar {
+      position: relative; z-index: 2;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: space-between;
+      padding: 3rem 0;
+      border-right: 1px solid var(--border);
+    }
+    .hero-sidebar-label {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      font-family: var(--f-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .hero-sidebar-line {
+      width: 1px; height: 80px;
+      background: linear-gradient(to bottom, transparent, var(--accent));
+    }
+
+    /* Main hero content */
+    .hero-main {
+      position: relative; z-index: 2;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      padding: 4rem 3rem 0 3.5rem;
+      max-width: 1260px;
+    }
+
+    .hero-top {
+      display: grid;
+      grid-template-columns: 1fr 240px;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    /* Oversize headline with outline text */
+    .hero-hed {
+      font-family: var(--f-display);
+      font-size: clamp(5.5rem, 11.5vw, 10.5rem);
+      line-height: 0.9;
+      letter-spacing: 0.01em;
+      color: var(--text-primary);
+    }
+    .hero-hed .outline {
+      -webkit-text-stroke: 1px var(--text-primary);
+      color: transparent;
+    }
+    .hero-hed .amber { color: var(--accent); }
+
+    /* Right meta panel */
+    .hero-meta {
+      padding-top: 0.5rem;
+      border-left: 1px solid var(--border);
+      padding-left: 1.5rem;
+    }
+    .hero-meta-eyebrow {
+      font-family: var(--f-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 1.25rem;
+    }
+    .hero-meta p {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    .hero-meta-alloys {
+      font-family: var(--f-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      line-height: 2.2;
+    }
+    .hero-meta-alloys span {
+      display: block;
+      padding: 0.15rem 0;
+      border-bottom: 1px solid var(--border-faint);
+    }
+    .hero-meta-alloys span:last-child { border-bottom: none; }
+
+    /* CTA row */
+    .hero-ctas {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      padding: 2.5rem 0 0;
+    }
+
+    /* Bottom ticker bar */
+    .hero-ticker {
+      grid-column: 1 / -1;
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .ticker-cell {
+      padding: 1.5rem 2rem;
+      border-right: 1px solid var(--border);
+      display: flex; flex-direction: column; gap: 0.3rem;
+    }
+    .ticker-cell:last-child { border-right: none; }
+
+    .ticker-val {
+      font-family: var(--f-display);
+      font-size: 2.4rem;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .ticker-label {
+      font-family: var(--f-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      font-family: var(--f-sub);
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.85rem 2rem;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .btn-amber { background: var(--accent); color: var(--bg); }
+    .btn-amber:hover { background: #d9a03a; }
+    .btn-outline { border: 1px solid var(--accent-blue); color: var(--accent-blue); }
+    .btn-outline:hover { background: rgba(138,180,200,0.08); }
+    .btn-outline-amber { border: 1px solid var(--accent); color: var(--accent); }
+    .btn-outline-amber:hover { background: var(--accent-dim); }
+
+    /* ─────────────────────────────────────────
+       SECTION SCAFFOLDING
+    ───────────────────────────────────────── */
+    .w { max-width: var(--w); margin: 0 auto; padding: 0 2.5rem; }
+
+    .section-label {
+      font-family: var(--f-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .section-hed {
+      font-family: var(--f-display);
+      font-size: clamp(3rem, 5.5vw, 5.2rem);
+      letter-spacing: 0.02em;
+      line-height: 0.93;
+      color: var(--text-primary);
+    }
+
+    /* Top rule with embedded label */
+    .rule-labeled {
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 4.5rem;
+    }
+    .rule-labeled::before, .rule-labeled::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
+    }
+    .rule-labeled::before { max-width: 2rem; flex: 0 0 2rem; }
+
+    /* ─────────────────────────────────────────
+       PRODUCTS — manifest layout
+    ───────────────────────────────────────── */
+    #products {
+      padding: 7rem 0;
+      background: var(--surface);
+    }
+
+    .products-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: end;
+      margin-bottom: 5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .products-header .section-hed { line-height: 0.93; }
+    .products-header-right {
+      padding-bottom: 0.2rem;
+    }
+    .products-header-right p {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      max-width: 420px;
+      margin-left: auto;
+    }
+
+    /* Product row — full width horizontal treatment */
+    .product-row {
+      display: grid;
+      grid-template-columns: 80px 1fr 1fr;
+      gap: 0;
+      border-top: 1px solid var(--border);
+      cursor: default;
+      transition: background 0.2s;
+      position: relative;
+    }
+    .product-row::before {
+      content: '';
+      position: absolute; left: 0; top: 0; bottom: 0;
+      width: 2px;
+      background: var(--accent);
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform 0.3s cubic-bezier(.22,.68,0,1.1);
+    }
+    .product-row:hover::before { transform: scaleY(1); }
+    .product-row:hover { background: rgba(255,255,255,0.015); }
+
+    .product-row:last-child { border-bottom: 1px solid var(--border); }
+
+    .prod-index {
+      padding: 2.5rem 1rem 2.5rem 2rem;
+      font-family: var(--f-display);
+      font-size: 4.5rem;
+      line-height: 1;
+      color: var(--text-muted);
+      letter-spacing: 0.02em;
+      display: flex; align-items: flex-start;
+      border-right: 1px solid var(--border);
+      opacity: 0.4;
+    }
+
+    .prod-left {
+      padding: 2.5rem 2rem 2.5rem 2.5rem;
+      border-right: 1px solid var(--border);
+      display: flex; flex-direction: column; justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .prod-series {
+      font-family: var(--f-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      background: var(--accent-dim);
+      border: 1px solid rgba(200,146,42,0.2);
+      padding: 0.25rem 0.6rem;
+      display: inline-block;
+      margin-bottom: 0.75rem;
+    }
+
+    .prod-name {
+      font-family: var(--f-display);
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+      color: var(--text-primary);
+      flex: 1;
+    }
+
+    .prod-skus {
+      display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: auto;
+    }
+    .sku {
+      font-family: var(--f-mono);
+      font-size: 0.65rem;
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
+      padding: 0.2rem 0.5rem;
+      letter-spacing: 0.04em;
+    }
+
+    .prod-right {
+      padding: 2.5rem 2.5rem 2.5rem 2rem;
+      display: flex; flex-direction: column; justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .prod-desc {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.72;
+    }
+
+    .prod-link {
+      font-family: var(--f-sub);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      align-self: flex-start;
+      transition: gap 0.2s;
+    }
+    .prod-link::after { content: '→'; }
+    .prod-link:hover { gap: 1rem; }
+
+    /* ─────────────────────────────────────────
+       ALLOY BAND — scrolling ticker
+    ───────────────────────────────────────── */
+    .alloy-band {
+      background: var(--surface-raised);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+      padding: 0.9rem 0;
+    }
+    .alloy-track {
+      display: flex; gap: 0;
+      animation: ticker 18s linear infinite;
+      white-space: nowrap;
+    }
+    .alloy-track:hover { animation-play-state: paused; }
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .alloy-item {
+      font-family: var(--f-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 0 2.5rem;
+      border-right: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .alloy-item.accent { color: var(--accent); }
+
+    /* ─────────────────────────────────────────
+       INDUSTRIES
+    ───────────────────────────────────────── */
+    #industries {
+      padding: 7rem 0 0;
+      background: var(--bg);
+    }
+
+    .industries-top {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 0;
+      align-items: start;
+      margin-bottom: 5rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 4rem;
+    }
+
+    .industries-hed-block {
+      padding-right: 3rem;
+      border-right: 1px solid var(--border);
+      position: sticky;
+      top: calc(var(--nav-h) + 2rem);
+    }
+    .industries-hed-block .section-label { display: block; margin-bottom: 1rem; }
+
+    .industries-list {
+      padding-left: 3rem;
+    }
+
+    .industry-entry {
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .industry-entry:first-child { padding-top: 0; }
+    .industry-entry:last-child { border-bottom: none; }
+
+    .ind-name {
+      font-family: var(--f-display);
+      font-size: 2.6rem;
+      letter-spacing: 0.02em;
+      line-height: 1;
+      color: var(--text-primary);
+    }
+    .ind-num {
+      font-family: var(--f-mono);
+      font-size: 0.62rem;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+      display: block;
+      margin-bottom: 0.6rem;
+    }
+
+    .ind-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .ind-tags {
+      display: flex; flex-wrap: wrap; gap: 0.4rem;
+      margin-top: 1rem;
+    }
+    .ind-tag {
+      font-family: var(--f-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      padding: 0.2rem 0.5rem;
+    }
+
+    /* Full-bleed callout strip */
+    .callout-strip {
+      background: var(--accent);
+      padding: 3.5rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+    .callout-strip blockquote {
+      font-family: var(--f-display);
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      color: var(--bg);
+      line-height: 1.05;
+      flex: 1;
+      min-width: 240px;
+      letter-spacing: 0.02em;
+    }
+    .btn-callout {
+      font-family: var(--f-sub);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--bg);
+      border: 2px solid var(--bg);
+      padding: 0.9rem 2rem;
+      transition: background 0.2s, color 0.2s;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .btn-callout:hover { background: var(--bg); color: var(--accent); }
+
+    /* ─────────────────────────────────────────
+       ABOUT
+    ───────────────────────────────────────── */
+    #about {
+      padding: 7rem 0;
+      background: var(--surface);
+    }
+
+    .about-masthead {
+      margin-bottom: 5rem;
+      position: relative;
+    }
+
+    /* Huge decorative background numeral */
+    .about-masthead::before {
+      content: '60+';
+      position: absolute;
+      right: -0.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--f-display);
+      font-size: clamp(12rem, 22vw, 22rem);
+      line-height: 1;
+      color: var(--surface-raised);
+      pointer-events: none;
+      user-select: none;
+      letter-spacing: -0.02em;
+      z-index: 0;
+    }
+
+    .about-masthead-inner {
+      position: relative; z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: end;
+    }
+
+    .about-masthead .section-label { display: block; margin-bottom: 1.25rem; }
+
+    .about-subtext {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      padding-bottom: 0.3rem;
+    }
+
+    /* Body + spec grid */
+    .about-body-grid {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 5rem;
+      align-items: start;
+      margin-bottom: 5rem;
+    }
+
+    .about-text p {
+      font-size: 0.98rem;
+      color: var(--text-secondary);
+      line-height: 1.85;
+      margin-bottom: 1.3rem;
+    }
+    .about-text p:last-child { margin-bottom: 0; }
+
+    /* Spec sheet */
+    .spec-panel {
+      background: var(--bg);
+      border: 1px solid var(--border);
+    }
+    .spec-panel-header {
+      padding: 0.85rem 1.25rem;
+      background: var(--surface-raised);
+      border-bottom: 1px solid var(--border);
+      font-family: var(--f-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .spec-panel-header::after {
+      content: '■ ■ ■';
+      letter-spacing: 0.3em;
+      color: var(--border);
+    }
+    .spec-panel-body { padding: 0 1.25rem; }
+    .spec-row {
+      display: flex; align-items: baseline;
+      padding: 0.65rem 0;
+      border-bottom: 1px dotted var(--border);
+      gap: 0.5rem;
+    }
+    .spec-row:last-child { border-bottom: none; }
+    .spec-key {
+      font-family: var(--f-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+      min-width: 130px;
+    }
+    .spec-val {
+      font-family: var(--f-mono);
+      font-size: 0.72rem;
+      color: var(--text-primary);
+      text-align: right;
+      margin-left: auto;
+    }
+
+    /* Value pillars — horizontal list, not cards */
+    .pillars {
+      border-top: 1px solid var(--border);
+      padding-top: 4rem;
+    }
+    .pillars-label {
+      font-family: var(--f-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+    }
+    .pillars-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+    .pillar {
+      padding: 0 2.5rem;
+      border-right: 1px solid var(--border);
+    }
+    .pillar:first-child { padding-left: 0; }
+    .pillar:last-child { border-right: none; padding-right: 0; }
+
+    .pillar-title {
+      font-family: var(--f-sub);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .pillar p {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ─────────────────────────────────────────
+       CONTACT
+    ───────────────────────────────────────── */
+    #contact {
+      padding: 7rem 0;
+      background: var(--bg);
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid var(--border);
+    }
+
+    .contact-left {
+      padding: 4rem;
+      border-right: 1px solid var(--border);
+      display: flex; flex-direction: column; justify-content: space-between;
+      background: var(--surface);
+    }
+
+    .contact-hed {
+      font-family: var(--f-display);
+      font-size: clamp(2.8rem, 5vw, 5rem);
+      line-height: 0.93;
+      letter-spacing: 0.02em;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-intro {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.72;
+      margin-bottom: 3rem;
+      max-width: 380px;
+    }
+
+    .contact-direct { margin-top: auto; }
+
+    .direct-name {
+      font-family: var(--f-sub);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .direct-phone {
+      display: block;
+      font-family: var(--f-display);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      color: var(--accent);
+      line-height: 1;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.4rem;
+      transition: color 0.2s;
+    }
+    .direct-phone:hover { color: #d9a03a; }
+    .direct-email {
+      display: block;
+      font-family: var(--f-mono);
+      font-size: 0.88rem;
+      color: var(--accent);
+      transition: color 0.2s;
+    }
+    .direct-email:hover { color: #d9a03a; }
+
+    .contact-right {
+      padding: 4rem;
+      background: var(--bg);
+    }
+
+    .form-label-row {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 0.35rem;
+    }
+    .form-lbl {
+      font-family: var(--f-sub);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .form-required {
+      font-family: var(--f-mono);
+      font-size: 0.6rem;
+      color: var(--accent);
+    }
+
+    .contact-form { display: flex; flex-direction: column; gap: 1.1rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      font-family: var(--f-body);
+      font-size: 0.92rem;
+      padding: 0.75rem 1rem;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+      appearance: none;
+      resize: vertical;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none; border-color: var(--accent);
+    }
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+    .contact-form textarea { min-height: 110px; }
+
+    /* ─────────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────────── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+    }
+    .footer-main {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr;
+      gap: 3rem;
+      padding: 4rem 2.5rem 3rem;
+      max-width: var(--w);
+      margin: 0 auto;
+    }
+
+    .footer-logo {
+      font-family: var(--f-sub);
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-primary);
+      margin-bottom: 0.4rem;
+    }
+    .footer-logo em { font-style: normal; color: var(--accent); }
+    .footer-meta {
+      font-family: var(--f-mono);
+      font-size: 0.66rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      line-height: 1.8;
+    }
+
+    .footer-col-title {
+      font-family: var(--f-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .footer-nav { display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-nav a {
+      font-family: var(--f-sub);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+    .footer-nav a:hover { color: var(--text-primary); }
+
+    .footer-contact-tel {
+      display: block;
+      font-family: var(--f-mono);
+      font-size: 0.85rem;
+      color: var(--accent);
+      margin-bottom: 0.3rem;
+      transition: color 0.2s;
+    }
+    .footer-contact-tel:hover { color: #d9a03a; }
+    .footer-contact-email {
+      display: block;
+      font-family: var(--f-mono);
+      font-size: 0.78rem;
+      color: var(--accent);
+      transition: color 0.2s;
+    }
+    .footer-contact-email:hover { color: #d9a03a; }
+
+    .footer-bottom {
+      max-width: var(--w); margin: 0 auto;
+      padding: 1.1rem 2.5rem;
+      border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 1rem; flex-wrap: wrap;
+    }
+    .footer-copy, .footer-bottom a {
+      font-family: var(--f-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+    .footer-bottom a:hover { color: var(--text-secondary); }
+
+    /* ─────────────────────────────────────────
+       RESPONSIVE
+    ───────────────────────────────────────── */
+    @media (max-width: 1080px) {
+      #hero { grid-template-columns: 48px 1fr; }
+      .hero-top { grid-template-columns: 1fr; }
+      .hero-meta { display: none; }
+      .about-masthead-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+      .about-masthead::before { font-size: clamp(8rem, 18vw, 14rem); }
+      .about-body-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .products-header { grid-template-columns: 1fr; gap: 1rem; }
+      .products-header-right p { margin-left: 0; }
+    }
+
+    @media (max-width: 860px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-toggle { display: flex; }
+
+      #hero { grid-template-columns: 1fr; padding-top: var(--nav-h); }
+      .hero-sidebar { display: none; }
+      .hero-main { padding: 3rem 1.5rem 0; }
+      .hero-ticker { grid-template-columns: repeat(2, 1fr); }
+
+      .product-row { grid-template-columns: 56px 1fr; }
+      .prod-right { display: none; }
+      .prod-left { border-right: none; }
+
+      .industries-top { grid-template-columns: 1fr; }
+      .industries-hed-block { border-right: none; padding-right: 0; position: static; }
+      .industries-list { padding-left: 0; margin-top: 2.5rem; }
+      .industry-entry { grid-template-columns: 1fr; gap: 1rem; }
+
+      .contact-layout { grid-template-columns: 1fr; }
+      .contact-left { border-right: none; border-bottom: 1px solid var(--border); padding: 3rem 2rem; }
+      .contact-right { padding: 3rem 2rem; }
+
+      .pillars-list { grid-template-columns: 1fr; gap: 2.5rem; }
+      .pillar { padding: 0; border-right: none; border-bottom: 1px solid var(--border); padding-bottom: 2.5rem; }
+      .pillar:last-child { border-bottom: none; padding-bottom: 0; }
+
+      .footer-main { grid-template-columns: 1fr 1fr; }
+      .footer-main > :first-child { grid-column: 1 / -1; }
+      .callout-strip { flex-direction: column; align-items: flex-start; }
+
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 540px) {
+      .w { padding: 0 1.25rem; }
+      #hero::before { background-size: 60px 60px; }
+      .hero-hed { font-size: clamp(3.8rem, 14vw, 6rem); }
+      .hero-ticker { grid-template-columns: repeat(2, 1fr); }
+      .ticker-val { font-size: 1.8rem; }
+      .about-masthead::before { display: none; }
+      .footer-main { grid-template-columns: 1fr; padding: 3rem 1.25rem 2rem; }
+      .footer-main > :first-child { grid-column: auto; }
+      .footer-bottom { padding: 1rem 1.25rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ══════════════════════════════════════════
+     NAV
+══════════════════════════════════════════ -->
+<nav id="nav" role="navigation" aria-label="Main navigation">
+  <a href="#hero" class="nav-logo">La<em>France</em> Manufacturing</a>
+
+  <ul class="nav-links" role="list">
+    <li><a href="#products">Products</a></li>
+    <li><a href="#industries">Industries</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+
+  <a href="#contact" class="nav-cta">Contact</a>
+
+  <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-drawer">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-drawer" id="nav-drawer" aria-hidden="true">
+  <a href="#products">Products</a>
+  <a href="#industries">Industries</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+<section id="hero" aria-labelledby="hero-hed">
+
+  <!-- Vertical sidebar -->
+  <div class="hero-sidebar" aria-hidden="true">
+    <span class="hero-sidebar-label">EST. 1960S — ST. LOUIS</span>
+    <span class="hero-sidebar-line"></span>
+  </div>
+
+  <!-- Main content -->
+  <div style="display: grid; grid-template-rows: 1fr auto; overflow: hidden;">
+    <div class="hero-main">
+
+      <div class="hero-top">
+
+        <div>
+          <h1 class="hero-hed reveal" id="hero-hed">
+            FORMULATED<br>
+            FOR THE<br>
+            <span class="outline">HARDEST</span><br>
+            <span class="amber">WORK</span>
+          </h1>
+        </div>
+
+        <aside class="hero-meta reveal d1">
+          <span class="hero-meta-eyebrow">// Specialty Casting Chemistry</span>
+          <p>Coatings and die release agents engineered for metal casting operations. Trusted by foundries for over 60 years.</p>
+          <div class="hero-meta-alloys" aria-label="Metals served">
+            <span>ALUMINUM (AL)</span>
+            <span>BRASS (BR)</span>
+            <span>COPPER (CU)</span>
+            <span>MAGNESIUM (MG)</span>
+            <span>ZINC (ZN)</span>
+          </div>
+        </aside>
+
+      </div>
+
+      <div class="hero-ctas reveal d2">
+        <a href="#products" class="btn btn-amber">Explore Products</a>
+        <a href="#contact" class="btn btn-outline">Contact an Expert</a>
+      </div>
+
+    </div>
+
+    <!-- Ticker bar pinned to bottom of hero -->
+    <div class="hero-ticker reveal d3" role="list">
+      <div class="ticker-cell" role="listitem">
+        <span class="ticker-val">60+</span>
+        <span class="ticker-label">Years in Industry</span>
+      </div>
+      <div class="ticker-cell" role="listitem">
+        <span class="ticker-val">5</span>
+        <span class="ticker-label">Alloy Families</span>
+      </div>
+      <div class="ticker-cell" role="listitem">
+        <span class="ticker-val">WW</span>
+        <span class="ticker-label">Worldwide Shipping</span>
+      </div>
+      <div class="ticker-cell" role="listitem">
+        <span class="ticker-val">4</span>
+        <span class="ticker-label">Core Product Lines</span>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     ALLOY BAND
+══════════════════════════════════════════ -->
+<div class="alloy-band" aria-hidden="true">
+  <div class="alloy-track">
+    <!-- Duplicated for seamless loop -->
+    <span class="alloy-item accent">Aluminum Die Casting</span>
+    <span class="alloy-item">AL</span>
+    <span class="alloy-item accent">Magnesium Die Casting</span>
+    <span class="alloy-item">MG</span>
+    <span class="alloy-item accent">Zinc Alloy Casting</span>
+    <span class="alloy-item">ZN</span>
+    <span class="alloy-item accent">Brass &amp; Copper Refining</span>
+    <span class="alloy-item">BR / CU</span>
+    <span class="alloy-item accent">Ceramic Coatings</span>
+    <span class="alloy-item">Die Release</span>
+    <span class="alloy-item accent">Shot Tip Lubrication</span>
+    <span class="alloy-item">Frankote Series</span>
+    <span class="alloy-item accent">Franlube Series</span>
+    <span class="alloy-item">St. Louis, MO</span>
+    <!-- duplicate -->
+    <span class="alloy-item accent">Aluminum Die Casting</span>
+    <span class="alloy-item">AL</span>
+    <span class="alloy-item accent">Magnesium Die Casting</span>
+    <span class="alloy-item">MG</span>
+    <span class="alloy-item accent">Zinc Alloy Casting</span>
+    <span class="alloy-item">ZN</span>
+    <span class="alloy-item accent">Brass &amp; Copper Refining</span>
+    <span class="alloy-item">BR / CU</span>
+    <span class="alloy-item accent">Ceramic Coatings</span>
+    <span class="alloy-item">Die Release</span>
+    <span class="alloy-item accent">Shot Tip Lubrication</span>
+    <span class="alloy-item">Frankote Series</span>
+    <span class="alloy-item accent">Franlube Series</span>
+    <span class="alloy-item">St. Louis, MO</span>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     PRODUCTS
+══════════════════════════════════════════ -->
+<section id="products" aria-labelledby="products-hed">
+  <div class="w">
+
+    <div class="products-header reveal">
+      <div>
+        <span class="section-label" style="display:block; margin-bottom:1rem;">What We Make</span>
+        <h2 class="section-hed" id="products-hed">OUR<br>PRODUCT<br>LINES</h2>
+      </div>
+      <div class="products-header-right">
+        <p>Four proprietary series developed and refined over six decades of foundry work. Not commodity chemistry — formulations engineered for the specific demands of metal casting at temperature.</p>
+      </div>
+    </div>
+
+    <!-- Product Row 1 -->
+    <div class="product-row reveal">
+      <div class="prod-index" aria-hidden="true">01</div>
+      <div class="prod-left">
+        <div>
+          <span class="prod-series">[ FRANKOTE SERIES ]</span>
+          <h3 class="prod-name">CERAMIC COATINGS</h3>
+        </div>
+        <div class="prod-skus" aria-label="Product codes">
+          <span class="sku">PMC-100/N</span>
+          <span class="sku">PMC-DRY</span>
+          <span class="sku">BN400</span>
+          <span class="sku">BN400-DRY</span>
+          <span class="sku">#116</span>
+          <span class="sku">8449</span>
+        </div>
+      </div>
+      <div class="prod-right">
+        <p class="prod-desc">
+          Ceramic-based protective coatings — both liquid and dry — engineered to prevent molten metal adhesion on ladles, thermocouple tubes, runners, and ferrous surfaces. Water-based formulations with controlled additives ensure smooth application. Dry variants ship water-blended at the customer site for cold-weather convenience.
+        </p>
+        <a href="#contact" class="prod-link">Request spec sheet</a>
+      </div>
+    </div>
+
+    <!-- Product Row 2 -->
+    <div class="product-row reveal d1">
+      <div class="prod-index" aria-hidden="true">02</div>
+      <div class="prod-left">
+        <div>
+          <span class="prod-series">[ FRANLUBE SERIES ]</span>
+          <h3 class="prod-name">DIE RELEASE LUBRICANTS</h3>
+        </div>
+        <div class="prod-skus">
+          <span class="sku" style="border-style:dashed; color: var(--text-muted);">Contact for full product selector</span>
+        </div>
+      </div>
+      <div class="prod-right">
+        <p class="prod-desc">
+          A diversified line of water-extendable die release lubricants for casting aluminum, magnesium, and zinc alloys. Covers single-cavity to multi-cavity dies, high-temperature applications, and cosmetic finish requirements. The newest additions feature ceramic-based formulations for exotic aluminum alloys and high-heat producing dies.
+        </p>
+        <a href="#contact" class="prod-link">Request product selector</a>
+      </div>
+    </div>
+
+    <!-- Product Row 3 -->
+    <div class="product-row reveal d2">
+      <div class="prod-index" aria-hidden="true">03</div>
+      <div class="prod-left">
+        <div>
+          <span class="prod-series">[ FRANLUBE SHOT SERIES ]</span>
+          <h3 class="prod-name">SHOT TIP LUBRICANTS</h3>
+        </div>
+        <div class="prod-skus">
+          <span class="sku">#1024</span>
+          <span class="sku">LG-1015</span>
+        </div>
+      </div>
+      <div class="prod-right">
+        <p class="prod-desc">
+          Dry, oil-based, and water-cleanable shot tip lubricants designed to enhance lubrication through the metal injection process while extending tip life. Ceramic-based dry formulations significantly reduce fire and smoke at the shot end — a meaningful improvement for operators and air quality.
+        </p>
+        <a href="#contact" class="prod-link">Request spec sheet</a>
+      </div>
+    </div>
+
+    <!-- Product Row 4 -->
+    <div class="product-row reveal d3">
+      <div class="prod-index" aria-hidden="true">04</div>
+      <div class="prod-left">
+        <div>
+          <span class="prod-series">[ SPECIALTY LINE ]</span>
+          <h3 class="prod-name">SPECIALTY PRODUCTS</h3>
+        </div>
+        <div class="prod-skus">
+          <span class="sku">ASW-80</span>
+          <span class="sku">#38</span>
+          <span class="sku">KAB 124</span>
+        </div>
+      </div>
+      <div class="prod-right">
+        <p class="prod-desc">
+          Purpose-built compounds for the specific challenges of die casting operations — from removing metal deposits on die cavity surfaces to high-temperature ejector pin protection. Includes flux blended for efficient cleaning and reduced refractory erosion.
+        </p>
+        <a href="#contact" class="prod-link">Request spec sheet</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     INDUSTRIES
+══════════════════════════════════════════ -->
+<section id="industries" aria-labelledby="industries-hed">
+  <div class="w">
+
+    <div class="industries-top">
+
+      <div class="industries-hed-block reveal">
+        <span class="section-label">Where We Work</span>
+        <h2 class="section-hed" id="industries-hed">BUILT<br>FOR YOUR<br>OPERATION</h2>
+      </div>
+
+      <div class="industries-list">
+
+        <div class="industry-entry reveal">
+          <div>
+            <span class="ind-num">01 /</span>
+            <h3 class="ind-name">DIE CASTING</h3>
+          </div>
+          <div>
+            <p class="ind-desc">High-pressure aluminum, magnesium, and zinc die casting. Single and multi-cavity dies. Cosmetic and structural components. The Franlube series covers the full range from standard release to ceramic-based formulations for exotic alloys and high-heat producing dies.</p>
+            <div class="ind-tags">
+              <span class="ind-tag">Aluminum</span>
+              <span class="ind-tag">Magnesium</span>
+              <span class="ind-tag">Zinc</span>
+              <span class="ind-tag">HPDC</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="industry-entry reveal d1">
+          <div>
+            <span class="ind-num">02 /</span>
+            <h3 class="ind-name">METAL REFINING</h3>
+          </div>
+          <div>
+            <p class="ind-desc">Ladle, runner, and furnace protection for aluminum, brass, copper, and zinc refining operations. The Frankote ceramic coating series delivers durable non-wetting surfaces that withstand sustained high-temperature contact with molten metal.</p>
+            <div class="ind-tags">
+              <span class="ind-tag">Aluminum</span>
+              <span class="ind-tag">Brass</span>
+              <span class="ind-tag">Copper</span>
+              <span class="ind-tag">Zinc</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="industry-entry reveal d2">
+          <div>
+            <span class="ind-num">03 /</span>
+            <h3 class="ind-name">FOUNDRY OPERATIONS</h3>
+          </div>
+          <div>
+            <p class="ind-desc">Shot tip lubrication, anti-solder wax, ejector pin compounds, and flux for complete casting cell support. From the shot end to the die cavity, we cover the full scope of consumable chemistry your operation requires.</p>
+            <div class="ind-tags">
+              <span class="ind-tag">Shot Tip</span>
+              <span class="ind-tag">Ejector Pin</span>
+              <span class="ind-tag">Flux</span>
+              <span class="ind-tag">Anti-Solder</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Full-bleed callout — outside the .w wrapper intentionally -->
+  <div class="callout-strip reveal">
+    <blockquote>Whatever alloy you're casting — we have the right formula.</blockquote>
+    <a href="#contact" class="btn-callout">Talk to an Expert</a>
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     ABOUT
+══════════════════════════════════════════ -->
+<section id="about" aria-labelledby="about-hed">
+  <div class="w">
+
+    <div class="about-masthead">
+      <div class="about-masthead-inner">
+        <div class="reveal">
+          <span class="section-label" style="display:block; margin-bottom:1.25rem;">Our Advantage</span>
+          <h2 class="section-hed" id="about-hed">60 YEARS<br>OF RIGHT<br>CHEMISTRY</h2>
+        </div>
+        <p class="about-subtext reveal d1">
+          LaFrance Manufacturing has been formulating specialty products for metal casting operations since the 1960s. We built our business on a simple premise: the right chemistry, the right people, and the right systems for the job.
+        </p>
+      </div>
+    </div>
+
+    <div class="about-body-grid">
+
+      <div class="about-text reveal">
+        <p>We were early pioneers in water-extendable synthetic lubricants — developing our first commercially viable water-based formulations during the oil crisis of the late 1970s when the industry had to evolve. Our Frankote ceramic coating series brought non-wetting, high-temperature protection to ladles and furnace surfaces at a time when alternatives fell short.</p>
+        <p>Today, our formulations serve aluminum, brass, copper, magnesium, and zinc operations across the globe. We ship worldwide and work directly with your team to identify the right product for your specific alloy, die geometry, and production conditions.</p>
+        <p>When a new casting challenge comes in, our answer is chemistry — not a search through a distributor's catalog. That distinction is why foundry engineers have been calling us directly for six decades.</p>
+      </div>
+
+      <div class="spec-panel reveal d1" role="complementary" aria-label="Company profile">
+        <div class="spec-panel-header">COMPANY PROFILE</div>
+        <div class="spec-panel-body">
+          <div class="spec-row">
+            <span class="spec-key">FOUNDED</span>
+            <span class="spec-val">1960s</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-key">HEADQUARTERS</span>
+            <span class="spec-val">St. Louis, MO</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-key">DISTRIBUTION</span>
+            <span class="spec-val">Worldwide</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-key">METALS SERVED</span>
+            <span class="spec-val">AL / BR / CU / MG / ZN</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-key">PRODUCT LINES</span>
+            <span class="spec-val">4 Core Series</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-key">FORMULATION</span>
+            <span class="spec-val">Proprietary</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-key">CHEMISTRY</span>
+            <span class="spec-val">Water-based &amp; Ceramic</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Pillars -->
+    <div class="pillars reveal">
+      <p class="pillars-label">// Core Differentiators</p>
+      <div class="pillars-list">
+        <div class="pillar">
+          <p class="pillar-title">Proprietary Formulations</p>
+          <p>Our product series are developed and refined in-house. Not commodity chemistry — formulations that address the specific casting chemistries and process conditions that off-the-shelf products don't reach.</p>
+        </div>
+        <div class="pillar">
+          <p class="pillar-title">Technical Partnership</p>
+          <p>We work directly with your engineering and production teams to match the right product to your process. That means understanding your alloy, your die geometry, your cycle times, and your finish requirements before we recommend anything.</p>
+        </div>
+        <div class="pillar">
+          <p class="pillar-title">Environmental Leadership</p>
+          <p>Pioneers in water-based, low-VOC formulations since the 1970s — long before it was an industry talking point. Committed to sustainable product development because it was the right direction for the chemistry.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     CONTACT
+══════════════════════════════════════════ -->
+<section id="contact" aria-labelledby="contact-hed">
+  <div class="w">
+
+    <div style="margin-bottom: 3.5rem;" class="reveal">
+      <span class="section-label" style="display:block; margin-bottom:1rem;">Get in Touch</span>
+    </div>
+
+    <div class="contact-layout reveal d1">
+
+      <div class="contact-left">
+        <div>
+          <h2 class="contact-hed" id="contact-hed">TALK TO<br>AN EXPERT</h2>
+          <p class="contact-intro">
+            The right product starts with the right conversation. Reach Mark directly for product recommendations, technical questions, or to discuss your casting operation's specific requirements.
+          </p>
+        </div>
+        <div class="contact-direct">
+          <p class="direct-name">Mark — LaFrance Manufacturing</p>
+          <a href="tel:+13142982662" class="direct-phone">(314) 298-2662</a>
+          <a href="mailto:mark@lafrancemfg.com" class="direct-email">mark@lafrancemfg.com</a>
+        </div>
+      </div>
+
+      <div class="contact-right">
+        <form
+          class="contact-form"
+          action="mailto:mark@lafrancemfg.com"
+          method="post"
+          enctype="text/plain"
+          aria-label="Contact form"
+        >
+          <div class="form-row">
+            <div>
+              <div class="form-label-row">
+                <label class="form-lbl" for="cf-name">Name</label>
+                <span class="form-required">required</span>
+              </div>
+              <input type="text" id="cf-name" name="name" placeholder="Full name" autocomplete="name" required>
+            </div>
+            <div>
+              <div class="form-label-row">
+                <label class="form-lbl" for="cf-company">Company</label>
+              </div>
+              <input type="text" id="cf-company" name="company" placeholder="Facility or company" autocomplete="organization">
+            </div>
+          </div>
+
+          <div>
+            <div class="form-label-row">
+              <label class="form-lbl" for="cf-phone">Phone</label>
+            </div>
+            <input type="tel" id="cf-phone" name="phone" placeholder="Direct number" autocomplete="tel">
+          </div>
+
+          <div>
+            <div class="form-label-row">
+              <label class="form-lbl" for="cf-msg">Application Details &amp; Message</label>
+              <span class="form-required">required</span>
+            </div>
+            <textarea id="cf-msg" name="message" placeholder="Describe your alloy, casting process, or specific challenge — the more detail, the better we can help." required></textarea>
+          </div>
+
+          <div>
+            <button type="submit" class="btn btn-amber">Send Message</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<footer role="contentinfo">
+  <div class="footer-main">
+    <div>
+      <p class="footer-logo">La<em>France</em> Manufacturing</p>
+      <p class="footer-meta">
+        St. Louis, MO<br>
+        Worldwide Shipping<br>
+        Specialty Chemistry Since the 1960s
+      </p>
+    </div>
+    <div>
+      <p class="footer-col-title">Navigation</p>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="#products">Products</a>
+        <a href="#industries">Industries</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+    <div>
+      <p class="footer-col-title">Contact</p>
+      <a href="tel:+13142982662" class="footer-contact-tel">(314) 298-2662</a>
+      <a href="mailto:mark@lafrancemfg.com" class="footer-contact-email">mark@lafrancemfg.com</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">&copy; 2025 LaFrance Manufacturing. All rights reserved.</p>
+    <a href="privacy-policy.html">Privacy Policy</a>
+  </div>
+</footer>
+
+
+<script>
+  // ── Nav scroll state ───────────────────────────────────
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  // ── Mobile nav ────────────────────────────────────────
+  const toggle = document.getElementById('nav-toggle');
+  const drawer = document.getElementById('nav-drawer');
+
+  toggle.addEventListener('click', () => {
+    const open = drawer.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(open));
+    drawer.setAttribute('aria-hidden', String(!open));
+  });
+
+  drawer.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      drawer.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      drawer.setAttribute('aria-hidden', 'true');
+    });
+  });
+
+  document.addEventListener('click', e => {
+    if (!nav.contains(e.target) && !drawer.contains(e.target)) {
+      drawer.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      drawer.setAttribute('aria-hidden', 'true');
+    }
+  });
+
+  // ── Scroll reveal ─────────────────────────────────────
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        revealObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -32px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  // ── Smooth scroll with nav offset ────────────────────
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        window.scrollTo({
+          top: target.getBoundingClientRect().top + window.scrollY - 68,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

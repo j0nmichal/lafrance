@@ -687,7 +687,7 @@
 
   // Apply saved preference on load (default = dark)
   const saved = localStorage.getItem('lfTheme');
-  applyTheme(saved === 'light');
+  applyTheme(saved !== 'dark');
 
   themeBtn.addEventListener('click', () => {
     const goingLight = !html.classList.contains('light');

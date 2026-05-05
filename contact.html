@@ -493,7 +493,7 @@
     iconSun.style.display  = isLight ? 'none'  : 'block';
     iconMoon.style.display = isLight ? 'block' : 'none';
   }
-  applyTheme(localStorage.getItem('lfTheme') === 'light');
+  applyTheme(localStorage.getItem('lfTheme') !== 'dark');
   themeBtn.addEventListener('click', () => {
     const goingLight = !html.classList.contains('light');
     applyTheme(goingLight);
