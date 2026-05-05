@@ -434,14 +434,16 @@
     @media (max-width: 860px) {
       .hero-content { grid-template-columns: 1fr; }
       .hero-sidebar { display: none; }
-      .hero-main { padding: 1.5rem 1.5rem 2.5rem; }
-      .hero-text-over { padding: 2.5rem 1.5rem 2rem; }
+      .hero-main { padding: 0; }
+      .hero-text-over { padding: 2rem 1.5rem 1.75rem; }
       .hero-hed { font-size: clamp(3.5rem, 12vw, 6rem); }
       .hero-stats { grid-template-columns: repeat(2, 1fr); }
       .about-grid { grid-template-columns: 1fr; gap: 3rem; }
       .teaser-header { flex-direction: column; align-items: flex-start; }
     }
     @media (max-width: 540px) {
+      .hero { min-height: 0; }
+      .hero-img-block { min-height: 520px; }
       .hero-stats { grid-template-columns: repeat(2, 1fr); }
       .stat { padding: 1.25rem 1.5rem; }
       .stat-val { font-size: 2.2rem; }
