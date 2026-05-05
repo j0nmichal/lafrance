@@ -421,11 +421,11 @@
         <div class="cl-prompt">
           <span class="cl-section-label" data-i18n="contact.helpful_label">// Helpful to include in your message</span>
           <div class="cl-prompt-list">
-            <span class="cl-prompt-item">Alloy and casting process type</span>
-            <span class="cl-prompt-item">Current product or challenge</span>
-            <span class="cl-prompt-item">Die geometry or production volume</span>
-            <span class="cl-prompt-item">Finish requirements if applicable</span>
-            <span class="cl-prompt-item">Geographic location / shipping destination</span>
+            <span class="cl-prompt-item" data-i18n="prompt.item1">Alloy and casting process type</span>
+            <span class="cl-prompt-item" data-i18n="prompt.item2">Current product or challenge</span>
+            <span class="cl-prompt-item" data-i18n="prompt.item3">Die geometry or production volume</span>
+            <span class="cl-prompt-item" data-i18n="prompt.item4">Finish requirements if applicable</span>
+            <span class="cl-prompt-item" data-i18n="prompt.item5">Geographic location / shipping destination</span>
           </div>
         </div>
 
@@ -443,40 +443,40 @@
         >
           <div class="form-row-2">
             <div class="fg">
-              <label for="cf-name">Name <span>required</span></label>
+              <label for="cf-name" data-i18n="form.name">Name <span>*</span></label>
               <input type="text" id="cf-name" name="name" placeholder="Full name" autocomplete="name" required>
             </div>
             <div class="fg">
-              <label for="cf-company">Company</label>
+              <label for="cf-company" data-i18n="form.company">Company</label>
               <input type="text" id="cf-company" name="company" placeholder="Facility or company name" autocomplete="organization">
             </div>
           </div>
 
           <div class="form-row-2">
             <div class="fg">
-              <label for="cf-phone">Phone</label>
+              <label for="cf-phone" data-i18n="form.phone">Phone</label>
               <input type="tel" id="cf-phone" name="phone" placeholder="Direct number" autocomplete="tel">
             </div>
             <div class="fg">
-              <label for="cf-email">Email</label>
+              <label for="cf-email" data-i18n="form.email">Email</label>
               <input type="email" id="cf-email" name="email" placeholder="Work email" autocomplete="email">
             </div>
           </div>
 
           <div class="fg">
-            <label for="cf-interest">Area of Interest</label>
+            <label for="cf-interest" data-i18n="form.interest">Area of Interest</label>
             <select id="cf-interest" name="interest">
-              <option value="" disabled selected>Select a product line...</option>
-              <option value="ceramic">Ceramic Coatings (Frankote Series)</option>
-              <option value="die-release">Die Release Lubricants (Franlube Series)</option>
-              <option value="shot-tip">Shot Tip Lubricants (Franlube Shot)</option>
-              <option value="specialty">Specialty Products</option>
-              <option value="general">General / Not Sure Yet</option>
+              <option value="" disabled selected data-i18n="form.opt_default">Select a product line...</option>
+              <option value="ceramic" data-i18n="form.opt1">Ceramic Coatings (Frankote Series)</option>
+              <option value="die-release" data-i18n="form.opt2">Die Release Lubricants (Franlube Series)</option>
+              <option value="shot-tip" data-i18n="form.opt3">Shot Tip Lubricants (Franlube Shot)</option>
+              <option value="specialty" data-i18n="form.opt4">Specialty Products</option>
+              <option value="general" data-i18n="form.opt5">General / Not Sure Yet</option>
             </select>
           </div>
 
           <div class="fg">
-            <label for="cf-msg">Application Details &amp; Message <span>required</span></label>
+            <label for="cf-msg" data-i18n="form.msg">Application Details &amp; Message <span>*</span></label>
             <textarea
               id="cf-msg"
               name="message"
@@ -559,6 +559,25 @@
     'contact.form_label':     ['// Send a Message','// Enviar un Mensaje'],
     'contact.send_btn':       ['Send Message','Enviar Mensaje'],
     'contact.form_note':      ['Submits via your default email client','Se envía a través de su cliente de correo predeterminado'],
+    // Prompt items
+    'prompt.item1': ['Alloy and casting process type','Tipo de aleación y proceso de fundición'],
+    'prompt.item2': ['Current product or challenge','Producto actual o desafío'],
+    'prompt.item3': ['Die geometry or production volume','Geometría del molde o volumen de producción'],
+    'prompt.item4': ['Finish requirements if applicable','Requisitos de acabado si aplica'],
+    'prompt.item5': ['Geographic location / shipping destination','Ubicación geográfica / destino de envío'],
+    // Form labels
+    'form.name':        ['Name','Nombre'],
+    'form.company':     ['Company','Empresa'],
+    'form.phone':       ['Phone','Teléfono'],
+    'form.email':       ['Email','Correo Electrónico'],
+    'form.interest':    ['Area of Interest','Área de Interés'],
+    'form.opt_default': ['Select a product line...','Seleccionar una línea de producto...'],
+    'form.opt1':        ['Ceramic Coatings (Frankote Series)','Recubrimientos Cerámicos (Serie Frankote)'],
+    'form.opt2':        ['Die Release Lubricants (Franlube Series)','Lubricantes Desmoldantes (Serie Franlube)'],
+    'form.opt3':        ['Shot Tip Lubricants (Franlube Shot)','Lubricantes para Puntas (Franlube Shot)'],
+    'form.opt4':        ['Specialty Products','Productos Especiales'],
+    'form.opt5':        ['General / Not Sure Yet','General / Aún No Estoy Seguro'],
+    'form.msg':         ['Application Details & Message','Detalles de Aplicación y Mensaje'],
     // Footer
     'footer.nav_head':     ['Navigation','Navegación'],
     'footer.contact_head': ['Contact','Contacto'],
