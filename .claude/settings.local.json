@@ -5,7 +5,9 @@
       "Bash(git --version)",
       "Bash(ssh-keyscan github.com)",
       "Bash(ssh -T git@github.com)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(git add *)",
+      "Bash(git commit *)"
     ]
   }
 }

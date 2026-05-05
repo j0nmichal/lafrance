@@ -79,11 +79,11 @@
       background: linear-gradient(to bottom, transparent, var(--accent));
     }
 
-    /* Center column: stacked image frame + CTAs */
+    /* Center column: full-bleed image frame */
     .hero-main {
       display: flex;
       flex-direction: column;
-      padding: 2.5rem 2.5rem 3rem 3rem;
+      padding: 0;
       gap: 0;
     }
 
@@ -171,12 +171,12 @@
       margin-bottom: 2.5rem;
     }
 
-    /* CTAs sit below the image frame on the dark background */
+    /* CTAs sit inside the image frame at the bottom */
     .hero-ctas {
       display: flex;
       gap: 0.9rem;
       flex-wrap: wrap;
-      padding-top: 2.5rem;
+      margin-top: 2.5rem;
     }
 
     /* Right aside */
@@ -398,12 +398,13 @@
 <!-- ── Nav ──────────────────────────────────────────────────── -->
 <nav id="nav" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo">La<strong>France</strong> Manufacturing</a>
+    <a href="index.html" class="nav-logo"><strong>LAFRANCE</strong> Manufacturing</a>
     <ul class="nav-links" role="list">
-      <li><a href="products.html">Products</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="products.html" data-i18n="nav.products">Products</a></li>
+      <li><a href="about.html" data-i18n="nav.about">About</a></li>
+      <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
     </ul>
+    <button id="lang-toggle" aria-label="Toggle language">ESP</button>
     <button id="theme-toggle" aria-label="Toggle light/dark mode">
       <!-- Sun icon (shown in dark mode → click to go light) -->
       <svg id="icon-sun" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
@@ -417,7 +418,7 @@
         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
       </svg>
     </button>
-    <a href="contact.html" class="nav-contact-btn">Get in Touch</a>
+    <a href="contact.html" class="nav-contact-btn" data-i18n="nav.get_in_touch">Get in Touch</a>
     <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
       <span></span><span></span><span></span>
     </button>
@@ -442,30 +443,28 @@
 
     <div class="hero-main">
 
-      <!-- Image frame — headline lives inside this -->
+      <!-- Image frame — headline + CTAs live inside this -->
       <div class="hero-img-block">
         <div class="hero-text-over">
-          <p class="hero-eyebrow reveal">Specialty Chemistry for Metal Casting</p>
+          <p class="hero-eyebrow reveal" data-i18n="hero.eyebrow">Specialty Chemistry for Metal Casting</p>
           <h1 class="hero-hed reveal d1" id="hero-hed">
-            FORMULATED<br>
+            <span data-i18n="hero.line1">FORMULATED</span><br>
             <span class="stroke">TO</span><br>
-            <span class="amber">WORK</span>
+            <span class="amber" data-i18n="hero.line3">WORK</span>
           </h1>
+          <div class="hero-ctas reveal d2">
+            <a href="products.html" class="btn btn-amber" data-i18n="nav.explore">Explore Products</a>
+            <a href="contact.html" class="btn btn-ghost" data-i18n="nav.contact_expert">Contact an Expert</a>
+          </div>
         </div>
-      </div>
-
-      <!-- CTAs sit below the image on the dark background -->
-      <div class="hero-ctas reveal d2">
-        <a href="products.html" class="btn btn-amber">Explore Products</a>
-        <a href="contact.html" class="btn btn-ghost">Contact an Expert</a>
       </div>
 
     </div>
 
     <aside class="hero-aside reveal d2">
       <div>
-        <span class="hero-aside-label">// Casting Chemistry</span>
-        <p>Coatings and die release agents engineered for metal casting operations. Trusted by foundries for over 60 years.</p>
+        <span class="hero-aside-label" data-i18n="aside.label">// Casting Chemistry</span>
+        <p data-i18n="aside.body">Coatings and die release agents engineered for metal casting operations. Trusted by foundries for over 60 years.</p>
       </div>
       <div class="hero-aside-metals" aria-label="Metals served">
         <span><strong>ALUMINUM</strong> — AL</span>
@@ -481,19 +480,19 @@
   <div class="hero-stats reveal d3" role="list">
     <div class="stat" role="listitem">
       <span class="stat-val">60+</span>
-      <span class="stat-lbl">Years in Industry</span>
+      <span class="stat-lbl" data-i18n="stat.years">Years in Industry</span>
     </div>
     <div class="stat" role="listitem">
       <span class="stat-val">5</span>
-      <span class="stat-lbl">Alloy Families</span>
+      <span class="stat-lbl" data-i18n="stat.alloys">Alloy Families</span>
     </div>
     <div class="stat" role="listitem">
       <span class="stat-val">WW</span>
-      <span class="stat-lbl">Worldwide Shipping</span>
+      <span class="stat-lbl" data-i18n="stat.shipping">Worldwide Shipping</span>
     </div>
     <div class="stat" role="listitem">
       <span class="stat-val">4</span>
-      <span class="stat-lbl">Core Product Lines</span>
+      <span class="stat-lbl" data-i18n="stat.lines">Core Product Lines</span>
     </div>
   </div>
 
@@ -523,10 +522,10 @@
 
     <div class="teaser-header reveal">
       <div>
-        <span class="label">What We Make</span>
-        <h2 class="hed hed-lg" id="prod-teaser-hed">OUR PRODUCT LINES</h2>
+        <span class="label" data-i18n="prod.what_we_make">What We Make</span>
+        <h2 class="hed hed-lg" id="prod-teaser-hed" data-i18n="prod.our_lines">OUR PRODUCT LINES</h2>
       </div>
-      <a href="products.html" class="teaser-see-all">View All Products</a>
+      <a href="products.html" class="teaser-see-all" data-i18n="prod.view_all">View All Products</a>
     </div>
 
     <div class="product-rows">
@@ -604,12 +603,12 @@
     <div class="about-grid">
 
       <div>
-        <span class="label reveal">Our Advantage</span>
+        <span class="label reveal" data-i18n="about.label">Our Advantage</span>
         <h2 class="hed hed-lg reveal d1" id="about-teaser-hed" style="margin-top:1rem;">60 YEARS OF<br>RIGHT CHEMISTRY</h2>
         <div class="about-body reveal d2">
-          <p>LaFrance Manufacturing has been formulating specialty products for metal casting operations since the 1960s. We were early pioneers in water-extendable synthetic lubricants — developing commercially viable water-based formulations during the oil crisis of the 1970s when the industry had to evolve.</p>
-          <p>Today, our formulations serve operations across the globe. We work directly with your team to identify the right product for your specific alloy, die geometry, and production conditions.</p>
-          <a href="about.html" class="about-link">Our full story</a>
+          <p data-i18n="about.p1">LaFrance Manufacturing has been formulating specialty products for metal casting operations since the 1960s. We were early pioneers in water-extendable synthetic lubricants — developing commercially viable water-based formulations during the oil crisis of the 1970s when the industry had to evolve.</p>
+          <p data-i18n="about.p2">Today, our formulations serve operations across the globe. We work directly with your team to identify the right product for your specific alloy, die geometry, and production conditions.</p>
+          <a href="about.html" class="about-link" data-i18n="about.link">Our full story</a>
         </div>
       </div>
 
@@ -633,8 +632,8 @@
 
 <!-- ── Callout ───────────────────────────────────────────────── -->
 <div class="callout-strip reveal">
-  <blockquote>Whatever alloy you're casting — we have the right formula.</blockquote>
-  <a href="contact.html" class="btn btn-invert">Talk to an Expert</a>
+  <blockquote data-i18n="callout.quote">Whatever alloy you're casting — we have the right formula.</blockquote>
+  <a href="contact.html" class="btn btn-invert" data-i18n="callout.btn">Talk to an Expert</a>
 </div>
 
 
@@ -642,7 +641,7 @@
 <footer role="contentinfo">
   <div class="footer-body">
     <div>
-      <p class="footer-logo">La<strong>France</strong> Manufacturing</p>
+      <p class="footer-logo"><strong>LAFRANCE</strong> Manufacturing</p>
       <p class="footer-tagline">St. Louis, MO · Worldwide Shipping<br>Specialty Chemistry Since the 1960s</p>
     </div>
     <div>
@@ -666,6 +665,63 @@
 </footer>
 
 <script>
+  // ── Language toggle ──────────────────────────────────────────
+  const translations = {
+    // Nav
+    'nav.products':       ['Products',        'Productos'],
+    'nav.about':          ['About',           'Nosotros'],
+    'nav.contact':        ['Contact',         'Contacto'],
+    'nav.get_in_touch':   ['Get in Touch',    'Contáctenos'],
+    'nav.explore':        ['Explore Products','Ver Productos'],
+    'nav.contact_expert': ['Contact an Expert','Hablar con un Experto'],
+    // Hero
+    'hero.eyebrow':       ['Specialty Chemistry for Metal Casting', 'Química Especializada para Fundición de Metales'],
+    'hero.line1':         ['FORMULATED',      'FORMULADO'],
+    'hero.line3':         ['WORK',            'FUNCIONAR'],
+    // Aside
+    'aside.label':        ['// Casting Chemistry', '// Química de Fundición'],
+    'aside.body':         ['Coatings and die release agents engineered for metal casting operations. Trusted by foundries for over 60 years.', 'Recubrimientos y agentes desmoldantes diseñados para operaciones de fundición de metales. De confianza en fundiciones por más de 60 años.'],
+    // Stats
+    'stat.years':         ['Years in Industry',   'Años en la Industria'],
+    'stat.alloys':        ['Alloy Families',       'Familias de Aleación'],
+    'stat.shipping':      ['Worldwide Shipping',   'Envíos Mundiales'],
+    'stat.lines':         ['Core Product Lines',   'Líneas de Producto'],
+    // Products teaser
+    'prod.what_we_make':  ['What We Make',         'Lo Que Fabricamos'],
+    'prod.our_lines':     ['OUR PRODUCT LINES',    'NUESTRAS LÍNEAS DE PRODUCTO'],
+    'prod.view_all':      ['View All Products',    'Ver Todos los Productos'],
+    // About teaser
+    'about.label':        ['Our Story',            'Nuestra Historia'],
+    'about.hed':          ['SIXTY YEARS OF FOUNDRY CHEMISTRY', 'SESENTA AÑOS DE QUÍMICA PARA FUNDICIÓN'],
+    'about.p1':           ['LaFrance Manufacturing has been formulating specialty coatings and die release lubricants since the early 1960s. Our chemistry was developed in direct collaboration with foundry engineers — not in a generic lab.', 'LaFrance Manufacturing ha formulado recubrimientos especiales y lubricantes desmoldantes desde principios de los años 60. Nuestra química fue desarrollada en colaboración directa con ingenieros de fundición, no en un laboratorio genérico.'],
+    'about.p2':           ['Every product in our line addresses a specific failure mode: premature die wear, surface defects, inconsistent release. We don\'t sell chemistry. We sell solutions to casting problems.', 'Cada producto en nuestra línea aborda un modo de falla específico: desgaste prematuro del molde, defectos superficiales, liberación inconsistente. No vendemos química. Vendemos soluciones a problemas de fundición.'],
+    'about.link':         ['Full Company History',  'Historia Completa'],
+    // Callout
+    'callout.quote':      ['BUILT FOR THE FOUNDRY FLOOR, NOT THE SHELF.', 'FABRICADO PARA LA PLANTA DE FUNDICIÓN, NO PARA EL ESTANTE.'],
+    'callout.btn':        ['Request Technical Data', 'Solicitar Datos Técnicos'],
+    // Footer
+    'footer.nav_head':    ['Navigation',        'Navegación'],
+    'footer.contact_head':['Contact',           'Contacto'],
+    'footer.copy':        ['© 2026 LaFrance Manufacturing. All rights reserved.', '© 2026 LaFrance Manufacturing. Todos los derechos reservados.'],
+  };
+
+  const langBtn = document.getElementById('lang-toggle');
+  let isSpanish = localStorage.getItem('lfLang') === 'es';
+
+  function applyLang(es) {
+    isSpanish = es;
+    langBtn.classList.toggle('active', es);
+    langBtn.textContent = es ? 'ENG' : 'ESP';
+    localStorage.setItem('lfLang', es ? 'es' : 'en');
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (translations[key]) el.textContent = translations[key][es ? 1 : 0];
+    });
+  }
+
+  applyLang(isSpanish);
+  langBtn.addEventListener('click', () => applyLang(!isSpanish));
+
   // ── Theme toggle ─────────────────────────────────────────────
   const html        = document.documentElement;
   const themeBtn    = document.getElementById('theme-toggle');

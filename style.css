@@ -558,3 +558,32 @@ html.light .prod-row:hover { background: rgba(0,0,0,0.018); }
   color: #191a1c;
 }
 #theme-toggle svg { width: 15px; height: 15px; pointer-events: none; }
+
+/* ── Language toggle button ───────────────────────────────────── */
+#lang-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  padding: 0 0.75rem;
+  border-radius: 4px;
+  background: transparent;
+  border: 1px solid #d0ccc6;
+  color: #707070;
+  font-family: var(--f-sub);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  flex-shrink: 0;
+}
+#lang-toggle:hover {
+  background: rgba(0,0,0,0.06);
+  border-color: #aaa;
+  color: #191a1c;
+}
+#lang-toggle.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}

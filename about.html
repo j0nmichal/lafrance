@@ -335,12 +335,13 @@
 
 <nav id="nav" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo">La<strong>France</strong> Manufacturing</a>
+    <a href="index.html" class="nav-logo"><strong>LAFRANCE</strong> Manufacturing</a>
     <ul class="nav-links" role="list">
       <li><a href="products.html">Products</a></li>
       <li><a href="about.html" class="active">About</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
+    <button id="lang-toggle" aria-label="Toggle language">ESP</button>
     <button id="theme-toggle" aria-label="Toggle light/dark mode">
       <svg id="icon-sun" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
         <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
@@ -352,7 +353,7 @@
         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
       </svg>
     </button>
-    <a href="contact.html" class="nav-contact-btn">Get in Touch</a>
+    <a href="contact.html" class="nav-contact-btn" data-i18n="nav.get_in_touch">Get in Touch</a>
     <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
       <span></span><span></span><span></span>
     </button>
@@ -520,7 +521,7 @@
 <footer role="contentinfo">
   <div class="footer-body">
     <div>
-      <p class="footer-logo">La<strong>France</strong> Manufacturing</p>
+      <p class="footer-logo"><strong>LAFRANCE</strong> Manufacturing</p>
       <p class="footer-tagline">St. Louis, MO · Worldwide Shipping<br>Specialty Chemistry Since the 1960s</p>
     </div>
     <div>
@@ -560,6 +561,33 @@
     applyTheme(goingLight);
     localStorage.setItem('lfTheme', goingLight ? 'light' : 'dark');
   });
+
+  // Language toggle
+  const translations = {
+    'nav.products':['Products','Productos'],'nav.about':['About','Nosotros'],'nav.contact':['Contact','Contacto'],
+    'nav.get_in_touch':['Get in Touch','Contáctenos'],
+    'page.hed':['OUR\nSTORY','NUESTRA\nHISTORIA'],
+    'page.eyebrow':['Specialty Chemical Manufacturer','Fabricante de Química Especializada'],
+    'about.founded':['Founded in the 1960s','Fundada en los años 60'],
+    'callout.btn':['Request Technical Data','Solicitar Datos Técnicos'],
+    'footer.copy':['© 2026 LaFrance Manufacturing. All rights reserved.','© 2026 LaFrance Manufacturing. Todos los derechos reservados.'],
+  };
+  const langBtn = document.getElementById('lang-toggle');
+  let isSpanish = localStorage.getItem('lfLang') === 'es';
+  function applyLang(es) {
+    isSpanish = es;
+    langBtn.classList.toggle('active', es);
+    langBtn.textContent = es ? 'ENG' : 'ESP';
+    localStorage.setItem('lfLang', es ? 'es' : 'en');
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (!translations[key]) return;
+      const val = translations[key];
+      el.textContent = Array.isArray(val) ? val[es ? 1 : 0] : val.split('|')[es ? 1 : 0];
+    });
+  }
+  applyLang(isSpanish);
+  langBtn.addEventListener('click', () => applyLang(!isSpanish));
 
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40), { passive: true });
