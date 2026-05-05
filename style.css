@@ -240,7 +240,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   font-size: 0.64rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--text-2);
   padding: 0 2rem;
   border-right: 1px solid var(--border);
 }
