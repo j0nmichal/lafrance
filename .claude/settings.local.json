@@ -7,7 +7,14 @@
       "Bash(ssh -T git@github.com)",
       "Bash(git push *)",
       "Bash(git add *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(pip install *)",
+      "Bash(pip3 install *)",
+      "Bash(python3 make_wireframe.py)",
+      "Bash(cp /Users/marrfamily/Documents/Claude/Projects/LaFranceMFG/uscold-locations.html /Users/marrfamily/Documents/Claude/Projects/USCOLDprojectOne/)",
+      "Bash(cp /Users/marrfamily/Documents/Claude/Projects/LaFranceMFG/uscold-admin.html /Users/marrfamily/Documents/Claude/Projects/USCOLDprojectOne/)",
+      "Read(//Users/marrfamily/Documents/Claude/Projects/USCOLDprojectOne/**)",
+      "Bash(gh api *)"
     ]
   }
 }

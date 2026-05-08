@@ -377,6 +377,12 @@
       .pillars-list { grid-template-columns: 1fr; }
       .hero-meta-row { gap: 1.5rem; }
     }
+    @media (max-width: 540px) {
+      .hero-meta-row { flex-direction: column; gap: 0.75rem; }
+      .tl-row { grid-template-columns: 64px 1fr; gap: 1rem; }
+      .pillar { padding: 1.75rem 1.25rem; }
+      .direct-contact { padding: 1.75rem 1.25rem; }
+    }
   </style>
 </head>
 <body>
@@ -427,7 +433,7 @@
         <span class="hero-meta-item"><strong data-i18n="about.meta1">Founded</strong> 1950s</span>
         <span class="hero-meta-item"><strong data-i18n="about.meta2">Based in</strong> St. Louis, MO</span>
         <span class="hero-meta-item"><strong data-i18n="about.meta3">Ships</strong> Worldwide</span>
-        <span class="hero-meta-item"><strong data-i18n="about.meta4">Metals</strong> AL / BR / CU / MG / ZN</span>
+        <span class="hero-meta-item"><strong data-i18n="about.meta4">Metals</strong> AL / BR / CU / MG / ZN / AU / AG</span>
       </div>
     </div>
   </div>
@@ -500,7 +506,7 @@
             <div class="spec-row"><span class="spec-key" data-i18n="spec.founded">FOUNDED</span><span class="spec-val">1950s</span></div>
             <div class="spec-row"><span class="spec-key" data-i18n="spec.hq">HEADQUARTERS</span><span class="spec-val">St. Louis, MO</span></div>
             <div class="spec-row"><span class="spec-key" data-i18n="spec.dist">DISTRIBUTION</span><span class="spec-val" data-i18n="spec.dist_val">Worldwide</span></div>
-            <div class="spec-row"><span class="spec-key" data-i18n="spec.metals">METALS SERVED</span><span class="spec-val">AL / BR / CU / MG / ZN / AU / AG</span></div>
+            <div class="spec-row spec-row--metals"><span class="spec-key" data-i18n="spec.metals">METALS SERVED</span><span class="spec-val">AL / BR / CU / MG<br>ZN / AU / AG</span></div>
             <div class="spec-row"><span class="spec-key" data-i18n="spec.lines">PRODUCT LINES</span><span class="spec-val" data-i18n="spec.lines_val">4 Core Series</span></div>
             <div class="spec-row"><span class="spec-key" data-i18n="spec.form_type">FORMULATION TYPE</span><span class="spec-val" data-i18n="spec.form_val">Proprietary</span></div>
             <div class="spec-row"><span class="spec-key" data-i18n="spec.chem">CHEMISTRY</span><span class="spec-val" data-i18n="spec.chem_val">Water-based &amp; Ceramic</span></div>

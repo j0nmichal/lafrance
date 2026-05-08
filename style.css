@@ -391,7 +391,9 @@ footer {
   color: var(--text);
   margin-left: auto;
   text-align: right;
+  line-height: 1.65;
 }
+.spec-row--metals { align-items: flex-start; }
 
 /* ── Section label + hed pattern ─────────────────────────────── */
 .sh { margin-bottom: 4rem; }
@@ -517,6 +519,9 @@ footer {
   :root { --pad: 1.25rem; }
   .footer-body { grid-template-columns: 1fr; }
   .footer-body > :first-child { grid-column: auto; }
+  .callout-strip .btn { width: 100%; text-align: center; justify-content: center; }
+  .spec-panel { padding: 1.25rem; }
+  .spec-key { min-width: 100px; }
 }
 
 /* ── Light mode ───────────────────────────────────────────────── */
