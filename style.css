@@ -380,7 +380,7 @@ footer {
 .spec-key {
   font-family: var(--f-mono);
   font-size: 0.66rem;
-  color: var(--text-muted);
+  color: var(--text-2);
   white-space: nowrap;
   min-width: 130px;
   flex-shrink: 0;
