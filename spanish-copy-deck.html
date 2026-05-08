@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LaFrance Manufacturing — Spanish Copy Deck for Review</title>
+  <style>
+    /* ── Reset & base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 15px; }
+    body {
+      font-family: 'Georgia', serif;
+      background: #f4f2ee;
+      color: #1a1b1d;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Page shell ── */
+    .page {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 3rem 2rem 6rem;
+    }
+
+    /* ── Document header ── */
+    .doc-header {
+      border-bottom: 3px solid #1a1b1d;
+      padding-bottom: 2rem;
+      margin-bottom: 3rem;
+    }
+    .doc-eyebrow {
+      font-family: 'Courier New', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 0.75rem;
+    }
+    .doc-title {
+      font-family: Arial, sans-serif;
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      color: #1a1b1d;
+      margin-bottom: 0.5rem;
+    }
+    .doc-title span { color: #c03030; }
+    .doc-meta {
+      font-family: 'Courier New', monospace;
+      font-size: 0.7rem;
+      color: #666;
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+    .doc-instructions {
+      margin-top: 1.5rem;
+      background: #fffbe6;
+      border: 1px solid #e6d96a;
+      border-left: 4px solid #c8b400;
+      padding: 1.25rem 1.5rem;
+      font-family: Arial, sans-serif;
+      font-size: 0.82rem;
+      color: #4a4400;
+      line-height: 1.6;
+    }
+    .doc-instructions strong { font-weight: 700; }
+    .doc-instructions ul { margin-top: 0.5rem; padding-left: 1.25rem; list-style: disc; }
+    .doc-instructions li { margin-bottom: 0.25rem; }
+
+    /* ── Page section ── */
+    .page-section {
+      margin-bottom: 4rem;
+    }
+    .page-section-header {
+      background: #1a1b1d;
+      color: #fff;
+      padding: 0.85rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0;
+    }
+    .page-section-header h2 {
+      font-family: Arial, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    .page-section-header .page-url {
+      font-family: 'Courier New', monospace;
+      font-size: 0.65rem;
+      color: #aaa;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Subsection label ── */
+    .sub-label {
+      font-family: 'Courier New', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #fff;
+      background: #c03030;
+      padding: 0.3rem 1.5rem;
+      display: block;
+    }
+
+    /* ── Copy pair ── */
+    .copy-table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid #d8d4ce;
+      border-top: none;
+    }
+    .col-head {
+      background: #f0ece6;
+    }
+    .col-head th {
+      font-family: 'Courier New', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #888;
+      padding: 0.5rem 1.25rem;
+      text-align: left;
+      border-bottom: 1px solid #d8d4ce;
+      border-right: 1px solid #d8d4ce;
+      font-weight: 400;
+    }
+    .col-head th:last-child { border-right: none; }
+    .col-head th.es-col { background: #f9f7f4; color: #c03030; }
+
+    .copy-row {
+      border-bottom: 1px solid #e8e4de;
+    }
+    .copy-row:last-child { border-bottom: none; }
+    .copy-row:hover { background: rgba(192,48,48,0.02); }
+
+    .copy-row td {
+      padding: 0.9rem 1.25rem;
+      vertical-align: top;
+      font-size: 0.88rem;
+      line-height: 1.65;
+    }
+    .copy-row td:first-child {
+      width: 25%;
+      font-family: 'Courier New', monospace;
+      font-size: 0.65rem;
+      color: #999;
+      border-right: 1px solid #e8e4de;
+      padding-top: 1rem;
+    }
+    .copy-row td.en-cell {
+      width: 37.5%;
+      background: #f8f6f3;
+      border-right: 1px solid #e8e4de;
+      color: #444;
+      font-style: italic;
+    }
+    .copy-row td.es-cell {
+      width: 37.5%;
+      background: #fff;
+      color: #1a1b1d;
+      font-weight: 400;
+    }
+    .copy-row td.es-cell.edited {
+      background: #fffbe6;
+    }
+
+    /* Type flags */
+    .type-flag {
+      display: inline-block;
+      font-family: Arial, sans-serif;
+      font-size: 0.54rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.15rem 0.4rem;
+      border-radius: 2px;
+      margin-bottom: 0.3rem;
+    }
+    .flag-h   { background: #e8f0fe; color: #1a73e8; }
+    .flag-sub { background: #e6f4ea; color: #1e8e3e; }
+    .flag-body{ background: #fce8e6; color: #c5221f; }
+    .flag-ui  { background: #fef7e0; color: #b06000; }
+    .flag-label { background: #f3e8fd; color: #8430ce; }
+    .flag-ph  { background: #e8eaed; color: #5f6368; }
+
+    /* Notes row */
+    .notes-row td {
+      background: #fffbe6;
+      border-bottom: 2px solid #e6d96a;
+      padding: 0.6rem 1.25rem;
+      font-family: Arial, sans-serif;
+      font-size: 0.78rem;
+      color: #666;
+    }
+    .notes-row .notes-input {
+      width: 100%;
+      border: 1px dashed #c8b400;
+      background: transparent;
+      padding: 0.4rem 0.5rem;
+      font-family: Arial, sans-serif;
+      font-size: 0.82rem;
+      color: #333;
+      resize: vertical;
+      min-height: 36px;
+    }
+    .notes-row .notes-input:focus {
+      outline: none;
+      border-color: #c03030;
+      background: #fff;
+    }
+
+    /* Separator */
+    .section-gap {
+      height: 1px;
+      background: #d8d4ce;
+      margin: 2rem 0;
+    }
+
+    /* ── Print ── */
+    @media print {
+      body { background: #fff; font-size: 11pt; }
+      .page { padding: 1cm 1.5cm; max-width: none; }
+      .doc-instructions { display: none; }
+      .copy-row td.en-cell { background: #f5f5f5 !important; }
+      .copy-row td.es-cell { background: #fff !important; }
+      .notes-row .notes-input { border: 1px solid #ccc; }
+      .page-section { page-break-inside: avoid; }
+    }
+
+    @media (max-width: 720px) {
+      .copy-table, .copy-row, td, th { display: block; }
+      .copy-row td:first-child { width: 100%; border-right: none; border-bottom: 1px dotted #ddd; }
+      .copy-row td.en-cell, .copy-row td.es-cell { width: 100%; border-right: none; }
+      .col-head { display: none; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── Document header ─────────────────────────────────────── -->
+  <div class="doc-header">
+    <p class="doc-eyebrow">Client Review Document</p>
+    <h1 class="doc-title">LaFrance Manufacturing<br><span>Spanish Copy Deck</span></h1>
+    <div class="doc-meta">
+      <span>Prepared: May 2026</span>
+      <span>Version: 1.0</span>
+      <span>Pages covered: Home · Products · About · Contact · Privacy Policy</span>
+      <span>Status: Awaiting Client Review</span>
+    </div>
+    <div class="doc-instructions">
+      <strong>Instructions for Review:</strong>
+      <ul>
+        <li>English (EN) is shown in <em>italic grey</em> as reference. Spanish (ES) is shown in black — these are the live translations on the website.</li>
+        <li>Click in any <strong>Notes / Edit</strong> field to type suggested corrections or comments directly in this document.</li>
+        <li>If a translation needs to be changed on the site, note the corrected copy in the Notes field and return the document — changes will be deployed as a batch.</li>
+        <li>Sections are organized by page, then by section within the page (top to bottom).</li>
+        <li>Type flags: <span class="type-flag flag-h">H</span> Headline &nbsp; <span class="type-flag flag-sub">SUB</span> Subhead &nbsp; <span class="type-flag flag-body">BODY</span> Body copy &nbsp; <span class="type-flag flag-ui">UI</span> Button/UI &nbsp; <span class="type-flag flag-label">LBL</span> Label &nbsp; <span class="type-flag flag-ph">PH</span> Placeholder</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       PAGE 1 — HOME (index.html)
+  ══════════════════════════════════════════════════════════════ -->
+  <div class="page-section">
+    <div class="page-section-header">
+      <h2>01 — Home Page</h2>
+      <span class="page-url">index.html</span>
+    </div>
+
+    <!-- Global Nav -->
+    <span class="sub-label">Global Navigation (appears on all pages)</span>
+    <table class="copy-table">
+      <tr class="col-head"><th>Section / Key</th><th>EN (reference)</th><th class="es-col">ES (live — for review)</th></tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-ui">UI</span><br>nav.products</td>
+        <td class="en-cell">Products</td>
+        <td class="es-cell">Productos</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-ui">UI</span><br>nav.about</td>
+        <td class="en-cell">About</td>
+        <td class="es-cell">Nosotros</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-ui">UI</span><br>nav.get_in_touch</td>
+        <td class="en-cell">Get in Touch</td>
+        <td class="es-cell">Contáctenos</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-ui">UI</span><br>nav.contact</td>
+        <td class="en-cell">Contact</td>
+        <td class="es-cell">Contacto</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-ui">UI</span><br>nav.explore</td>
+        <td class="en-cell">Explore Products</td>
+        <td class="es-cell">Ver Productos</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-ui">UI</span><br>nav.contact_expert</td>
+        <td class="en-cell">Contact an Expert</td>
+        <td class="es-cell">Hablar con un Experto</td>
+      </tr>
+      <tr class="notes-row">
+        <td colspan="3"><strong>Notes / Edits:</strong><br><textarea class="notes-input" placeholder="Type corrections or comments here..."></textarea></td>
+      </tr>
+    </table>
+
+    <div class="section-gap"></div>
+
+    <!-- Hero -->
+    <span class="sub-label">Hero Section</span>
+    <table class="copy-table">
+      <tr class="col-head"><th>Section / Key</th><th>EN (reference)</th><th class="es-col">ES (live — for review)</th></tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>hero.eyebrow</td>
+        <td class="en-cell">Formulating for Metal Casting</td>
+        <td class="es-cell">Formulando para Fundición de Metales</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-h">H</span><br>hero.line1</td>
+        <td class="en-cell">FORMULATED</td>
+        <td class="es-cell">FORMULADO</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-h">H</span><br>hero.line3</td>
+        <td class="en-cell">WORK</td>
+        <td class="es-cell">FUNCIONAR</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>aside.label</td>
+        <td class="en-cell">// Casting Chemistry</td>
+        <td class="es-cell">// Química de Fundición</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-body">BODY</span><br>aside.body</td>
+        <td class="en-cell">Coatings and die release agents engineered for metal casting operations. Trusted by non-ferrous metal casters for over 70 years.</td>
+        <td class="es-cell">Recubrimientos y agentes desmoldantes diseñados para operaciones de fundición de metales. De confianza en fundidores de metales no ferrosos por más de 70 años.</td>
+      </tr>
+      <tr class="notes-row">
+        <td colspan="3"><strong>Notes / Edits:</strong><br><textarea class="notes-input" placeholder="Type corrections or comments here..."></textarea></td>
+      </tr>
+    </table>
+
+    <div class="section-gap"></div>
+
+    <!-- Stats bar -->
+    <span class="sub-label">Stats Bar</span>
+    <table class="copy-table">
+      <tr class="col-head"><th>Section / Key</th><th>EN (reference)</th><th class="es-col">ES (live — for review)</th></tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>stat.years</td>
+        <td class="en-cell">Years in Industry</td>
+        <td class="es-cell">Años en la Industria</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>stat.alloys</td>
+        <td class="en-cell">Alloy Families</td>
+        <td class="es-cell">Familias de Aleación</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>stat.shipping</td>
+        <td class="en-cell">Worldwide Shipping</td>
+        <td class="es-cell">Envíos Mundiales</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>stat.lines</td>
+        <td class="en-cell">Core Product Lines</td>
+        <td class="es-cell">Líneas de Producto</td>
+      </tr>
+      <tr class="notes-row">
+        <td colspan="3"><strong>Notes / Edits:</strong><br><textarea class="notes-input" placeholder="Type corrections or comments here..."></textarea></td>
+      </tr>
+    </table>
+
+    <div class="section-gap"></div>
+
+    <!-- Product teasers -->
+    <span class="sub-label">Product Teaser Section</span>
+    <table class="copy-table">
+      <tr class="col-head"><th>Section / Key</th><th>EN (reference)</th><th class="es-col">ES (live — for review)</th></tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>prod.what_we_make</td>
+        <td class="en-cell">What We Make</td>
+        <td class="es-cell">Lo Que Fabricamos</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-h">H</span><br>prod.our_lines</td>
+        <td class="en-cell">OUR PRODUCT LINES</td>
+        <td class="es-cell">NUESTRAS LÍNEAS DE PRODUCTO</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-ui">UI</span><br>prod.view_all</td>
+        <td class="en-cell">View All Products</td>
+        <td class="es-cell">Ver Todos los Productos</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>t1.badge</td>
+        <td class="en-cell">[ FRANKOTE SERIES ]</td>
+        <td class="es-cell">[ SERIE FRANKOTE ]</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-h">H</span><br>t1.name</td>
+        <td class="en-cell">CERAMIC COATINGS</td>
+        <td class="es-cell">RECUBRIMIENTOS CERÁMICOS</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-body">BODY</span><br>t1.desc</td>
+        <td class="en-cell">Ceramic-based protective coatings — liquid and dry — engineered to prevent molten metal adhesion on ladles, thermocouple tubes, runners, and ferrous surfaces. Water-based formulations. Dry variants ship water-blended at the customer site for cold-weather convenience.</td>
+        <td class="es-cell">Recubrimientos cerámicos protectores — líquidos y secos — diseñados para prevenir la adhesión de metal fundido en cucharas, tubos de termopar, canales y superficies ferrosas. Formulaciones a base de agua. Las variantes secas se envían mezcladas con agua en el sitio del cliente para comodidad en climas fríos.</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>t2.badge</td>
+        <td class="en-cell">[ FRANLUBE SERIES ]</td>
+        <td class="es-cell">[ SERIE FRANLUBE ]</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-h">H</span><br>t2.name</td>
+        <td class="en-cell">DIE RELEASE LUBRICANTS</td>
+        <td class="es-cell">LUBRICANTES DESMOLDANTES</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-body">BODY</span><br>t2.desc</td>
+        <td class="en-cell">Water-extendable die release lubricants for casting aluminum, brass, magnesium, and zinc alloys. Newest additions include ceramic-based formulations.</td>
+        <td class="es-cell">Lubricantes desmoldantes a base de agua para fundir aleaciones de aluminio, latón, magnesio y zinc. Las últimas incorporaciones incluyen formulaciones cerámicas.</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>t3.badge</td>
+        <td class="en-cell">[ FRANLUBE SHOT SERIES ]</td>
+        <td class="es-cell">[ SERIE FRANLUBE SHOT ]</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-h">H</span><br>t3.name</td>
+        <td class="en-cell">SHOT TIP LUBRICANTS</td>
+        <td class="es-cell">LUBRICANTES PARA PUNTAS</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-body">BODY</span><br>t3.desc</td>
+        <td class="en-cell">Dry, oil-based, and water-cleanable shot tip lubricants that enhance lubrication through the metal injection process while extending tip life. Inquire about ceramic shot tip sleeve lubricants.</td>
+        <td class="es-cell">Lubricantes para puntas de inyección secos, a base de aceite y limpiables con agua que mejoran la lubricación durante el proceso de inyección de metal y prolongan la vida útil de la punta. Consulte sobre lubricantes cerámicos para manga de punta de inyección.</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>t4.badge</td>
+        <td class="en-cell">[ SPECIALTY LINE ]</td>
+        <td class="es-cell">[ LÍNEA ESPECIAL ]</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-h">H</span><br>t4.name</td>
+        <td class="en-cell">SPECIALTY PRODUCTS</td>
+        <td class="es-cell">PRODUCTOS ESPECIALES</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-body">BODY</span><br>t4.desc</td>
+        <td class="en-cell">Purpose-built compounds for the specific challenges of die casting operations — from removing metal deposits on die cavity surfaces to high-temperature ejector pin protection. Includes flux for efficient cleaning and reduced refractory erosion.</td>
+        <td class="es-cell">Compuestos diseñados para los desafíos específicos de las operaciones de fundición a presión — desde la eliminación de depósitos metálicos en las cavidades del molde hasta la protección de pines expulsores a alta temperatura. Incluye fundente para una limpieza eficiente y reducción de la erosión refractaria.</td>
+      </tr>
+      <tr class="notes-row">
+        <td colspan="3"><strong>Notes / Edits:</strong><br><textarea class="notes-input" placeholder="Type corrections or comments here..."></textarea></td>
+      </tr>
+    </table>
+
+    <div class="section-gap"></div>
+
+    <!-- About teaser + Spec panel -->
+    <span class="sub-label">About Teaser + Company Profile Panel</span>
+    <table class="copy-table">
+      <tr class="col-head"><th>Section / Key</th><th>EN (reference)</th><th class="es-col">ES (live — for review)</th></tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>about.label</td>
+        <td class="en-cell">Our Advantage</td>
+        <td class="es-cell">Nuestra Ventaja</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-h">H</span><br>about.h2_l1 / l2</td>
+        <td class="en-cell">60 YEARS OF / RIGHT CHEMISTRY</td>
+        <td class="es-cell">60 AÑOS DE / QUÍMICA CORRECTA</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-body">BODY</span><br>about.p1</td>
+        <td class="en-cell">LaFrance Manufacturing has been formulating specialty products for metal casting operations since the 1950s. We were early pioneers in water-extendable emulsions to replace solvent-based die parting agents.</td>
+        <td class="es-cell">LaFrance Manufacturing ha formulado productos especiales para operaciones de fundición de metales desde los años 50. Fuimos pioneros en emulsiones a base de agua para reemplazar los agentes desmoldantes a base de solvente.</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-body">BODY</span><br>about.p2</td>
+        <td class="en-cell">Today our formulations serve operations across the globe. We work with your team to identify the right product for optimum results.</td>
+        <td class="es-cell">Hoy nuestras formulaciones sirven a operaciones en todo el mundo. Trabajamos con su equipo para identificar el producto correcto para obtener resultados óptimos.</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-ui">UI</span><br>about.link</td>
+        <td class="en-cell">Our full story</td>
+        <td class="es-cell">Nuestra historia completa</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>spec.head</td>
+        <td class="en-cell">COMPANY PROFILE</td>
+        <td class="es-cell">PERFIL DE LA EMPRESA</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>spec.founded</td>
+        <td class="en-cell">FOUNDED</td>
+        <td class="es-cell">FUNDADA</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>spec.hq</td>
+        <td class="en-cell">HEADQUARTERS</td>
+        <td class="es-cell">SEDE CENTRAL</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>spec.dist / dist_val</td>
+        <td class="en-cell">DISTRIBUTION / Worldwide</td>
+        <td class="es-cell">DISTRIBUCIÓN / Mundial</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>spec.metals</td>
+        <td class="en-cell">METALS SERVED</td>
+        <td class="es-cell">METALES ATENDIDOS</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>spec.lines / lines_val</td>
+        <td class="en-cell">PRODUCT LINES / 4 Core Series</td>
+        <td class="es-cell">LÍNEAS DE PRODUCTO / 4 Series Principales</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>spec.form / form_val</td>
+        <td class="en-cell">FORMULATION / Proprietary</td>
+        <td class="es-cell">FORMULACIÓN / Propietaria</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>spec.chem / chem_val</td>
+        <td class="en-cell">CHEMISTRY / Water-based &amp; Ceramic</td>
+        <td class="es-cell">QUÍMICA / A base de agua y Cerámica</td>
+      </tr>
+      <tr class="notes-row">
+        <td colspan="3"><strong>Notes / Edits:</strong><br><textarea class="notes-input" placeholder="Type corrections or comments here..."></textarea></td>
+      </tr>
+    </table>
+
+    <div class="section-gap"></div>
+
+    <!-- Callout + Footer -->
+    <span class="sub-label">Callout Strip + Footer (global)</span>
+    <table class="copy-table">
+      <tr class="col-head"><th>Section / Key</th><th>EN (reference)</th><th class="es-col">ES (live — for review)</th></tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-body">BODY</span><br>callout.quote</td>
+        <td class="en-cell">We have the right formula for whatever alloy you're casting.</td>
+        <td class="es-cell">Tenemos la fórmula correcta para cualquier aleación que funda.</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-ui">UI</span><br>callout.btn</td>
+        <td class="en-cell">Talk to an Expert</td>
+        <td class="es-cell">Hablar con un Experto</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>footer.nav_head</td>
+        <td class="en-cell">Navigation</td>
+        <td class="es-cell">Navegación</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>footer.contact_head</td>
+        <td class="en-cell">Contact</td>
+        <td class="es-cell">Contacto</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-body">BODY</span><br>footer.copy</td>
+        <td class="en-cell">© 2026 LaFrance Manufacturing. All rights reserved.</td>
+        <td class="es-cell">© 2026 LaFrance Manufacturing. Todos los derechos reservados.</td>
+      </tr>
+      <tr class="notes-row">
+        <td colspan="3"><strong>Notes / Edits:</strong><br><textarea class="notes-input" placeholder="Type corrections or comments here..."></textarea></td>
+      </tr>
+    </table>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       PAGE 2 — PRODUCTS (products.html)
+  ══════════════════════════════════════════════════════════════ -->
+  <div class="page-section">
+    <div class="page-section-header">
+      <h2>02 — Products Page</h2>
+      <span class="page-url">products.html</span>
+    </div>
+
+    <span class="sub-label">Hero + Intro</span>
+    <table class="copy-table">
+      <tr class="col-head"><th>Section / Key</th><th>EN (reference)</th><th class="es-col">ES (live — for review)</th></tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-h">H</span><br>prod.h1 (3 lines)</td>
+        <td class="en-cell">OUR / PRODUCT / LINES</td>
+        <td class="es-cell">NUESTRAS / LÍNEAS DE / PRODUCTO</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-body">BODY</span><br>page.intro</td>
+        <td class="en-cell">Four proprietary series developed over six decades of foundry work. Formulations engineered for the specific demands of metal casting at temperature — not off-the-shelf chemistry.</td>
+        <td class="es-cell">Cuatro series propietarias desarrolladas a lo largo de seis décadas de trabajo en fundición. Formulaciones diseñadas para las demandas específicas de la fundición de metales a temperatura — no química genérica.</td>
+      </tr>
+      <tr class="notes-row">
+        <td colspan="3"><strong>Notes / Edits:</strong><br><textarea class="notes-input" placeholder="Type corrections or comments here..."></textarea></td>
+      </tr>
+    </table>
+
+    <div class="section-gap"></div>
+
+    <span class="sub-label">Product 01 — Ceramic Coatings (Frankote Series)</span>
+    <table class="copy-table">
+      <tr class="col-head"><th>Section / Key</th><th>EN (reference)</th><th class="es-col">ES (live — for review)</th></tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-body">BODY</span><br>pb1.desc1</td>
+        <td class="en-cell">Ceramic-based protective coatings — both liquid and dry — engineered to prevent molten metal adhesion on ladles, thermocouple tubes, runners, and ferrous surfaces. Water-based formulations with controlled additives ensure smooth application and consistent film thickness.</td>
+        <td class="es-cell">Recubrimientos cerámicos protectores — líquidos y secos — diseñados para prevenir la adhesión de metal fundido en cucharas, tubos de termopar, canales y superficies ferrosas. Formulaciones a base de agua con aditivos controlados garantizan una aplicación uniforme y un espesor de película consistente.</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-body">BODY</span><br>pb1.desc2</td>
+        <td class="en-cell">Dry variants ship water-blended at the customer site for cold-weather convenience, eliminating concerns about freeze damage during transport and storage. The Frankote line was developed specifically for applications where conventional coatings fail under sustained thermal cycling.</td>
+        <td class="es-cell">Las variantes secas se mezclan con agua en el sitio del cliente para mayor comodidad en climas fríos, eliminando preocupaciones por daños por congelamiento durante el transporte y almacenamiento. La línea Frankote fue desarrollada específicamente para aplicaciones donde los recubrimientos convencionales fallan bajo ciclos térmicos sostenidos.</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-body">BODY</span><br>pb1.desc3</td>
+        <td class="en-cell">Boron nitride variants (BN400 series) deliver non-wetting performance in demanding environments where standard ceramic formulations reach their limits — particularly in aluminum refining applications with high superheat temperatures.</td>
+        <td class="es-cell">Las variantes de nitruro de boro (serie BN400) ofrecen rendimiento antiadherente en entornos exigentes donde las formulaciones cerámicas estándar alcanzan sus límites — particularmente en aplicaciones de refinación de aluminio con altas temperaturas de sobrecalentamiento.</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>pb1.cta_note</td>
+        <td class="en-cell">Spec sheets and application guides available on request</td>
+        <td class="es-cell">Hojas de especificaciones y guías de aplicación disponibles bajo pedido</td>
+      </tr>
+      <tr class="notes-row">
+        <td colspan="3"><strong>Notes / Edits:</strong><br><textarea class="notes-input" placeholder="Type corrections or comments here..."></textarea></td>
+      </tr>
+    </table>
+
+    <div class="section-gap"></div>
+
+    <span class="sub-label">Product 02 — Die Release Lubricants (Franlube Series)</span>
+    <table class="copy-table">
+      <tr class="col-head"><th>Section / Key</th><th>EN (reference)</th><th class="es-col">ES (live — for review)</th></tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-body">BODY</span><br>pb2.desc1</td>
+        <td class="en-cell">Water-extendable die release lubricants for casting aluminum, brass, magnesium, and zinc alloys. Newest additions include ceramic-based formulations.</td>
+        <td class="es-cell">Lubricantes desmoldantes a base de agua para fundir aleaciones de aluminio, latón, magnesio y zinc. Las últimas incorporaciones incluyen formulaciones cerámicas.</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>pb2.cta_note</td>
+        <td class="en-cell">Product selection depends on alloy, die geometry, and cycle time — call us to discuss</td>
+        <td class="es-cell">La selección del producto depende de la aleación, geometría del molde y tiempo de ciclo — llámenos para hablar</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-ui">UI</span><br>pb2.cta_btn</td>
+        <td class="en-cell">Request Product Selector</td>
+        <td class="es-cell">Solicitar Selector de Productos</td>
+      </tr>
+      <tr class="notes-row">
+        <td colspan="3"><strong>Notes / Edits:</strong><br><textarea class="notes-input" placeholder="Type corrections or comments here..."></textarea></td>
+      </tr>
+    </table>
+
+    <div class="section-gap"></div>
+
+    <span class="sub-label">Product 03 — Shot Tip Lubricants (Franlube Shot)</span>
+    <table class="copy-table">
+      <tr class="col-head"><th>Section / Key</th><th>EN (reference)</th><th class="es-col">ES (live — for review)</th></tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-body">BODY</span><br>pb3.desc1</td>
+        <td class="en-cell">Dry, oil-based, and water-cleanable shot tip lubricants that enhance lubrication through the metal injection process while extending tip life. Inquire about ceramic shot tip sleeve lubricants.</td>
+        <td class="es-cell">Lubricantes para puntas de inyección secos, a base de aceite y limpiables con agua que mejoran la lubricación durante el proceso de inyección de metal y prolongan la vida útil de la punta. Consulte sobre lubricantes cerámicos para manga de punta de inyección.</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>pb3.cta_note</td>
+        <td class="en-cell">Dry, oil-based, and water-cleanable variants available</td>
+        <td class="es-cell">Variantes secas, a base de aceite y limpiables con agua disponibles</td>
+      </tr>
+      <tr class="notes-row">
+        <td colspan="3"><strong>Notes / Edits:</strong><br><textarea class="notes-input" placeholder="Type corrections or comments here..."></textarea></td>
+      </tr>
+    </table>
+
+    <div class="section-gap"></div>
+
+    <span class="sub-label">Product 04 — Specialty Products</span>
+    <table class="copy-table">
+      <tr class="col-head"><th>Section / Key</th><th>EN (reference)</th><th class="es-col">ES (live — for review)</th></tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-body">BODY</span><br>pb4.desc1</td>
+        <td class="en-cell">Purpose-built compounds for the specific challenges of die casting operations that fall outside the standard lubricant and coating categories. This line addresses the ancillary chemistry needs of a complete casting cell.</td>
+        <td class="es-cell">Compuestos diseñados para los desafíos específicos de las operaciones de fundición que no entran en las categorías estándar de lubricantes y recubrimientos. Esta línea aborda las necesidades químicas auxiliares de una celda de fundición completa.</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-body">BODY</span><br>pb4.desc2</td>
+        <td class="en-cell">Anti-solder wax (ASW-80) removes metal deposits from die cavity surfaces without damaging tool steel — a recurring maintenance challenge on production dies that see extended runs. The flux (KAB 124) is blended for efficient cleaning with reduced refractory erosion, serving refining and metal treatment operations.</td>
+        <td class="es-cell">La cera antisoldadura (ASW-80) elimina depósitos metálicos de las superficies de la cavidad del molde sin dañar el acero de herramienta — un desafío de mantenimiento recurrente en moldes de producción con ciclos prolongados. El fundente (KAB 124) está formulado para una limpieza eficiente con menor erosión refractaria, sirviendo a operaciones de refinación y tratamiento de metales.</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-body">BODY</span><br>pb4.desc3</td>
+        <td class="en-cell">Ejector pin compound (#38) provides high-temperature protection for pins operating in extreme thermal and mechanical environments. #3100 Trim/Quenching Compound is a water-based formulation applied at the trim press to cool castings rapidly after ejection, reducing oxidation and improving dimensional stability in automated trim operations.</td>
+        <td class="es-cell">El compuesto para pines expulsores (#38) proporciona protección a alta temperatura para pines que operan en entornos térmicos y mecánicos extremos. El Compuesto de Recorte/Temple #3100 es una formulación a base de agua aplicada en la prensa de recorte para enfriar rápidamente las piezas fundidas tras la eyección, reduciendo la oxidación y mejorando la estabilidad dimensional en operaciones automatizadas de recorte.</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>pb4.cta_note</td>
+        <td class="en-cell">Have a challenge that doesn't fit a standard product? We can discuss custom formulation.</td>
+        <td class="es-cell">¿Tiene un desafío que no encaja en un producto estándar? Podemos hablar sobre una formulación personalizada.</td>
+      </tr>
+      <tr class="notes-row">
+        <td colspan="3"><strong>Notes / Edits:</strong><br><textarea class="notes-input" placeholder="Type corrections or comments here..."></textarea></td>
+      </tr>
+    </table>
+
+    <div class="section-gap"></div>
+
+    <span class="sub-label">Industries Section</span>
+    <table class="copy-table">
+      <tr class="col-head"><th>Section / Key</th><th>EN (reference)</th><th class="es-col">ES (live — for review)</th></tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>ind.label</td>
+        <td class="en-cell">Where We Work</td>
+        <td class="es-cell">Dónde Trabajamos</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-h">H</span><br>ind.h2_l1 / l2</td>
+        <td class="en-cell">BUILT FOR YOUR / OPERATION</td>
+        <td class="es-cell">DISEÑADO PARA SU / OPERACIÓN</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-h">H</span><br>ind1.name</td>
+        <td class="en-cell">DIE CASTING</td>
+        <td class="es-cell">FUNDICIÓN A PRESIÓN</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-body">BODY</span><br>ind1.desc</td>
+        <td class="en-cell">High-pressure aluminum, magnesium, and zinc die casting. Single and multi-cavity dies. Cosmetic and structural components. Full-cell chemistry coverage from shot tip to die cavity.</td>
+        <td class="es-cell">Fundición a presión de aluminio, magnesio y zinc. Moldes de una y varias cavidades. Componentes cosméticos y estructurales. Cobertura química completa desde la punta de inyección hasta la cavidad del molde.</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-h">H</span><br>ind2.name</td>
+        <td class="en-cell">METAL REFINING</td>
+        <td class="es-cell">REFINACIÓN DE METALES</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-body">BODY</span><br>ind2.desc</td>
+        <td class="en-cell">Ladle, runner, and furnace protection for aluminum, brass, copper, and zinc refining. Ceramic coating systems that withstand sustained high-temperature contact with molten metal.</td>
+        <td class="es-cell">Protección de cucharas, canales y hornos para la refinación de aluminio, latón, cobre y zinc. Sistemas de recubrimiento cerámico que resisten el contacto sostenido con metal fundido a alta temperatura.</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-h">H</span><br>ind3.name</td>
+        <td class="en-cell">FOUNDRY OPS</td>
+        <td class="es-cell">OPERACIONES DE FUNDICIÓN</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-body">BODY</span><br>ind3.desc</td>
+        <td class="en-cell">Shot tip lubrication, anti-solder wax, ejector pin compounds, and flux for complete casting cell support. From the shot end to the die cavity surface.</td>
+        <td class="es-cell">Lubricación de punta de inyección, cera antisoldadura, compuestos para pines expulsores y fundente para soporte completo de la celda de fundición. Desde el extremo de inyección hasta la superficie de la cavidad del molde.</td>
+      </tr>
+      <tr class="notes-row">
+        <td colspan="3"><strong>Notes / Edits:</strong><br><textarea class="notes-input" placeholder="Type corrections or comments here..."></textarea></td>
+      </tr>
+    </table>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       PAGE 3 — ABOUT (about.html)
+  ══════════════════════════════════════════════════════════════ -->
+  <div class="page-section">
+    <div class="page-section-header">
+      <h2>03 — About Page</h2>
+      <span class="page-url">about.html</span>
+    </div>
+
+    <span class="sub-label">Hero</span>
+    <table class="copy-table">
+      <tr class="col-head"><th>Section / Key</th><th>EN (reference)</th><th class="es-col">ES (live — for review)</th></tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-h">H</span><br>about.h1 (3 lines)</td>
+        <td class="en-cell">60 YEARS OF / RIGHT / CHEMISTRY</td>
+        <td class="es-cell">60 AÑOS DE / LA QUÍMICA / CORRECTA</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>about.meta1–4</td>
+        <td class="en-cell">Founded · Based in · Ships · Metals</td>
+        <td class="es-cell">Fundada · Sede en · Envíos · Metales</td>
+      </tr>
+      <tr class="notes-row">
+        <td colspan="3"><strong>Notes / Edits:</strong><br><textarea class="notes-input" placeholder="Type corrections or comments here..."></textarea></td>
+      </tr>
+    </table>
+
+    <div class="section-gap"></div>
+
+    <span class="sub-label">Our Story</span>
+    <table class="copy-table">
+      <tr class="col-head"><th>Section / Key</th><th>EN (reference)</th><th class="es-col">ES (live — for review)</th></tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>story.label</td>
+        <td class="en-cell">Our History</td>
+        <td class="es-cell">Nuestra Historia</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-h">H</span><br>story.h2</td>
+        <td class="en-cell">THE COMPANY / BEHIND THE / CHEMISTRY</td>
+        <td class="es-cell">LA EMPRESA / DETRÁS DE / LA QUÍMICA</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-body">BODY</span><br>story.p1</td>
+        <td class="en-cell">LaFrance Manufacturing has been formulating specialty products for metal casting operations since the 1950s. We were early pioneers in water-extendable emulsions to replace solvent-based die parting agents.</td>
+        <td class="es-cell">LaFrance Manufacturing ha formulado productos especiales para operaciones de fundición de metales desde los años 50. Fuimos pioneros en emulsiones a base de agua para reemplazar los agentes desmoldantes a base de solvente.</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-body">BODY</span><br>story.p2</td>
+        <td class="en-cell">Today our formulations serve operations across the globe. We work with your team to identify the right product for optimum results.</td>
+        <td class="es-cell">Hoy nuestras formulaciones sirven a operaciones en todo el mundo. Trabajamos con su equipo para identificar el producto correcto para obtener resultados óptimos.</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-body">BODY</span><br>story.p3</td>
+        <td class="en-cell">The Frankote ceramic coating series came out of a recognized gap in the market: foundry operations needed ladle and furnace surface protection that could withstand sustained thermal cycling without degrading. Conventional coatings fell short. Our ceramic-based chemistry filled that gap.</td>
+        <td class="es-cell">La serie de recubrimientos cerámicos Frankote surgió de una brecha reconocida: las fundiciones necesitaban protección de superficies de cucharas y hornos que resistiera ciclos térmicos sostenidos sin degradarse. Los recubrimientos convencionales no eran suficientes. Nuestra química cerámica llenó ese vacío.</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-body">BODY</span><br>story.p4</td>
+        <td class="en-cell">Today, the same direct approach that characterized the company's founding guides how we work. When a customer calls with a casting challenge, they reach our technical people — not a distributor who will forward the inquiry.</td>
+        <td class="es-cell">Hoy, el mismo enfoque directo que caracterizó la fundación de la empresa guía nuestra forma de trabajar. Cuando un cliente llama con un desafío de fundición, llega a nuestro personal técnico, no a un distribuidor que reenvíe la consulta.</td>
+      </tr>
+      <tr class="notes-row">
+        <td colspan="3"><strong>Notes / Edits:</strong><br><textarea class="notes-input" placeholder="Type corrections or comments here..."></textarea></td>
+      </tr>
+    </table>
+
+    <div class="section-gap"></div>
+
+    <span class="sub-label">Timeline</span>
+    <table class="copy-table">
+      <tr class="col-head"><th>Section / Key</th><th>EN (reference)</th><th class="es-col">ES (live — for review)</th></tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>tl.label</td>
+        <td class="en-cell">// Company milestones</td>
+        <td class="es-cell">// Hitos de la empresa</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-sub">SUB</span><br>tl1.head</td>
+        <td class="en-cell">Founded in St. Louis</td>
+        <td class="es-cell">Fundada en St. Louis</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-body">BODY</span><br>tl1.text</td>
+        <td class="en-cell">LaFrance Manufacturing established to serve the growing metal casting industry in the Midwest and beyond.</td>
+        <td class="es-cell">LaFrance Manufacturing fue establecida para servir a la creciente industria de fundición de metales en el Medio Oeste y más allá.</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-sub">SUB</span><br>tl2.head</td>
+        <td class="en-cell">Water-based lubricant development</td>
+        <td class="es-cell">Desarrollo de lubricantes a base de agua</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-body">BODY</span><br>tl2.text</td>
+        <td class="en-cell">First commercially viable water-extendable die release lubricants developed in response to the oil crisis — an industry-wide shift LaFrance helped lead.</td>
+        <td class="es-cell">Primeros lubricantes desmoldantes a base de agua comercialmente viables desarrollados en respuesta a la crisis del petróleo — un cambio en toda la industria que LaFrance ayudó a liderar.</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-sub">SUB</span><br>tl3.head</td>
+        <td class="en-cell">Frankote ceramic series launched</td>
+        <td class="es-cell">Lanzamiento de la serie cerámica Frankote</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-body">BODY</span><br>tl3.text</td>
+        <td class="en-cell">Introduction of ceramic-based protective coatings for ladles and furnace surfaces — meeting a need conventional chemistry couldn't address.</td>
+        <td class="es-cell">Introducción de recubrimientos protectores cerámicos para cucharas y superficies de hornos — satisfaciendo una necesidad que la química convencional no podía abordar.</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-sub">SUB</span><br>tl4.head</td>
+        <td class="en-cell">International expansion</td>
+        <td class="es-cell">Expansión internacional</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-body">BODY</span><br>tl4.text</td>
+        <td class="en-cell">Formulations reach casting operations worldwide. Direct customer relationships and technical support extended across North America, Europe, and Asia.</td>
+        <td class="es-cell">Las formulaciones llegan a operaciones de fundición en todo el mundo. Las relaciones directas con clientes y el soporte técnico se extienden por América del Norte, Europa y Asia.</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-sub">SUB</span><br>tl5.head (Today)</td>
+        <td class="en-cell">Ceramic-based innovations continue</td>
+        <td class="es-cell">Las innovaciones cerámicas continúan</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-body">BODY</span><br>tl5.text</td>
+        <td class="en-cell">New ceramic formulations for exotic aluminum alloys and high-heat producing dies added to the Franlube series — the latest development in an ongoing program.</td>
+        <td class="es-cell">Nuevas formulaciones cerámicas para aleaciones de aluminio exóticas y moldes de alta generación de calor se añaden a la serie Franlube — el último avance en un programa continuo.</td>
+      </tr>
+      <tr class="notes-row">
+        <td colspan="3"><strong>Notes / Edits:</strong><br><textarea class="notes-input" placeholder="Type corrections or comments here..."></textarea></td>
+      </tr>
+    </table>
+
+    <div class="section-gap"></div>
+
+    <span class="sub-label">Three Pillars</span>
+    <table class="copy-table">
+      <tr class="col-head"><th>Section / Key</th><th>EN (reference)</th><th class="es-col">ES (live — for review)</th></tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>pillars.label</td>
+        <td class="en-cell">What Sets Us Apart</td>
+        <td class="es-cell">Lo Que Nos Distingue</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-h">H</span><br>pillars.h2</td>
+        <td class="en-cell">THREE THINGS / WE DON'T COMPROMISE ON</td>
+        <td class="es-cell">TRES COSAS / EN LAS QUE NO CEDEMOS</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-body">BODY</span><br>pillars.intro</td>
+        <td class="en-cell">We've been doing this long enough to know what matters. These aren't mission statement words — they're the decisions we make every day when we develop a formulation, take a call, or recommend a product.</td>
+        <td class="es-cell">Llevamos suficiente tiempo para saber lo que importa. No son palabras de declaración de misión — son las decisiones que tomamos cada día al desarrollar una formulación, atender una llamada o recomendar un producto.</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-h">H</span><br>pillar1.title</td>
+        <td class="en-cell">PROPRIETARY FORMULATIONS</td>
+        <td class="es-cell">FORMULACIONES PROPIETARIAS</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-body">BODY</span><br>pillar1.desc</td>
+        <td class="en-cell">Our product series are developed and refined in-house. Not commodity chemistry rebranded under our name — formulations that address the specific casting chemistries and process conditions that off-the-shelf products don't reach.</td>
+        <td class="es-cell">Nuestras series de productos se desarrollan y refinan internamente. No es química genérica rebautizada bajo nuestro nombre, sino formulaciones que abordan las químicas de fundición específicas que los productos estándar no alcanzan.</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-h">H</span><br>pillar2.title</td>
+        <td class="en-cell">TECHNICAL PARTNERSHIP</td>
+        <td class="es-cell">ASOCIACIÓN TÉCNICA</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-body">BODY</span><br>pillar2.desc</td>
+        <td class="en-cell">We work directly with your engineering and production teams. That means understanding your alloy, your die geometry, your cycle times, and your finish requirements before we recommend anything. If our standard product isn't right for your process, we'll say so.</td>
+        <td class="es-cell">Trabajamos directamente con sus equipos de ingeniería y producción. Eso significa comprender su aleación, la geometría del molde, los tiempos de ciclo y los requisitos de acabado antes de recomendar nada. Si nuestro producto estándar no es el adecuado, lo diremos.</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-h">H</span><br>pillar3.title</td>
+        <td class="en-cell">ENVIRONMENTAL LEADERSHIP</td>
+        <td class="es-cell">LIDERAZGO AMBIENTAL</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-body">BODY</span><br>pillar3.desc</td>
+        <td class="en-cell">Pioneers in water-based, low-VOC formulations since the 1970s — long before it was an industry talking point. We were committed to sustainable product development because it was the right direction for the chemistry and the right direction for the industry.</td>
+        <td class="es-cell">Pioneros en formulaciones a base de agua y bajo contenido de COV desde los años 70, mucho antes de que fuera un tema de conversación en la industria. Nos comprometimos con el desarrollo sostenible porque era la dirección correcta para la química y para la industria.</td>
+      </tr>
+      <tr class="notes-row">
+        <td colspan="3"><strong>Notes / Edits:</strong><br><textarea class="notes-input" placeholder="Type corrections or comments here..."></textarea></td>
+      </tr>
+    </table>
+
+    <div class="section-gap"></div>
+
+    <span class="sub-label">About Page — Spec Panel (additional rows)</span>
+    <table class="copy-table">
+      <tr class="col-head"><th>Section / Key</th><th>EN (reference)</th><th class="es-col">ES (live — for review)</th></tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>spec.form_type</td>
+        <td class="en-cell">FORMULATION TYPE</td>
+        <td class="es-cell">TIPO DE FORMULACIÓN</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>spec.env / env_val</td>
+        <td class="en-cell">ENV. FOCUS / Low-VOC Since 1970s</td>
+        <td class="es-cell">ENFOQUE AMBIENTAL / Bajo COV Desde los 70s</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>dc.head</td>
+        <td class="en-cell">// Direct Contact</td>
+        <td class="es-cell">// Contacto Directo</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-ui">UI</span><br>dc.send</td>
+        <td class="en-cell">Send a Message</td>
+        <td class="es-cell">Enviar un Mensaje</td>
+      </tr>
+      <tr class="notes-row">
+        <td colspan="3"><strong>Notes / Edits:</strong><br><textarea class="notes-input" placeholder="Type corrections or comments here..."></textarea></td>
+      </tr>
+    </table>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       PAGE 4 — CONTACT (contact.html)
+  ══════════════════════════════════════════════════════════════ -->
+  <div class="page-section">
+    <div class="page-section-header">
+      <h2>04 — Contact Page</h2>
+      <span class="page-url">contact.html</span>
+    </div>
+
+    <span class="sub-label">Hero + Direct Contact Panel</span>
+    <table class="copy-table">
+      <tr class="col-head"><th>Section / Key</th><th>EN (reference)</th><th class="es-col">ES (live — for review)</th></tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-h">H</span><br>contact.h1</td>
+        <td class="en-cell">TALK TO / AN EXPERT</td>
+        <td class="es-cell">HABLE CON / UN EXPERTO</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>contact.direct_label</td>
+        <td class="en-cell">// Direct Contact</td>
+        <td class="es-cell">// Contacto Directo</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-body">BODY</span><br>contact.intro</td>
+        <td class="en-cell">The right product starts with the right conversation. Reach Mark directly for product recommendations, technical questions, or to discuss your casting operation's specific requirements.</td>
+        <td class="es-cell">El producto correcto comienza con la conversación correcta. Comuníquese con Mark directamente para recomendaciones de productos, preguntas técnicas o para hablar sobre los requisitos específicos de su operación de fundición.</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>contact.location_label</td>
+        <td class="en-cell">// Location &amp; Shipping</td>
+        <td class="es-cell">// Ubicación y Envíos</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>contact.helpful_label</td>
+        <td class="en-cell">// Helpful to include in your message</td>
+        <td class="es-cell">// Útil incluir en su mensaje</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-body">BODY</span><br>prompt.item1–5</td>
+        <td class="en-cell">
+          Alloy and casting process type<br>
+          Current product or challenge<br>
+          Die geometry or production volume<br>
+          Finish requirements if applicable<br>
+          Geographic location / shipping destination
+        </td>
+        <td class="es-cell">
+          Tipo de aleación y proceso de fundición<br>
+          Producto actual o desafío<br>
+          Geometría del molde o volumen de producción<br>
+          Requisitos de acabado si aplica<br>
+          Ubicación geográfica / destino de envío
+        </td>
+      </tr>
+      <tr class="notes-row">
+        <td colspan="3"><strong>Notes / Edits:</strong><br><textarea class="notes-input" placeholder="Type corrections or comments here..."></textarea></td>
+      </tr>
+    </table>
+
+    <div class="section-gap"></div>
+
+    <span class="sub-label">Contact Form — Labels, Options &amp; Placeholders</span>
+    <table class="copy-table">
+      <tr class="col-head"><th>Section / Key</th><th>EN (reference)</th><th class="es-col">ES (live — for review)</th></tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>contact.form_label</td>
+        <td class="en-cell">// Send a Message</td>
+        <td class="es-cell">// Enviar un Mensaje</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>form.name</td>
+        <td class="en-cell">Name</td>
+        <td class="es-cell">Nombre</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-ph">PH</span><br>form.ph_name</td>
+        <td class="en-cell">Full name</td>
+        <td class="es-cell">Nombre completo</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>form.company</td>
+        <td class="en-cell">Company</td>
+        <td class="es-cell">Empresa</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-ph">PH</span><br>form.ph_company</td>
+        <td class="en-cell">Facility or company name</td>
+        <td class="es-cell">Nombre de instalación o empresa</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>form.phone</td>
+        <td class="en-cell">Phone</td>
+        <td class="es-cell">Teléfono</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-ph">PH</span><br>form.ph_phone</td>
+        <td class="en-cell">Direct number</td>
+        <td class="es-cell">Número directo</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>form.email</td>
+        <td class="en-cell">Email</td>
+        <td class="es-cell">Correo Electrónico</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-ph">PH</span><br>form.ph_email</td>
+        <td class="en-cell">Work email</td>
+        <td class="es-cell">Correo de trabajo</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>form.interest</td>
+        <td class="en-cell">Area of Interest</td>
+        <td class="es-cell">Área de Interés</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-ui">UI</span><br>form.opt_default</td>
+        <td class="en-cell">Select a product line...</td>
+        <td class="es-cell">Seleccionar una línea de producto...</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-ui">UI</span><br>form.opt1–5</td>
+        <td class="en-cell">
+          Ceramic Coatings (Frankote Series)<br>
+          Die Release Lubricants (Franlube Series)<br>
+          Shot Tip Lubricants (Franlube Shot)<br>
+          Specialty Products<br>
+          General / Not Sure Yet
+        </td>
+        <td class="es-cell">
+          Recubrimientos Cerámicos (Serie Frankote)<br>
+          Lubricantes Desmoldantes (Serie Franlube)<br>
+          Lubricantes para Puntas (Franlube Shot)<br>
+          Productos Especiales<br>
+          General / Aún No Estoy Seguro
+        </td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>form.msg</td>
+        <td class="en-cell">Application Details &amp; Message</td>
+        <td class="es-cell">Detalles de Aplicación y Mensaje</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-ph">PH</span><br>form.textarea_ph</td>
+        <td class="en-cell">Describe your alloy, casting process, current challenge, or what you're trying to improve. The more detail you can share, the better we can help.</td>
+        <td class="es-cell">Describa su aleación, proceso de fundición, desafío actual o lo que intenta mejorar. Cuantos más detalles pueda compartir, mejor podremos ayudarle.</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-ui">UI</span><br>contact.send_btn</td>
+        <td class="en-cell">Send Message</td>
+        <td class="es-cell">Enviar Mensaje</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>contact.form_note</td>
+        <td class="en-cell">Submits via your default email client</td>
+        <td class="es-cell">Se envía a través de su cliente de correo predeterminado</td>
+      </tr>
+      <tr class="notes-row">
+        <td colspan="3"><strong>Notes / Edits:</strong><br><textarea class="notes-input" placeholder="Type corrections or comments here..."></textarea></td>
+      </tr>
+    </table>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       PAGE 5 — PRIVACY POLICY (privacy-policy.html)
+  ══════════════════════════════════════════════════════════════ -->
+  <div class="page-section">
+    <div class="page-section-header">
+      <h2>05 — Privacy Policy</h2>
+      <span class="page-url">privacy-policy.html</span>
+    </div>
+
+    <span class="sub-label">Section Titles + UI</span>
+    <table class="copy-table">
+      <tr class="col-head"><th>Section / Key</th><th>EN (reference)</th><th class="es-col">ES (live — for review)</th></tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-h">H</span><br>pp.h1</td>
+        <td class="en-cell">PRIVACY POLICY</td>
+        <td class="es-cell">POLÍTICA DE PRIVACIDAD</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-label">LBL</span><br>pp.effective</td>
+        <td class="en-cell">Effective: January 1, 2026 · LaFrance Manufacturing</td>
+        <td class="es-cell">Vigente: 1 de enero de 2026 · LaFrance Manufacturing</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-sub">SUB</span><br>Section titles (s1–s8)</td>
+        <td class="en-cell">
+          Overview<br>
+          Information We Collect<br>
+          How We Use It<br>
+          Cookies &amp; Analytics<br>
+          Third Parties<br>
+          Data Retention<br>
+          Your Rights<br>
+          Contact Us
+        </td>
+        <td class="es-cell">
+          Resumen<br>
+          Información que Recopilamos<br>
+          Cómo la Usamos<br>
+          Cookies y Analítica<br>
+          Terceros<br>
+          Retención de Datos<br>
+          Sus Derechos<br>
+          Contáctenos
+        </td>
+      </tr>
+      <tr class="notes-row">
+        <td colspan="3"><strong>Notes / Edits:</strong><br><textarea class="notes-input" placeholder="Type corrections or comments here..."></textarea></td>
+      </tr>
+    </table>
+
+    <div class="section-gap"></div>
+
+    <span class="sub-label">Section Body Copy</span>
+    <table class="copy-table">
+      <tr class="col-head"><th>Section / Key</th><th>EN (reference)</th><th class="es-col">ES (live — for review)</th></tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-body">BODY</span><br>pp.s1_p1</td>
+        <td class="en-cell">LaFrance Manufacturing ("we," "us," or "our") operates this website to provide information about our products and services. This policy explains how we handle information collected through this site. We do not sell products directly through this website, and we do not maintain user accounts or store payment data.</td>
+        <td class="es-cell">LaFrance Manufacturing ("nosotros" o "nuestra empresa") opera este sitio web para proporcionar información sobre nuestros productos y servicios. Esta política explica cómo manejamos la información recopilada a través de este sitio. No vendemos productos directamente a través de este sitio web, ni mantenemos cuentas de usuario ni almacenamos datos de pago.</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-body">BODY</span><br>pp.s2 list items</td>
+        <td class="en-cell">Your name · Company or facility name (optional) · Phone number (optional) · Email address · Area of interest (product line) · Message content</td>
+        <td class="es-cell">Su nombre · Nombre de empresa o instalación (opcional) · Número de teléfono (opcional) · Dirección de correo electrónico · Área de interés (línea de producto) · Contenido del mensaje</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-body">BODY</span><br>pp.s3 list items</td>
+        <td class="en-cell">To respond to product or technical questions · To route your inquiry to the appropriate technical contact · To follow up on open inquiries</td>
+        <td class="es-cell">Para responder a preguntas técnicas o sobre productos · Para dirigir su consulta al contacto técnico adecuado · Para dar seguimiento a consultas abiertas</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-body">BODY</span><br>pp.s3_p2</td>
+        <td class="en-cell">We do not use your contact information for marketing campaigns, newsletters, or automated outreach. We do not share or sell your information to third parties.</td>
+        <td class="es-cell">No utilizamos su información de contacto para campañas de marketing, boletines ni comunicaciones automatizadas. No compartimos ni vendemos su información a terceros.</td>
+      </tr>
+      <tr class="copy-row">
+        <td><span class="type-flag flag-body">BODY</span><br>pp.s7_p1</td>
+        <td class="en-cell">Depending on your jurisdiction, you may have the right to access, correct, or request deletion of personal information we hold about you. To exercise any of these rights, contact us directly. We do not require a specific form or process — a plain email is sufficient.</td>
+        <td class="es-cell">Dependiendo de su jurisdicción, puede tener derecho a acceder, corregir o solicitar la eliminación de la información personal que tenemos sobre usted. Para ejercer cualquiera de estos derechos, contáctenos directamente. No requerimos un formulario o proceso específico: un correo electrónico simple es suficiente.</td>
+      </tr>
+      <tr class="notes-row">
+        <td colspan="3"><strong>Notes / Edits:</strong><br><textarea class="notes-input" placeholder="Type corrections or comments here..."></textarea></td>
+      </tr>
+    </table>
+  </div>
+
+
+  <!-- ── Document footer ──────────────────────────────────────── -->
+  <div style="border-top: 2px solid #1a1b1d; padding-top: 1.5rem; margin-top: 2rem; font-family: Arial, sans-serif; font-size: 0.75rem; color: #888; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+    <span>LaFrance Manufacturing — Spanish Copy Deck v1.0 — May 2026</span>
+    <span>Return with notes to deploy corrections as a batch update.</span>
+  </div>
+
+</div>
+</body>
+</html>
