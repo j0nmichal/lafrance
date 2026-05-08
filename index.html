@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://j0nmichal.github.io/lafrance/">
   <meta property="og:title" content="LaFrance Manufacturing | Die Release Lubricants &amp; Ceramic Coatings">
   <meta property="og:description" content="Proprietary die release lubricants, ceramic coatings, and shot tip lubricants engineered for metal casting. Trusted by non-ferrous metal casters worldwide for 70+ years.">
-  <meta property="og:image" content="https://j0nmichal.github.io/lafrance/images/hero-home.png">
+  <meta property="og:image" content="https://j0nmichal.github.io/lafrance/images/lafrance-foundry-die-casting-chemistry-st-louis.png">
   <meta property="og:image:width" content="1920">
   <meta property="og:image:height" content="1080">
   <meta property="og:site_name" content="LaFrance Manufacturing">
@@ -25,7 +25,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="LaFrance Manufacturing | Die Release Lubricants &amp; Ceramic Coatings">
   <meta name="twitter:description" content="Proprietary die release lubricants and ceramic coatings for metal casting. 60+ years serving foundries worldwide.">
-  <meta name="twitter:image" content="https://j0nmichal.github.io/lafrance/images/hero-home.png">
+  <meta name="twitter:image" content="https://j0nmichal.github.io/lafrance/images/lafrance-foundry-die-casting-chemistry-st-louis.png">
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
@@ -37,7 +37,7 @@
         "@id": "https://j0nmichal.github.io/lafrance/#organization",
         "name": "LaFrance Manufacturing",
         "url": "https://j0nmichal.github.io/lafrance/",
-        "logo": "https://j0nmichal.github.io/lafrance/images/hero-home.png",
+        "logo": "https://j0nmichal.github.io/lafrance/images/lafrance-foundry-die-casting-chemistry-st-louis.png",
         "description": "Specialty chemical manufacturer producing die release lubricants, ceramic coatings, and shot tip lubricants engineered for metal casting operations.",
         "foundingDate": "1960",
         "address": {
@@ -146,7 +146,7 @@
     /*
     ╔══════════════════════════════════════════════════════════════╗
     ║  PHOTO FRAME — swap background-image for real photo:        ║
-    ║    background-image: url('images/hero-home.png')            ║
+    ║    background-image: url('images/lafrance-foundry-die-casting-chemistry-st-louis.png')            ║
     ║  Recommended: 1920×1080px, bright or dark tones both work.  ║
     ║  The gradient overlay handles text readability.             ║
     ╚══════════════════════════════════════════════════════════════╝
@@ -159,8 +159,8 @@
       background-color: #1a1b1d;
       background-size: cover;
       background-position: 55% center;
-      /* Light mode uses bright lab photo; dark mode uses hero-home-dark.png (see JS swap below) */
-      background-image: url('images/hero-home.png');
+      /* Light mode uses bright lab photo; dark mode uses -dark variant (see JS swap below) */
+      background-image: url('images/lafrance-foundry-die-casting-chemistry-st-louis.png');
     }
 
     /* Very light overlay — just a soft fade at the left edge, no darkening */
@@ -817,8 +817,8 @@
   const iconMoon    = document.getElementById('icon-moon');
   const heroBlock   = document.querySelector('.hero-img-block');
 
-  const DARK_IMG  = 'images/hero-home-dark.png';
-  const LIGHT_IMG = 'images/hero-home.png';
+  const DARK_IMG  = 'images/lafrance-foundry-die-casting-chemistry-st-louis-dark.png';
+  const LIGHT_IMG = 'images/lafrance-foundry-die-casting-chemistry-st-louis.png';
 
   function applyTheme(isLight) {
     html.classList.toggle('light', isLight);
